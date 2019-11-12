@@ -7,7 +7,7 @@
     <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
    
     <title><?= $page_title ?> - <?= $Settings->site_name ?></title>
-    <link rel="shortcut icon" href="<?= $assets ?>images/favicon.ico"/>
+    <link rel="shortcut icon" href="<?= $assets ?>images/fav.png"/>
     <link href="<?= $assets ?>styles/theme.css" rel="stylesheet"/>
     <link href="<?= $assets ?>styles/style.css" rel="stylesheet"/>
     <link href="<?= $assets ?>styles/flipclock.css" rel="stylesheet"/>

@@ -42,10 +42,10 @@
     -o-border-radius: 49px;
     line-height: 1.7em;
 }
-	.form_das.clr-block-3 .market-update-right i.fa.fa-file-text-o{color: #3f8218;}
+	.form_das.clr-block-3 .market-update-right i.fa.fa-file-text-o{color: #28487b;}
 	.form_das.clr-block-2 .market-update-right i.fa.fa-file-text-o{color: #c45d2c;}
 	.form_das.clr-block-3 {
-		background: #3f8218;
+		background: #28487b;
 	height: 100%;min-height: 229px;}
 	.form_das.clr-block-2 {
 		background: #c45d2c;}
