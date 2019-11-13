@@ -93,14 +93,14 @@
 						<div class="form-group ">
 							<label class="label_green">Photo</label>
 							<div class="clear"></div>			
-							<input type="image" src="<?=base_url()?>assets/uploads/thumbs/<?= !empty($result->photo) ? $result->photo : 'no_image.jpg'; ?>" border="0" disabled width="100" height="100" />
+							<input type="image" src="<?=base_url()?>assets/uploads/<?= !empty($result->photo) ? $result->photo : 'no_image.jpg'; ?>" border="0" disabled width="100" height="100" />
 						</div>
                     </div>
                     <div class="col-md-6">
 						<div class="form-group ">
 							<label class="label_green">Signature</label>
 							<div class="clear"></div>			
-							<input type="image" src="<?=base_url()?>assets/uploads/thumbs/<?= !empty($result->signature) ? $result->signature : 'no_image.jpg'; ?>" border="0" disabled width="100" height="100" />
+							<input type="image" src="<?=base_url()?>assets/uploads/<?= !empty($result->signature) ? $result->signature : 'no_image.jpg'; ?>" border="0" disabled width="100" height="100" />
 						</div>
                     </div>
                 </div>
