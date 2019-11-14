@@ -5,7 +5,7 @@
     <title><?= $title ?></title>
     <script type="text/javascript">if (parent.frames.length !== 0) { top.location = '<?=admin_url()?>'; }</script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="<?= $assets ?>images/favicon.ico"/>
+    <link rel="shortcut icon" href="<?= $assets ?>images/fav.png"/>
     <link href="<?= $assets ?>styles/theme.css" rel="stylesheet"/>
     <link href="<?= $assets ?>styles/style.css" rel="stylesheet"/>
     <link href="<?= $assets ?>styles/helpers/login.css" rel="stylesheet"/>
