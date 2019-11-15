@@ -109,19 +109,19 @@
 						<div class="form-group col-md-12">
 							<div class="col-md-4">
 								<label class="container-checkbox">Father Name
-								  <input type="radio" name="parent_type" id="parent_type" class="f_name" value="1">
+								  <input type="radio" name="parent_type" id="parent_type" value="1">
 								  <span class="checkmark"></span>
 								</label>
 							</div>
 							<div class="col-md-4">
 								<label class="container-checkbox">Mother Name
-								  <input type="radio" name="parent_type" id="parent_type" class="m_name" value="2">
+								  <input type="radio" name="parent_type" id="parent_type" value="2">
 								  <span class="checkmark"></span>
 								</label>
 							</div>
 							<div class="col-md-4">
 								<label class="container-checkbox">Others
-								  <input type="radio" name="parent_type" id="parent_type" class="o_name" value="3">
+								  <input type="radio" name="parent_type" id="parent_type" value="3">
 								  <span class="checkmark"></span>
 								</label>
 							</div>
@@ -138,8 +138,8 @@
 								<input type="text" class="form-control" name="mother_name" id="mother_name">
 							</div>
 						</div>
-						<div class="form-group col-md-12 o_name_input" style="display:none">
-							<label class="col-md-5">Others Name:</label>
+						<div class="form-group col-md-12">
+							<label class="col-md-5">Others:</label>
 							<div class="col-md-7">
 								<input type="text" class="form-control" name="others_name" id="others_name">
 							</div>
@@ -391,18 +391,16 @@ $(function() {
 <script>
 $(document).ready(function() {
 
-		$('.f_name').on('ifChanged', function(event) {      
-            alert(1);      
-            //$(".o_name_input").hide();
-        });
-        
-		$('.f_name').on('ifChanged', function(event) {
-           // $(".o_name_input").hide();
+		$('#accept_all').on('ifChanged', function(event) {
+			$('.check').iCheck('check');
 		});
 
-		$('.o_name').on('ifChanged', function(event) {
-           // $(".o_name_input").show();
+		$('#accept_all').on('ifUnchecked', function(event) {
+			$('.check').iCheck('uncheck');
 		});
 
-});
+
+})
+
+
 </script>
