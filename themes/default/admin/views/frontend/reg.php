@@ -139,7 +139,7 @@
 							</div>
 						</div>
 						<div class="form-group col-md-12">
-							<label class="col-md-5">Others:</label>
+							<label class="col-md-5">Others Name:</label>
 							<div class="col-md-7">
 								<input type="text" class="form-control" name="others_name" id="others_name">
 							</div>
