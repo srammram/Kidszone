@@ -1125,6 +1125,15 @@ class Kids_api extends CI_Model
 		return false;
 	}
 
+	function getSafetyMessageList(){
+
+		$q = $this->db->select('*')->get('safety_message');
+		if($q->num_rows()>0){
+			return $q->result();	
+		}
+		return false;
+	}
+
 	function insertRegister($data){
 
 		//$this->db->insert('register', $data);

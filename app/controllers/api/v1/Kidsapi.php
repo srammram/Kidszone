@@ -408,6 +408,8 @@ class Kidsapi extends REST_Controller {
 					'kid_name4' => $this->input->post('kid_name4'),
 					'kid_name5' => $this->input->post('kid_name5'),
 					'kid_name6' => $this->input->post('kid_name6'),
+					'teacher_name' => $this->input->post('teacher_name'),
+					'no_of_kids' => $this->input->post('no_of_kids'),
 					'reg_date' => date('Y-m-d H:i:s', strtotime($this->input->post('reg_date'))),
 					'accept' => $this->input->post('accept') ? 1 : 0,
 					'status' => 1,
@@ -571,6 +573,20 @@ class Kidsapi extends REST_Controller {
 	public function register_list_get(){
 
 		$data = $this->kids_api->getRegisterList();
+		
+		if(!empty($data)){
+			$result = array( 'status'=> 1, 'message'=> 'Success', 'data' => $data);
+		}else{
+			$result = array( 'status'=> 0, 'message'=> 'Empty data');
+		}
+
+		$this->response($result);
+	}
+
+
+	public function safety_message_get(){
+
+		$data = $this->kids_api->getSafetyMessageList();
 		
 		if(!empty($data)){
 			$result = array( 'status'=> 1, 'message'=> 'Success', 'data' => $data);

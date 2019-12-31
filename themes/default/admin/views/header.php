@@ -151,6 +151,28 @@
                                     </li>
                                 </ul>
                             </li>
+
+                            <li class="mm_contract">
+                                <a class="dropmenu" href="#">
+                                    <i class="fa fa-star"></i>
+                                    <span class="text"> Safety Message </span>
+                                    <span class="chevron closed"></span>
+                                </a>
+                                <ul>
+                                    <li id="contract_index">
+                                        <a class="submenu" href="<?= admin_url('safety'); ?>">
+                                           <i class="fa fa-star"></i>
+                                            <span class="text"> Safety Message list</span>
+                                        </a>
+                                    </li>
+                                    <!--<li id="contract_add">
+                                        <a class="submenu" href="<?= admin_url('safety/safety_add'); ?>">
+                                           <i class="fa fa-star"></i>
+                                            <span class="text"> Safety Message Add</span>
+                                        </a>
+                                    </li>-->
+                                </ul>
+                            </li>
                             
                             <?php if ($Owner1 || $Admin1) { ?>
                                 <li class="mm_system_settings" >

@@ -1,0 +1,1 @@
+ALTER TABLE `kidzooona_register` ADD `teacher_name` VARCHAR(255) NOT NULL AFTER `kid_name6`, ADD `no_of_kids` INT NOT NULL AFTER `teacher_name`;
