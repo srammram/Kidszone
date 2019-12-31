@@ -56,6 +56,10 @@
 								<label class="label_green">Others Name</label>
 								<input type="text" class="form-control" name="phone" value="<?= $result->others_name ?>" id="phone" required readonly>
 							</div>
+							<div class="form-group">
+								<label class="label_green">Teacher Name</label>
+								<input type="text" class="form-control" name="phone" value="<?= $result->teacher_name ?>" id="phone" required readonly>
+							</div>
 						</div>
 					</div>
 				</fieldset>
@@ -83,6 +87,26 @@
 								<input type="text" class="form-control" value="<?= $result->kid_name4 ?>" required readonly>
 							</div>
 						</div>
+
+						<div class="col-md-6">
+							<div class="form-group">
+								<label class="label_green">Kid Name 5</label>
+								<input type="text" class="form-control" value="<?= $result->kid_name5 ?>" readonly>
+							</div>
+							<div class="form-group">
+								<label class="label_green">No of kids</label>
+								<input type="text" class="form-control" value="<?= $result->no_of_kids ?>" readonly>
+							</div>
+						</div>
+
+						<div class="col-md-6">
+
+							<div class="form-group">
+								<label class="label_green">Kid Name 6</label>
+								<input type="text" class="form-control" value="<?= $result->kid_name6 ?>" required readonly>
+							</div>
+						</div>
+
 					</div>
 				</fieldset>
                 
