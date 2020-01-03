@@ -9,7 +9,7 @@
                 echo admin_form_open_multipart("farmer/edit_farmer/".$id, $attrib);
                 ?>
 						<div class="col-md-12 text-center">
-							<img src="<?=base_url()?>assets/uploads/logos/logo_inner.png" alt="kidszoona">
+							<img src="<?=base_url()?>assets/uploads/logos/logo.jpg" alt="kidszoona">
 						</div>
 						<div class="col-md-12 kidszon_content">
 							<h3>Dear all customers</h3>

@@ -123,7 +123,7 @@
                 <div class="sidebar-nav nav-collapse collapse navbar-collapse" id="sidebar_menu">
                     <ul class="nav main-menu">
                        <li class="logo_img_s">
-                       	<img src="<?= base_url(); ?>assets/uploads/logos/logo_inner.png" alt="logo inner" class="center-block">
+                       	<img src="<?= base_url(); ?>assets/uploads/logos/logo.jpg" alt="logo inner" class="center-block">
                        </li>
                         <li class="mm_welcome active">
                             <a href="<?= admin_url() ?>">
