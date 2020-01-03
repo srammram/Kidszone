@@ -3267,6 +3267,53 @@ body #myVaraintModal .modal-dialog {
       		display: inline-block;
 			vertical-align: middle;
 		}
+
+body {
+    height: 100%;
+    width: 100%;
+    background: url(../images/login_bg.png) no-repeat;
+    background-color: transparent;
+	background-size: 100% 100%;
+	font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+/*	.kidszoona{background: url(images/1.jpg) no-repeat;background-size: 100% 100%;width: 100%;height: 100vh;overflow: hidden}*/
+/*	.kidszoona::after{content: '';position: absolute;width: 100%;height: 100vh;background-color: rgba(0,0,0,0.6);overflow: hidden;}*/
+
+	.kids_list{padding: 0px;}
+	.kids_list ol{margin: 0px;padding: 0px 0px 0px 10%;}
+	.kids_list ol li{margin-bottom: 10px;float: left;}
+	.kids_list ol li input{width: 100%;}
+	.kidszoona h4{margin-bottom: 30px;margin-top: 0px;font-weight: bold;}
+	.kidszoona h3{margin-bottom: 15px;margin-top: 0px;font-weight: bold;position: relative;float: left;width: 100%;color: #003700;font-size: 18px;}
+	.kidszoona h3 label{margin-bottom: 0px;font-size: 18px;}
+	.kidszoona{padding: 0px 0px 0px;height: 100%;transition: all .2s ease-in;}
+	.kidszoona .form-group{padding: 0px;}
+	.kidszon_content h4,.kidszon_content .h4{font-weight: bold;}
+	.kidszoona .kidszon_content h4,.kidszoona .kidszon_content .h4{margin-bottom: 15px;position: relative;}
+	.kidszon_content ul{list-style: none;padding: 0px;margin: 0px 0px 15px;}
+	.kidszon_content ul li{padding-left: 20px;line-height: 26px;position: relative;}
+	.kidszon_content ul li::before{content: '';position: absolute;width: 5px;height: 5px;background-color: darkblue;left: 10px;top: 10px;}
+	.kidszon_content h4::after{content: '';background-color: darkred;width:6%;height: 2px;left: 0px;position: absolute;bottom: -5px;}
+	.kids_zon_c{padding: 0px;}
+	.show_hidden{background-color: #1c94d2;display: block;position: absolute;padding: 0px;cursor: pointer;margin-right: 3px;font-weight: normal;border: 1px solid #1c94d2;left:15%;top: 0px;color: #fff;width: 103px;text-align: center;font-size: 12px;}
+	.show_hidden1{background-color: #1c94d2;display: block;position: absolute;padding: 0px;cursor: pointer;margin-right: 3px;font-weight: normal;border: 1px solid #1c94d2;left:15%;top: 0px;color: #fff;width: 103px;text-align: center;font-size: 12px;}
+	.show_hidden2{background-color: #1c94d2;display: block;position: absolute;padding: 0px;cursor: pointer;margin-right: 3px;font-weight: normal;border: 1px solid #1c94d2;left:15%;top: 0px;color: #fff;width: 103px;text-align: center;font-size: 12px;}
+	.form-control-feedback{right: 10px;}
+/*	*/
+	.kids_list ol {
+    list-style: none;
+    counter-reset: my-awesome-counter;}
+	.kids_list ol li {
+    counter-increment: my-awesome-counter;
+    position: relative;}
+	.kids_list ol li::before {
+    content: counter(my-awesome-counter) ". ";
+    color: #31708f;
+    font-weight: bold;
+	position: absolute;
+    left: -2px;
+    top: 5px;}
+/**/
 @media  (max-width: 1920px) and (min-width: 1900px){
 	.table_responsive {
     width: 1677px;
@@ -3281,6 +3328,7 @@ body #myVaraintModal .modal-dialog {
 @media (max-width: 1600px) and (min-width: 1500px){
 		.table_responsive {width: 1261px;overflow-x: auto;}
 		.sidebar-minified .table_responsive{width: 1470px;overflow-x: auto;}
+		.kidszoona {padding: 30px 0px 0px;height: 75vh;transition: all .2s ease-in;}
 }
 @media (max-width: 1440px) and (min-width: 1400px){}
 @media (max-width: 1366px) and (min-width: 1362px){
