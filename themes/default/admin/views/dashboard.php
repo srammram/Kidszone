@@ -64,6 +64,44 @@
 	<div class="col-sm-4">
 	<div class="form_das clr-block clr-block-3">
 		<div class="col-md-8 market-update-left">
+			<h3>Monthly</h3>
+			<table class="table">
+				<tr>
+					<td>January</td>
+					<td>:</td>
+					<td><?= $register_count?></td>
+				</tr>
+			</table>
+		</div>
+		<div class="col-md-4 market-update-right">
+			<i class="fa fa-file-text-o"> </i>
+		</div>
+	  <div class="clearfix"> </div>
+	</div>
+
+  </div>
+  <div class="col-sm-4">
+	<div class="form_das clr-block clr-block-3">
+		<div class="col-md-8 market-update-left">
+			<h3>Yearly</h3>
+			<table class="table">
+				<tr>
+					<td>2020</td>
+					<td>:</td>
+					<td><?= $register_count?></td>
+				</tr>
+			</table>
+		</div>
+		<div class="col-md-4 market-update-right">
+			<i class="fa fa-file-text-o"> </i>
+		</div>
+	  <div class="clearfix"> </div>
+	</div>
+
+  </div>
+  <div class="col-sm-4">
+	<div class="form_das clr-block clr-block-3">
+		<div class="col-md-8 market-update-left">
 			<h3>Register</h3>
 			<table class="table">
 				<tr>
