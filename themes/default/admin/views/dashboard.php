@@ -104,7 +104,7 @@
   <div class="col-sm-4">
 	<div class="form_das clr-block clr-block-3">
 		<div class="col-md-8 market-update-left">
-			<h3>Register</h3>
+			<h3>Total</h3>
 			<table class="table">
 				<tr>
 					<td>Total Count</td>
