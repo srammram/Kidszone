@@ -1,3 +1,5 @@
+
+
 <script>
     
 	
@@ -10,24 +12,37 @@
 
 		"<a href='#' class='tip po' title='' data-content=\"<p>Are you Sure</p><a class='btn btn-danger' id='a__$1' href=' <?= admin_url('farmer/farmer_status/active/') ?>"+ y[0] +" '>Yes I`m Sure</a> <button class='btn po-close'>No</button>\"  rel='popover'><span class=\"label label-danger\">"+lang['inactive']+"</span> </a>"		
         
-    }	
-	
-	
-	function mobile_status(mob) {
-		
-		//var mobile = mob.slice(-4);		
-		//return '******'+mobile;
-        var mobile = mob;	
-        return mobile;
     }
 	
+	
+	function parent_type(type) {
+        var type = type;
+
+        if(type==1){
+            type = 'Father Name';
+        }
+        else if(type==2){
+            type = 'Mother Name';
+        }
+        else if(type==3){
+            type = 'Others';
+        }
+
+        return type;
+    }
+	//$(document).ready(function() { $('#FlagsExport').DataTable({ "pageLength": 50, dom: 'Bfrtip',  }); });
     $(document).ready(function () {
         'use strict';
+        var pendingCount = 0;
         oTable = $('#UsrTable').dataTable({
             "aaSorting": [[0, "desc"]],
             "aLengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, "<?= lang('all') ?>"]],
             "iDisplayLength": <?= $Settings->rows_per_page ?>,
             'bProcessing': true, 'bServerSide': true,
+
+            buttons: [
+        'copy', 'excel', 'pdf', 'csv'
+    ],
             'sAjaxSource': '<?= admin_url('register/getRegister?sdate='.$_GET['sdate'].'&edate='.$_GET['edate']) ?>',
             'fnServerData': function (sSource, aoData, fnCallback) {
                 aoData.push({
@@ -40,12 +55,15 @@
                 var oSettings = oTable.fnSettings();
 				var index = oSettings._iDisplayStart+parseInt(iDisplayIndex) +parseInt(1) ;
                 $("td:first", nRow).html(index);
+				pendingCount = oTable.fnSettings().fnRecordsTotal();
+				$('#pendingCount').text(pendingCount);
+
                 return nRow;
             },
-             "aoColumns": [ null,{
+             "aoColumns": [ null, /*{
                 "bSortable": false,
                 "mRender": checkbox
-            }, null, null, null, null, null, null ]
+            },*/ {"mRender": parent_type} , null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ]
         });
     });
 </script>
@@ -85,10 +103,41 @@
     <div class="box-content">    
         <div class="row">
             <div class="col-lg-12">
-            <div class="clearfix"></div>
+			<div class="col-lg-3">
+				<div class="form-group">
+					<?php echo lang('Start Date', 'Start Date'); ?>
+					<div class="controls">
+						<input type="text" id="start_date" name="start_date" class="form-control" xonkeypress="dateCheck(this);" value="<?= $_GET['sdate'] ?>"/>
+					</div>
+				 </div>
+			</div>
+            <div class="col-lg-3">        
+				<div class="form-group">
+					<?php echo lang('End Date', 'End Date'); ?>
+					<div class="controls">
+						<input type="text" id="end_date" name="end_date" class="form-control" xonkeypress="dateCheck(this);"  value="<?= $_GET['edate'] ?>"/>
+					</div>
+				</div>
+            </div>
+
+            <div class="col-lg-3 row">
+				<div class="form-group col-lg-7">
+					<?php echo lang('&nbsp;'); ?><br>
+				   <a href="javascript:void(0)" id="filte_ride" class="btn btn-primary btn-block">SEARCH</a>
+				</div>
+				<div class="form-group col-lg-5">            	
+					<?php echo lang('&nbsp;'); ?><br>
+					 <?php
+					$uri_parts = explode('?', $_SERVER['REQUEST_URI'], 2);
+					?>
+				   <a href="<?php echo 'http://'.$_SERVER['HTTP_HOST'].$uri_parts[0]; ?>" id="resetfilter"  class="btn btn-primary btn-block">RESET</a>
+				</div>            
+            </div><?php ?>
 
             <div class="clearfix"></div>
 
+            <div class="clearfix"></div>
+                <span style="color:red"><b>Total Count: <span id="pendingCount"></span></b></span>
             	<!--a href="<?//= admin_url('farmer/add_farmer'); ?>"><button type="button" class="btn btn-primary pull-right"><i class="fa fa-plus-circle"></i> <?//= lang("add_farmer"); ?></button></a>-->
                 
                 <div class="table-responsive">
@@ -97,14 +146,24 @@
                         <thead>
                         <tr>
                         	<th class="col-xs-2"><?php echo lang('S.No'); ?></th>
-                            <th style="min-width:30px; width: 30px; text-align: center;">
+                            <!--<th style="min-width:30px; width: 30px; text-align: center;">
                                 <input class="checkbox checkth" type="checkbox" name="check"/>
-                            </th>
+                            </th>-->
+                            <th class="col-xs-2"><?php echo lang('parent_type'); ?></th>
                             <th class="col-xs-2"><?php echo lang('father_name'); ?></th>
                             <th class="col-xs-2"><?php echo lang('mother_name'); ?></th>
+                            <th class="col-xs-2"><?php echo lang('others_name'); ?></th>
+                            <th class="col-xs-2"><?php echo lang('teacher_name'); ?></th>
                             <th class="col-xs-2"><?php echo lang('phone_number'); ?></th>
                             <th class="col-xs-2"><?php echo lang('email'); ?></th>
-                            <th class="col-xs-2"><?php echo lang('reg_date'); ?></th>
+                            <th class="col-xs-2"><?php echo lang('kid_name1'); ?></th>
+                            <th class="col-xs-2"><?php echo lang('kid_name2'); ?></th>
+                            <th class="col-xs-2"><?php echo lang('kid_name3'); ?></th>
+                            <th class="col-xs-2"><?php echo lang('kid_name4'); ?></th>
+                            <th class="col-xs-2"><?php echo lang('kid_name5'); ?></th>
+                            <th class="col-xs-2"><?php echo lang('kid_name6'); ?></th>                            
+                            <th class="col-xs-2"><?php echo lang('no_of_kids'); ?></th>
+                            <th class="col-xs-2"><?php echo lang('created_date'); ?></th>
                             <th class="col-xs-2"><?php echo lang('actions'); ?></th>
                         </tr>
                         </thead>
@@ -215,3 +274,52 @@ $(document).ready(function(){
 });
 
 </script>
+
+
+<script>
+    $('#filte_ride').click(function(){
+
+        var sdate = $('#start_date').val();
+        var edate = $('#end_date').val();
+        var rperson = $('#rperson').val();
+
+        //if(sdate != '' && edate != ''){
+            //$('#UsrTable').DataTable().destroy();
+            //fetch_data(start_date,end_date);
+            window.location.href = '<?php echo 'http://'.$_SERVER['HTTP_HOST'].$uri_parts[0]; ?>?sdate='+sdate+'&edate='+edate+'&rperson='+rperson;
+        //}else{
+            //alert('Both Date is Required and Choose what to show!');
+        //}
+    });
+</script>
+
+<script>
+$(function() {
+    $("#start_date").datepicker({
+        maxDate: new Date(),
+        changeMonth: true,
+        changeYear: true,
+        numberOfMonths: 1,
+        //showOn: "button",        
+        showAnim: "slideDown",
+        dateFormat: "dd/mm/yy",
+        onClose: function(selectedDate) {
+            $("#end_date").datepicker("option", "minDate", selectedDate);
+        }
+    });
+    $("#end_date").datepicker({
+        maxDate: new Date(),
+        changeMonth: true,
+        changeYear: true,
+        numberOfMonths: 1,
+        //showOn: "button",        
+        showAnim: "slideDown",
+        dateFormat: "dd/mm/yy",
+        onClose: function(selectedDate) {
+            $("#start_date").datepicker("option", "maxDate", selectedDate);
+        }
+    });
+});
+</script>
+
+<!--<script type="text/javascript" src="https://nightly.datatables.net/buttons/js/buttons.html5.js?2"></script>-->

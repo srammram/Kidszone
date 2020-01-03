@@ -3296,9 +3296,9 @@ body {
 	.kidszon_content ul li::before{content: '';position: absolute;width: 5px;height: 5px;background-color: darkblue;left: 10px;top: 10px;}
 	.kidszon_content h4::after{content: '';background-color: darkred;width:6%;height: 2px;left: 0px;position: absolute;bottom: -5px;}
 	.kids_zon_c{padding: 0px;}
-	.show_hidden{background-color: #1c94d2;display: block;position: absolute;padding: 0px;cursor: pointer;margin-right: 3px;font-weight: normal;border: 1px solid #1c94d2;left:15%;top: 0px;color: #fff;width: 103px;text-align: center;font-size: 12px;}
 	.show_hidden1{background-color: #1c94d2;display: block;position: absolute;padding: 0px;cursor: pointer;margin-right: 3px;font-weight: normal;border: 1px solid #1c94d2;left:15%;top: 0px;color: #fff;width: 103px;text-align: center;font-size: 12px;}
 	.show_hidden2{background-color: #1c94d2;display: block;position: absolute;padding: 0px;cursor: pointer;margin-right: 3px;font-weight: normal;border: 1px solid #1c94d2;left:15%;top: 0px;color: #fff;width: 103px;text-align: center;font-size: 12px;}
+	.show_hidden3{background-color: #1c94d2;display: block;position: absolute;padding: 0px;cursor: pointer;margin-right: 3px;font-weight: normal;border: 1px solid #1c94d2;left:15%;top: 0px;color: #fff;width: 103px;text-align: center;font-size: 12px;}
 	.form-control-feedback{right: 10px;}
 /*	*/
 	.kids_list ol {

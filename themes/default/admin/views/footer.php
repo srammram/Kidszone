@@ -8,8 +8,7 @@
     <i class="fa fa-chevron-circle-up"></i>
 </a>
 
-    <p style="text-align:center;">&copy; <?= date('Y') . " " . $Settings->site_name; ?> (<a href="<?= base_url('documentation.pdf'); ?>" target="_blank">v<?= $Settings->version; ?></a>
-        ) <?php if ($_SERVER["REMOTE_ADDR"] == '127.0.0.1') {
+    <p style="text-align:center;">&copy; <?= date('Y') . " " . $Settings->site_name; ?> <?php if ($_SERVER["REMOTE_ADDR"] == '127.0.0.1') {
             echo ' - Page rendered in <strong>{elapsed_time}</strong> seconds';
         } ?></p>
 </footer>

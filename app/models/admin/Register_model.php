@@ -49,7 +49,21 @@ class Register_model extends CI_Model
 			return $q->row();
 		}
 		return false;
-    }
+	}
+	
+
+	function getALLRegisterExcel(){
+
+		//$this->db->where('province.is_delete', 0);
+		$q = $this->db->get('register');
+		if($q->num_rows()>0){
+			foreach (($q->result()) as $row) {
+                $data[] = $row;
+            }
+			return $data;
+		}
+		return false;
+	}
 	
 	
 	function getFarmer_addressby_ID($id){
@@ -73,6 +87,21 @@ class Register_model extends CI_Model
 		}
 		return false;
     }
+
+
+
+	
+	function getAllSafetyMessage(){
+
+		$q = $this->db->get('safety_message');
+		if($q->num_rows()>0){
+			foreach (($q->result()) as $row) {
+                $data[] = $row;
+            }
+			return $data;
+		}
+		return false;
+	}
 
 
 }

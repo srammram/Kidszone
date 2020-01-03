@@ -37,7 +37,19 @@ class Register extends MY_Controller
         $meta = array('page_title' => lang('register'), 'bc' => $bc);
 		
         $this->page_construct('register/index', $meta, $this->data);
+	}
+	
+    function pdf($action=false){
+
+        $this->data['error'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('error');
+        $this->data['action'] = $action;		
+
+        $bc = array(array('link' => base_url(), 'page' => lang('home')), array('link' => '#', 'page' => lang('register')));
+        $meta = array('page_title' => lang('register'), 'bc' => $bc);
+		
+        $this->page_construct('register/pdf', $meta, $this->data);
     }
+
 	
     function getRegister(){
 		
@@ -48,14 +60,34 @@ class Register extends MY_Controller
         $this->load->library('datatables');
 		
         $this->datatables
-            ->select("'sno',{$this->db->dbprefix('register')}.id as id, {$this->db->dbprefix('register')}.father_name, {$this->db->dbprefix('register')}.mother_name, {$this->db->dbprefix('register')}.phone_number, {$this->db->dbprefix('register')}.email, date_format({$this->db->dbprefix('register')}.reg_date,'%d/%m/%Y')")
+			->select("
+			{$this->db->dbprefix('register')}.id as id, 
+			{$this->db->dbprefix('register')}.parent_type, 
+			{$this->db->dbprefix('register')}.father_name, 
+			{$this->db->dbprefix('register')}.mother_name, 
+			{$this->db->dbprefix('register')}.others_name, 
+			{$this->db->dbprefix('register')}.teacher_name, 
+			{$this->db->dbprefix('register')}.phone_number, 
+			{$this->db->dbprefix('register')}.email, 
+			{$this->db->dbprefix('register')}.kid_name1, 
+			{$this->db->dbprefix('register')}.kid_name2, 
+			{$this->db->dbprefix('register')}.kid_name3, 
+			{$this->db->dbprefix('register')}.kid_name4, 
+			{$this->db->dbprefix('register')}.kid_name5, 
+			{$this->db->dbprefix('register')}.kid_name6, 			
+			{$this->db->dbprefix('register')}.no_of_kids, 
+			date_format({$this->db->dbprefix('register')}.created_on,'%d/%m/%Y %T')			
+			")
             ->from("register");
 
+			$this->db->order_by("{$this->db->dbprefix('register')}.created_on",'DESC');
+
 			if(!empty($sdate) && !empty($edate)){
-				$this->datatables->where("DATE({$this->db->dbprefix('users')}.created_on) >=", date("Y-m-d", strtotime(str_replace('/', '-', $sdate))));
-       			$this->datatables->where("DATE({$this->db->dbprefix('users')}.created_on) <=", date("Y-m-d", strtotime(str_replace('/', '-', $edate))));
+				$this->datatables->where("DATE({$this->db->dbprefix('register')}.reg_date) >=", date("Y-m-d", strtotime(str_replace('/', '-', $sdate))));
+       			$this->datatables->where("DATE({$this->db->dbprefix('register')}.reg_date) <=", date("Y-m-d", strtotime(str_replace('/', '-', $edate))));
 			}
 
+			
             //$this->datatables->edit_column('status', '$1__$2', 'id, status');
 
 			//$edit = "<a href='" . admin_url('register/edit_register/$1') . "' data-toggle='tooltip'  data-original-title='' aria-describedby='tooltip' title='Click here to Edit'  ><i class='fa fa-pencil-square-o' aria-hidden='true'  style='color:#656464; font-size:18px'></i></a>";
@@ -74,8 +106,8 @@ class Register extends MY_Controller
 		
     }
 	
-	function add_register(){
-		
+	function add_register() {
+
 
 		/*echo '<pre>';
 		print_r($_POST);
@@ -188,6 +220,7 @@ class Register extends MY_Controller
 		$result = $this->register_model->getRegisterByID($id);
 
 		$this->data['result'] = $result;
+		$this->data['safety_message'] = $this->register_model->getAllSafetyMessage();
 					
 		$bc = array(array('link' => base_url(), 'page' => lang('home')), array('link' => admin_url('register/index'), 'page' => lang('register')), array('link' => '#', 'page' => lang('view_register')));
 		$meta = array('page_title' => lang('view_register'), 'bc' => $bc);
@@ -195,7 +228,30 @@ class Register extends MY_Controller
 		$this->data['id'] = $id;
 		 $this->page_construct('register/view', $meta, $this->data);
         
+	}
+	
+	function pdf_view_register($id){
+		
+
+		$result = $this->register_model->getRegisterByID($id);
+
+		$this->data['result'] = $result;
+		$this->data['safety_message'] = $this->register_model->getAllSafetyMessage();
+					
+		$bc = array(array('link' => base_url(), 'page' => lang('home')), array('link' => admin_url('register/index'), 'page' => lang('register')), array('link' => '#', 'page' => lang('view_register')));
+		$meta = array('page_title' => lang('view_register'), 'bc' => $bc);
+		
+		$this->data['id'] = $id;
+		 $this->page_construct('register/view', $meta, $this->data);
+
+		 $this->data['id'] = $id;
+		 $html = $this->load->view($this->theme . 'register/view', $this->data, true);
+		 //echo $html; die;
+		 $name = 'register_'.$result->refer_code.'_' . date('Y_m_d_H_i_s');
+		 $this->sma->generate_pdf($html, $name.'.pdf');
+        
     }
+
 	
     function edit_farmer($id){
 
@@ -422,7 +478,7 @@ class Register extends MY_Controller
     function register_actions()
     {
 
-        if (!$this->Owner && !$this->GP['bulk_actions']) {
+        if (!$this->Owner && !$this->GP['bulk_actions']) { 
            // $this->session->set_flashdata('warning', lang('access_denied'));
            // redirect($_SERVER["HTTP_REFERER"]);
         }
@@ -431,7 +487,7 @@ class Register extends MY_Controller
 
         if ($this->form_validation->run() == true) {
 
-            if (!empty($_POST['val'])) {
+            /*if (!empty($_POST['val'])) {
                 if ($this->input->post('form_action') == 'delete') {
                     $this->sma->checkPermissions('delete');
                     $error = false;
@@ -446,44 +502,67 @@ class Register extends MY_Controller
                         $this->session->set_flashdata('message', $this->lang->line("billers_deleted"));
                     }
                     redirect($_SERVER["HTTP_REFERER"]);
-                }
+                }*/
 
                 if ($this->input->post('form_action') == 'export_excel') {$this->sma->checkPermissions('excel');
 
                     $this->load->library('excel');
                     $this->excel->setActiveSheetIndex(0);
-                    $this->excel->getActiveSheet()->setTitle(lang('register'));
-                    $this->excel->getActiveSheet()->SetCellValue('A1', lang('father_name'));
-                    $this->excel->getActiveSheet()->SetCellValue('B1', lang('mother_name'));
-                    $this->excel->getActiveSheet()->SetCellValue('C1', lang('phone_number'));
-					$this->excel->getActiveSheet()->SetCellValue('D1', lang('email'));
-					$this->excel->getActiveSheet()->SetCellValue('E1', lang('kid_name1'));
-					$this->excel->getActiveSheet()->SetCellValue('F1', lang('kid_name2'));
-					$this->excel->getActiveSheet()->SetCellValue('G1', lang('kid_name3'));
-					$this->excel->getActiveSheet()->SetCellValue('H1', lang('kid_name4'));
-					$this->excel->getActiveSheet()->SetCellValue('I1', lang('kid_name5'));
-					$this->excel->getActiveSheet()->SetCellValue('J1', lang('kid_name6'));
-					$this->excel->getActiveSheet()->SetCellValue('K1', lang('reg_date'));
-					$this->excel->getActiveSheet()->SetCellValue('L1', lang('accept'));
+					$this->excel->getActiveSheet()->setTitle(lang('register'));
+					$this->excel->getActiveSheet()->SetCellValue('A1', lang('parent_type'));
+                    $this->excel->getActiveSheet()->SetCellValue('B1', lang('father_name'));
+					$this->excel->getActiveSheet()->SetCellValue('C1', lang('mother_name'));
+					$this->excel->getActiveSheet()->SetCellValue('D1', lang('others_name'));
+                    $this->excel->getActiveSheet()->SetCellValue('E1', lang('phone_number'));
+					$this->excel->getActiveSheet()->SetCellValue('F1', lang('email'));
+					$this->excel->getActiveSheet()->SetCellValue('G1', lang('kid_name1'));
+					$this->excel->getActiveSheet()->SetCellValue('H1', lang('kid_name2'));
+					$this->excel->getActiveSheet()->SetCellValue('I1', lang('kid_name3'));
+					$this->excel->getActiveSheet()->SetCellValue('J1', lang('kid_name4'));
+					$this->excel->getActiveSheet()->SetCellValue('K1', lang('kid_name5'));
+					$this->excel->getActiveSheet()->SetCellValue('L1', lang('kid_name6'));
+					$this->excel->getActiveSheet()->SetCellValue('M1', lang('teacher_name'));
+					$this->excel->getActiveSheet()->SetCellValue('N1', lang('no_of_kids'));
+					$this->excel->getActiveSheet()->SetCellValue('O1', lang('reg_date'));
+					$this->excel->getActiveSheet()->SetCellValue('P1', lang('reg_time'));
+					$this->excel->getActiveSheet()->SetCellValue('Q1', lang('accept'));
 
                     $row = 2;
-                    foreach ($_POST['val'] as $id) {
-						$result = $this->register_model->getRegisterByID($id);
-                        $this->excel->getActiveSheet()->SetCellValue('A' . $row, $result->father_name);
-                        $this->excel->getActiveSheet()->SetCellValue('B' . $row, $result->mother_name);
-                        $this->excel->getActiveSheet()->SetCellValue('C' . $row, $result->phone_number);
-						$this->excel->getActiveSheet()->SetCellValue('D' . $row, $result->email);
-                        $this->excel->getActiveSheet()->SetCellValue('E' . $row, $result->kid_name1);
-                        $this->excel->getActiveSheet()->SetCellValue('F' . $row, $result->kid_name2);
-                        $this->excel->getActiveSheet()->SetCellValue('G' . $row, $result->kid_name3);
-						$this->excel->getActiveSheet()->SetCellValue('H' . $row, $result->kid_name4);
-                        $this->excel->getActiveSheet()->SetCellValue('I' . $row, $result->kid_name5);
-                        $this->excel->getActiveSheet()->SetCellValue('J' . $row, $result->kid_name6);
-                        $this->excel->getActiveSheet()->SetCellValue('K' . $row, date('d-m-Y', strtotime($result->reg_date)));
-						$this->excel->getActiveSheet()->SetCellValue('L' . $row, ($result->accept==1) ? 'YES': 'NO');
+                    //foreach ($_POST['val'] as $id) {
+						$val = $this->register_model->getALLRegisterExcel();
+						foreach ($val as $result) 
+						{
+							if($result->parent_type==1){
+								$parent_type = 'Father Name';
+							}
+							else if($result->parent_type==2){
+								$parent_type = 'Mother Name';
+							}
+							else if($result->parent_type==3){
+								$parent_type = 'Others';
+							}
 
-                        $row++;
-                    }
+							$this->excel->getActiveSheet()->SetCellValue('A' . $row, $parent_type);
+							$this->excel->getActiveSheet()->SetCellValue('B' . $row, $result->father_name);
+							$this->excel->getActiveSheet()->SetCellValue('C' . $row, $result->mother_name);
+							$this->excel->getActiveSheet()->SetCellValue('D' . $row, $result->phone_number);
+							$this->excel->getActiveSheet()->SetCellValue('E' . $row, $result->phone_number);
+							$this->excel->getActiveSheet()->SetCellValue('F' . $row, $result->email);
+							$this->excel->getActiveSheet()->SetCellValue('G' . $row, $result->kid_name1);
+							$this->excel->getActiveSheet()->SetCellValue('H' . $row, $result->kid_name2);
+							$this->excel->getActiveSheet()->SetCellValue('I' . $row, $result->kid_name3);
+							$this->excel->getActiveSheet()->SetCellValue('J' . $row, $result->kid_name4);
+							$this->excel->getActiveSheet()->SetCellValue('K' . $row, $result->kid_name5);
+							$this->excel->getActiveSheet()->SetCellValue('L' . $row, $result->kid_name6);
+							$this->excel->getActiveSheet()->SetCellValue('M' . $row, $result->teacher_name);
+							$this->excel->getActiveSheet()->SetCellValue('N' . $row, $result->no_of_kids);
+							$this->excel->getActiveSheet()->SetCellValue('O' . $row, date('d-m-Y', strtotime($result->reg_date)));
+							$this->excel->getActiveSheet()->SetCellValue('P' . $row, date('h:i', strtotime($result->reg_date)));
+							$this->excel->getActiveSheet()->SetCellValue('Q' . $row, ($result->accept==1) ? 'YES': 'NO');
+
+							$row++;
+						}
+                    //}
 
                     $this->excel->getActiveSheet()->getColumnDimension('A')->setWidth(20);
                     $this->excel->getActiveSheet()->getColumnDimension('B')->setWidth(20);
@@ -492,10 +571,10 @@ class Register extends MY_Controller
                     $this->load->helper('excel');
                     create_excel($this->excel, $filename);
                 }
-            } else {
+            /*} else {
                 $this->session->set_flashdata('error', $this->lang->line("No Register Selected"));
                 redirect($_SERVER["HTTP_REFERER"]);
-            }
+            }*/
         } else {
             $this->session->set_flashdata('error', validation_errors());
             redirect($_SERVER["HTTP_REFERER"]);

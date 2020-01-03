@@ -271,12 +271,32 @@ class Db_model extends CI_Model
 
 
 
-	function getRegisteTotalCount() {
+	function getRegisteTotalCount($para) {
 
-		$this->db->select('*');
-		$this->db->from('register');
+        $where_month = "YEAR(reg_date) = YEAR(NOW()) AND MONTH(reg_date) = MONTH(NOW())";
+        $where_year = "YEAR(reg_date) = YEAR(NOW())";
+
+
+        if($para=="total")
+        {
+            $this->db->select('*');
+            $this->db->from('register');
+        }
+        else if($para=="month")
+        {
+            $this->db->select('*');
+            $this->db->from('register');
+            $this->db->where($where_month);
+        }
+        else if($para=="year")
+        {
+            $this->db->select('*');
+            $this->db->from('register');
+            $this->db->where($where_year);
+        }
 
 		$q = $this->db->get();
 		return $q->num_rows();
-	}
+    }
+
 }

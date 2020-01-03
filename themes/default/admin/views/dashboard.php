@@ -69,9 +69,9 @@
 			<h3>Monthly</h3>
 			<table class="table">
 				<tr>
-					<td>January</td>
+					<td><?php echo date('F') ?></td>
 					<td>:</td>
-					<td><?= $register_count?></td>
+					<td><?= $register_count_month?></td>
 				</tr>
 			</table>
 		</div>
@@ -88,9 +88,9 @@
 			<h3>Yearly</h3>
 			<table class="table">
 				<tr>
-					<td>2020</td>
+					<td><?= date("Y");?></td>
 					<td>:</td>
-					<td><?= $register_count?></td>
+					<td><?= $register_count_year?></td>
 				</tr>
 			</table>
 		</div>
