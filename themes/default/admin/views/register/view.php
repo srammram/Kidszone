@@ -86,16 +86,8 @@
 										<input type="text" class="form-control" name="father_name" id="father_name" value="<?= $result->father_name ?>" required readonly>
 									</div>
 									<div class="form-group col-md-12">
-										<label class="label_green">Email</label>
-										<input type="text" class="form-control" name="email" id="email"   value="<?= $result->email ?>" required readonly>
-									</div>
-									<div class="form-group col-md-12">
 										<label class="label_green">Mother Name</label>
 										<input type="text" class="form-control" name="mother_name" id="mother_name"  value="<?= $result->mother_name ?>" readonly>
-									</div>
-									<div class="form-group col-md-12">
-										<label class="label_green">Phone Number</label>
-										<input type="text" class="form-control" name="phone" value="<?= $result->phone_number ?>" id="phone" required readonly>
 									</div>
 									<div class="form-group col-md-12">
 										<label class="label_green">Others Name</label>
@@ -105,20 +97,28 @@
 										<label class="label_green">Teacher Name</label>
 										<input type="text" class="form-control" name="phone" value="<?= $result->teacher_name ?>" id="phone" required readonly>
 									</div>
-						
+									<div class="form-group col-md-12">
+										<label class="label_green">Mobile Number</label>
+										<input type="text" class="form-control" name="phone" value="<?= $result->phone_number ?>" id="phone" required readonly>
+									</div>
+									<div class="form-group col-md-12">
+										<label class="label_green">Email</label>
+										<input type="text" class="form-control" name="email" id="email"   value="<?= $result->email ?>" required readonly>
+									</div>
 								<h3><?= lang("Kids Name", "Kids Name"); ?></h3>
 									<div class="form-group col-md-12">
 										<label class="label_green">Kid Name 1</label>
 										<input type="text" class="form-control"  value="<?= $result->kid_name1 ?>" required readonly>
 									</div>
 									<div class="form-group col-md-12">
-										<label class="label_green">Kid Name 3</label>
-										<input type="text" class="form-control" value="<?= $result->kid_name3 ?>" required readonly>
-									</div>
-									<div class="form-group col-md-12">
 										<label class="label_green">Kid Name 2</label>
 										<input type="text" class="form-control" value="<?= $result->kid_name2 ?>" readonly>
 									</div>
+									<div class="form-group col-md-12">
+										<label class="label_green">Kid Name 3</label>
+										<input type="text" class="form-control" value="<?= $result->kid_name3 ?>" required readonly>
+									</div>
+									
 									<div class="form-group col-md-12">
 										<label class="label_green">Kid Name 4</label>
 										<input type="text" class="form-control" value="<?= $result->kid_name4 ?>" required readonly>
@@ -127,13 +127,14 @@
 										<label class="label_green">Kid Name 5</label>
 										<input type="text" class="form-control" value="<?= $result->kid_name5 ?>" readonly>
 									</div>
-									<div class="form-group col-md-12">
-										<label class="label_green">No of kids</label>
-										<input type="text" class="form-control" value="<?= $result->no_of_kids ?>" readonly>
-									</div>
+									
 									<div class="form-group col-md-12">
 										<label class="label_green">Kid Name 6</label>
 										<input type="text" class="form-control" value="<?= $result->kid_name6 ?>" required readonly>
+									</div>
+									<div class="form-group col-md-12">
+										<label class="label_green">No of kids</label>
+										<input type="text" class="form-control" value="<?= $result->no_of_kids ?>" readonly>
 									</div>
 							<h3>Image</h3>
 								<div class="form-group col-md-6">
