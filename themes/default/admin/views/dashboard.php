@@ -46,7 +46,9 @@
 	.form_das.clr-block-2 .market-update-right i.fa.fa-file-text-o{color: #c45d2c;}
 	.form_das.clr-block-3 {
 		background: #28487b;
-	height: 100%;min-height: 229px;}
+	height: 100%;
+/*		min-height: 229px;*/
+	}
 	.form_das.clr-block-2 {
 		background: #c45d2c;}
 	.form_das.clr-block:hover {
@@ -62,7 +64,7 @@
 <div class="box-content">
 <div class="row">
 	<div class="col-sm-4">
-	<div class="form_das clr-block clr-block-3">
+	<div class="form_das clr-block clr-block-1">
 		<div class="col-md-8 market-update-left">
 			<h3>Monthly</h3>
 			<table class="table">
@@ -81,7 +83,7 @@
 
   </div>
   <div class="col-sm-4">
-	<div class="form_das clr-block clr-block-3">
+	<div class="form_das clr-block clr-block-2">
 		<div class="col-md-8 market-update-left">
 			<h3>Yearly</h3>
 			<table class="table">
