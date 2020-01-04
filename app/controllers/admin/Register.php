@@ -520,15 +520,15 @@ class Register extends MY_Controller
                     $this->excel->getActiveSheet()->SetCellValue('B1', lang('father_name'));
 					$this->excel->getActiveSheet()->SetCellValue('C1', lang('mother_name'));
 					$this->excel->getActiveSheet()->SetCellValue('D1', lang('others_name'));
-                    $this->excel->getActiveSheet()->SetCellValue('E1', lang('phone_number'));
-					$this->excel->getActiveSheet()->SetCellValue('F1', lang('email'));
-					$this->excel->getActiveSheet()->SetCellValue('G1', lang('kid_name1'));
-					$this->excel->getActiveSheet()->SetCellValue('H1', lang('kid_name2'));
-					$this->excel->getActiveSheet()->SetCellValue('I1', lang('kid_name3'));
-					$this->excel->getActiveSheet()->SetCellValue('J1', lang('kid_name4'));
-					$this->excel->getActiveSheet()->SetCellValue('K1', lang('kid_name5'));
-					$this->excel->getActiveSheet()->SetCellValue('L1', lang('kid_name6'));
-					$this->excel->getActiveSheet()->SetCellValue('M1', lang('teacher_name'));
+					$this->excel->getActiveSheet()->SetCellValue('E1', lang('teacher_name'));
+                    $this->excel->getActiveSheet()->SetCellValue('F1', lang('phone_number'));
+					$this->excel->getActiveSheet()->SetCellValue('G1', lang('email'));
+					$this->excel->getActiveSheet()->SetCellValue('H1', lang('kid_name1'));
+					$this->excel->getActiveSheet()->SetCellValue('I1', lang('kid_name2'));
+					$this->excel->getActiveSheet()->SetCellValue('J1', lang('kid_name3'));
+					$this->excel->getActiveSheet()->SetCellValue('K1', lang('kid_name4'));
+					$this->excel->getActiveSheet()->SetCellValue('L1', lang('kid_name5'));
+					$this->excel->getActiveSheet()->SetCellValue('M1', lang('kid_name6'));
 					$this->excel->getActiveSheet()->SetCellValue('N1', lang('no_of_kids'));
 					$this->excel->getActiveSheet()->SetCellValue('O1', lang('created_date'));
 					$this->excel->getActiveSheet()->SetCellValue('P1', lang('accept'));
@@ -551,20 +551,19 @@ class Register extends MY_Controller
 							$this->excel->getActiveSheet()->SetCellValue('A' . $row, $parent_type);
 							$this->excel->getActiveSheet()->SetCellValue('B' . $row, $result->father_name);
 							$this->excel->getActiveSheet()->SetCellValue('C' . $row, $result->mother_name);
-							$this->excel->getActiveSheet()->SetCellValue('D' . $row, $result->phone_number);
-							$this->excel->getActiveSheet()->SetCellValue('E' . $row, $result->phone_number);
-							$this->excel->getActiveSheet()->SetCellValue('F' . $row, $result->email);
-							$this->excel->getActiveSheet()->SetCellValue('G' . $row, $result->kid_name1);
-							$this->excel->getActiveSheet()->SetCellValue('H' . $row, $result->kid_name2);
-							$this->excel->getActiveSheet()->SetCellValue('I' . $row, $result->kid_name3);
-							$this->excel->getActiveSheet()->SetCellValue('J' . $row, $result->kid_name4);
-							$this->excel->getActiveSheet()->SetCellValue('K' . $row, $result->kid_name5);
-							$this->excel->getActiveSheet()->SetCellValue('L' . $row, $result->kid_name6);
-							$this->excel->getActiveSheet()->SetCellValue('M' . $row, $result->teacher_name);
+							$this->excel->getActiveSheet()->SetCellValue('D' . $row, $result->others_name);
+							$this->excel->getActiveSheet()->SetCellValue('E' . $row, $result->teacher_name);
+							$this->excel->getActiveSheet()->SetCellValue('F' . $row, $result->phone_number);
+							$this->excel->getActiveSheet()->SetCellValue('G' . $row, $result->email);
+							$this->excel->getActiveSheet()->SetCellValue('H' . $row, $result->kid_name1);
+							$this->excel->getActiveSheet()->SetCellValue('I' . $row, $result->kid_name2);
+							$this->excel->getActiveSheet()->SetCellValue('J' . $row, $result->kid_name3);
+							$this->excel->getActiveSheet()->SetCellValue('K' . $row, $result->kid_name4);
+							$this->excel->getActiveSheet()->SetCellValue('L' . $row, $result->kid_name5);
+							$this->excel->getActiveSheet()->SetCellValue('M' . $row, $result->kid_name6);						
 							$this->excel->getActiveSheet()->SetCellValue('N' . $row, $result->no_of_kids);
-							$this->excel->getActiveSheet()->SetCellValue('O' . $row, date('d/m/Y h:i', strtotime($result->created_on)));
-							$this->excel->getActiveSheet()->SetCellValue('p' . $row, ($result->accept==1) ? 'YES': 'NO');
-
+							$this->excel->getActiveSheet()->SetCellValue('O' . $row, date('d/m/Y H:i', strtotime($result->created_on)));
+							$this->excel->getActiveSheet()->SetCellValue('P' . $row, ($result->accept==1) ? 'YES': 'NO');
 							$row++;
 						}
                     //}

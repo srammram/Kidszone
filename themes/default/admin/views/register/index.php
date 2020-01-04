@@ -90,7 +90,7 @@
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#"><i class="icon fa fa-tasks tip" data-placement="left" title="<?= lang("actions") ?>"></i></a>
                     <ul class="dropdown-menu pull-right tasks-menus" role="menu" aria-labelledby="dLabel">
                         <li><a href="#" id="excel" data-action="export_excel"><i class="fa fa-file-excel-o"></i> <?= lang('export_to_excel') ?></a></li>
-                        <li><a href="javascript:void(0)" onclick="printDiv('print-content')"><i class="fa fa-file-pdf-o"></i> <?= lang('pdf') ?></a></li>
+                        <li><a href="javascript:void(0)" onclick="printDiv('print-content')"><i class="fa fa-file-pdf-o"></i> <?= lang('print_pdf') ?></a></li>
                     </ul>
                 </li>
             </ul>
