@@ -1,15 +1,30 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 <link href="<?= $assets ?>styles/jquery.mCustomScrollbar.css" rel="stylesheet"/>
 <script src="<?= $assets ?>js/jquery.mCustomScrollbar.concat.min.js"></script>
-<a href="<?= admin_url('register/pdf_view_register/'.$result->id.''); ?>">Print</a>
+<p class="pdf_s"><a href="<?= admin_url('register/pdf_view_register/'.$result->id.''); ?>" class="pull-right"><i class="fa fa-2x fa-file-pdf-o" aria-hidden="true"></i>Pdf</a></p>
+<style>
+	.pdf_s{position: absolute;right: 2%;top: 10px;}
+	.pdf_s a{color: red;text-decoration: none;}
+	.pdf_s .fa{color: red;}
+	.kidszon_content ul p{position: relative;float: left;padding-left: 30px;}	
+.kidszon_content ul p::before {
+    content: '';
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background-color: darkblue;
+    left: 10px;
+    top: 10px;
+}
+</style>
 <div class="box">
   <div class="box-content">
     <div class="row">
-      <div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-xs-12 kidszoona">
+      <div class="col-lg-6  col-md-6 col-xs-12 kidszoona">
         <?php $attrib = array('class' => 'form-horizontal', 'class' => 'add_from','data-toggle' => 'validator', 'role' => 'form', 'autocomplete' => "off");
                 echo admin_form_open_multipart("farmer/edit_farmer/".$id, $attrib);
                 ?>
-						<div class="col-md-12 text-center">
+						<div class="col-md-12 text-center" style="text-align: center;">
 							<img src="<?=base_url()?>assets/uploads/logos/logo.jpg" alt="kidszoona">
 						</div>
 						<div class="col-md-12 kidszon_content">
@@ -115,12 +130,12 @@
 								<div class="form-group col-md-6">
 									<label class="label_green">Photo</label>
 									<div class="clear"></div>			
-									<input type="image" src="<?=base_url()?>assets/uploads/<?= !empty($result->photo) ? $result->photo : 'no_image.jpg'; ?>" border="0" disabled width="100" height="100" />
+									<img  src="<?=base_url()?>assets/uploads/<?= !empty($result->photo) ? $result->photo : 'no_image.jpg'; ?>" border="0" disabled width="100" height="100" />
 								</div>
 								<div class="form-group col-md-6">
 									<label class="label_green">Signature</label>
 									<div class="clear"></div>			
-									<input type="image" src="<?=base_url()?>assets/uploads/<?= !empty($result->signature) ? $result->signature : 'no_image.jpg'; ?>" border="0" disabled width="100" height="100" />
+									<img src="<?=base_url()?>assets/uploads/<?= !empty($result->signature) ? $result->signature : 'no_image.jpg'; ?>" border="0" disabled width="100" height="100" />
 								</div>
 							<h3>Date</h3>
 							<div class="form-group col-md-12">

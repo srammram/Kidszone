@@ -252,7 +252,7 @@ class Register extends MY_Controller
 		 $this->page_construct('register/view', $meta, $this->data);
 
 		 $this->data['id'] = $id;
-		 $html = $this->load->view($this->theme . 'register/view', $this->data, true);
+		 $html = $this->load->view($this->theme . 'register/pdf_view', $this->data, true);
 		 //echo $html; die;
 		 $name = 'register_'.$result->refer_code.'_' . date('Y_m_d_H_i_s');
 		 $this->sma->generate_pdf($html, $name.'.pdf');
