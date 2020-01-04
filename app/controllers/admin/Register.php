@@ -523,9 +523,8 @@ class Register extends MY_Controller
 					$this->excel->getActiveSheet()->SetCellValue('L1', lang('kid_name6'));
 					$this->excel->getActiveSheet()->SetCellValue('M1', lang('teacher_name'));
 					$this->excel->getActiveSheet()->SetCellValue('N1', lang('no_of_kids'));
-					$this->excel->getActiveSheet()->SetCellValue('O1', lang('reg_date'));
-					$this->excel->getActiveSheet()->SetCellValue('P1', lang('reg_time'));
-					$this->excel->getActiveSheet()->SetCellValue('Q1', lang('accept'));
+					$this->excel->getActiveSheet()->SetCellValue('O1', lang('created_date'));
+					$this->excel->getActiveSheet()->SetCellValue('P1', lang('accept'));
 
                     $row = 2;
                     //foreach ($_POST['val'] as $id) {
@@ -556,9 +555,8 @@ class Register extends MY_Controller
 							$this->excel->getActiveSheet()->SetCellValue('L' . $row, $result->kid_name6);
 							$this->excel->getActiveSheet()->SetCellValue('M' . $row, $result->teacher_name);
 							$this->excel->getActiveSheet()->SetCellValue('N' . $row, $result->no_of_kids);
-							$this->excel->getActiveSheet()->SetCellValue('O' . $row, date('d-m-Y', strtotime($result->reg_date)));
-							$this->excel->getActiveSheet()->SetCellValue('P' . $row, date('h:i', strtotime($result->reg_date)));
-							$this->excel->getActiveSheet()->SetCellValue('Q' . $row, ($result->accept==1) ? 'YES': 'NO');
+							$this->excel->getActiveSheet()->SetCellValue('O' . $row, date('d/m/Y h:i', strtotime($result->reg_date)));
+							$this->excel->getActiveSheet()->SetCellValue('p' . $row, ($result->accept==1) ? 'YES': 'NO');
 
 							$row++;
 						}
