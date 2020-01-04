@@ -45,6 +45,9 @@
 	.table_dot tr td:last-child{font-weight: normal;color: #333;}
 	.kidszoona h3,.table-bordered tr td h3{font-size: 18px;}
 	.container-checkbox{font-weight: bold;font-size: 16px;}
+	
+/*	*/
+ 
 </style>
 <div class="box">
   <div class="box-content">
@@ -85,18 +88,25 @@
 							<h4 class="text-left">Parent name: (Age over 18 years old)</h4>
 							
 							<table class="table table-bordered table_dot_check" style="table-layout: fixed;">
+							
 								<tr>
 									<td><label class="container-checkbox">Father Name
-										  <input type="radio" name="parent_type" id="parent_type" <?= $result->parent_type==1 ? 'checked': FALSE; ?> disabled>
-										</label></td>
+										  <!--<input type="radio" name="parent_type" id="parent_type" <?= $result->parent_type==1 ? 'checked': FALSE; ?> disabled>-->
+										  
+										  <img src="<?=base_url()?>assets/uploads/<?= $result->parent_type==1 ? 'tick.png': 'list.png'; ?>" width="15px"/>
+										</label>
+									</td>
 									<td>
 										<label class="container-checkbox">Mother Name
-										  <input type="radio" name="parent_type" id="parent_type" <?= $result->parent_type==2 ? 'checked': FALSE; ?> disabled>
+										  <!--<input type="radio" name="parent_type" id="parent_type" <?= $result->parent_type==2 ? 'checked': FALSE; ?> disabled>-->
+										  <img src="<?=base_url()?>assets/uploads/<?= $result->parent_type==2 ? 'tick.png': 'list.png'; ?>" width="15px"/>
 										</label>
 									</td>
 									<td>
 										<label class="container-checkbox">Others
-										  <input type="radio" name="parent_type" id="parent_type" <?= $result->parent_type==3 ? 'checked': FALSE; ?> disabled>
+										  <!--<input type="radio" name="parent_type" id="parent_type" <?= $result->parent_type==3 ? 'checked': FALSE; ?> disabled>-->
+										  
+										  <img src="<?=base_url()?>assets/uploads/<?= $result->parent_type==3 ? 'tick.png': 'list.png'; ?>" width="15px"/>
 										</label>
 									</td>
 								</tr>
@@ -201,7 +211,9 @@
 								</tr>
 								<tr>
 									<td colspan="3">
-										<input type="checkbox" name="accept" id="accept" <?= $result->accept==1 ? 'checked': FALSE; ?> disabled> &nbsp;<b>I agree to follow the rules</b>
+										<!--<input type="checkbox" name="accept" id="accept" <?= $result->accept==1 ? 'checked': FALSE; ?> disabled>-->
+										<img src="<?=base_url()?>assets/uploads/<?= $result->accept==1 ? 'tick.png': 'list.png'; ?>" width="15px"/>
+										  &nbsp;<b>I agree to follow the rules</b>
 									</td>
 								</tr>
 							</table>

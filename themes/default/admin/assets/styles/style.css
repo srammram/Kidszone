@@ -3329,7 +3329,7 @@ body {
 @media (max-width: 1600px) and (min-width: 1500px){
 		.table_responsive {width: 1261px;overflow-x: auto;}
 		.sidebar-minified .table_responsive{width: 1470px;overflow-x: auto;}
-		.kidszoona {padding: 30px 0px 0px;height: 75vh;transition: all .2s ease-in;}
+		.kidszoona {padding: 30px 0px 0px;height: 100%;transition: all .2s ease-in;}
 }
 @media (max-width: 1440px) and (min-width: 1400px){}
 @media (max-width: 1366px) and (min-width: 1362px){

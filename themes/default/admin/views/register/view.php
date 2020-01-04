@@ -16,6 +16,7 @@
     left: 10px;
     top: 10px;
 }
+	
 </style>
 <div class="box">
   <div class="box-content">
@@ -56,6 +57,7 @@
 							<h4 class="text-left">Parent name: (Age over 18 years old)</h4>
 								<div class="form-group col-md-12">
 									<div class="col-md-4">
+
 										<label class="container-checkbox">Father Name
 										  <input type="radio" name="parent_type" id="parent_type" <?= $result->parent_type==1 ? 'checked': FALSE; ?> disabled>
 										</label>
