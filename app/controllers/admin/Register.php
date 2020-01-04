@@ -530,7 +530,7 @@ class Register extends MY_Controller
 					$this->excel->getActiveSheet()->SetCellValue('L1', lang('kid_name5'));
 					$this->excel->getActiveSheet()->SetCellValue('M1', lang('kid_name6'));
 					$this->excel->getActiveSheet()->SetCellValue('N1', lang('no_of_kids'));
-					$this->excel->getActiveSheet()->SetCellValue('O1', lang('created_date'));
+					$this->excel->getActiveSheet()->SetCellValue('O1', lang('reg_date'));
 					$this->excel->getActiveSheet()->SetCellValue('P1', lang('accept'));
 
                     $row = 2;
