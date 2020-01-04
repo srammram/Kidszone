@@ -83,8 +83,8 @@ class Register extends MY_Controller
 			$this->db->order_by("{$this->db->dbprefix('register')}.created_on",'DESC');
 
 			if(!empty($sdate) && !empty($edate)){
-				$this->datatables->where("DATE({$this->db->dbprefix('register')}.reg_date) >=", date("Y-m-d", strtotime(str_replace('/', '-', $sdate))));
-       			$this->datatables->where("DATE({$this->db->dbprefix('register')}.reg_date) <=", date("Y-m-d", strtotime(str_replace('/', '-', $edate))));
+				$this->datatables->where("DATE({$this->db->dbprefix('register')}.created_on) >=", date("Y-m-d", strtotime(str_replace('/', '-', $sdate))));
+       			$this->datatables->where("DATE({$this->db->dbprefix('register')}.created_on) <=", date("Y-m-d", strtotime(str_replace('/', '-', $edate))));
 			}
 
 			
