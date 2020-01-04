@@ -159,7 +159,7 @@
                             <th class="col-xs-2"><?php echo lang('kid_name5'); ?></th>
                             <th class="col-xs-2"><?php echo lang('kid_name6'); ?></th>                            
                             <th class="col-xs-2"><?php echo lang('no_of_kids'); ?></th>
-                            <th class="col-xs-2"><?php echo lang('created_date'); ?></th>
+                            <th class="col-xs-2"><?php echo lang('reg_date'); ?></th>
                             <th class="col-xs-2" id="action_div"><?php echo lang('actions'); ?></th>
                         </tr>
                         </thead>
