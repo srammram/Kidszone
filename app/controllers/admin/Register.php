@@ -47,7 +47,14 @@ class Register extends MY_Controller
         $bc = array(array('link' => base_url(), 'page' => lang('home')), array('link' => '#', 'page' => lang('register')));
         $meta = array('page_title' => lang('register'), 'bc' => $bc);
 		
-        $this->page_construct('register/pdf', $meta, $this->data);
+		$this->page_construct('register/pdf', $meta, $this->data);
+		
+		$this->data['id'] = $id;
+		$html = $this->load->view($this->theme . 'register/pdf', $this->data, true);
+		echo $html; die;
+		$name = 'register_'.$result->refer_code.'_' . date('Y_m_d_H_i_s');
+		$this->sma->generate_pdf($html, $name.'.pdf');
+
     }
 
 	
@@ -555,7 +562,7 @@ class Register extends MY_Controller
 							$this->excel->getActiveSheet()->SetCellValue('L' . $row, $result->kid_name6);
 							$this->excel->getActiveSheet()->SetCellValue('M' . $row, $result->teacher_name);
 							$this->excel->getActiveSheet()->SetCellValue('N' . $row, $result->no_of_kids);
-							$this->excel->getActiveSheet()->SetCellValue('O' . $row, date('d/m/Y h:i', strtotime($result->reg_date)));
+							$this->excel->getActiveSheet()->SetCellValue('O' . $row, date('d/m/Y h:i', strtotime($result->created_on)));
 							$this->excel->getActiveSheet()->SetCellValue('p' . $row, ($result->accept==1) ? 'YES': 'NO');
 
 							$row++;

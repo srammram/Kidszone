@@ -1,5 +1,4 @@
 
-
 <script>
     
 	
@@ -39,10 +38,6 @@
             "aLengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, "<?= lang('all') ?>"]],
             "iDisplayLength": <?= $Settings->rows_per_page ?>,
             'bProcessing': true, 'bServerSide': true,
-
-            buttons: [
-        'copy', 'excel', 'pdf', 'csv'
-    ],
             'sAjaxSource': '<?= admin_url('register/getRegister?sdate='.$_GET['sdate'].'&edate='.$_GET['edate']) ?>',
             'fnServerData': function (sSource, aoData, fnCallback) {
                 aoData.push({
@@ -95,6 +90,7 @@
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#"><i class="icon fa fa-tasks tip" data-placement="left" title="<?= lang("actions") ?>"></i></a>
                     <ul class="dropdown-menu pull-right tasks-menus" role="menu" aria-labelledby="dLabel">
                         <li><a href="#" id="excel" data-action="export_excel"><i class="fa fa-file-excel-o"></i> <?= lang('export_to_excel') ?></a></li>
+                        <li><a href="javascript:void(0)" onclick="printDiv('print-content')"><i class="fa fa-file-pdf-o"></i> <?= lang('pdf') ?></a></li>
                     </ul>
                 </li>
             </ul>
@@ -140,7 +136,7 @@
                 <span style="color:red"><b>Total Count: <span id="pendingCount"></span></b></span>
             	<!--a href="<?//= admin_url('farmer/add_farmer'); ?>"><button type="button" class="btn btn-primary pull-right"><i class="fa fa-plus-circle"></i> <?//= lang("add_farmer"); ?></button></a>-->
                 
-                <div class="table-responsive">
+                <div class="table-responsive" id="print-content">
                     <table id="UsrTable" cellpadding="0" cellspacing="0" border="0"
                            class="table table-bordered table-hover table-striped">
                         <thead>
@@ -164,7 +160,7 @@
                             <th class="col-xs-2"><?php echo lang('kid_name6'); ?></th>                            
                             <th class="col-xs-2"><?php echo lang('no_of_kids'); ?></th>
                             <th class="col-xs-2"><?php echo lang('created_date'); ?></th>
-                            <th class="col-xs-2"><?php echo lang('actions'); ?></th>
+                            <th class="col-xs-2" id="action_div"><?php echo lang('actions'); ?></th>
                         </tr>
                         </thead>
                         <tbody>
@@ -322,4 +318,27 @@ $(function() {
 });
 </script>
 
-<!--<script type="text/javascript" src="https://nightly.datatables.net/buttons/js/buttons.html5.js?2"></script>-->
+<script type="text/javascript">
+    function printDiv(divName) {
+
+        document.getElementById('UsrTable_info').style.visibility = 'hidden';
+        document.getElementById('UsrTable_length').style.visibility = 'hidden';
+        document.getElementById('UsrTable_filter').style.visibility = 'hidden';
+        document.getElementById('action_div').style.visibility = 'hidden';
+        document.getElementsByClassName("pagination pagination-sm")[0].style.visibility = 'hidden';
+
+
+        var printContents = document.getElementById(divName).innerHTML;
+        w=window.open();
+        w.document.write(printContents);
+        w.print();
+        w.close();
+
+        document.getElementById('UsrTable_info').style.visibility = 'visible';
+        document.getElementById('UsrTable_length').style.visibility = 'visible';
+        document.getElementById('UsrTable_filter').style.visibility = 'visible';
+        document.getElementById('action_div').style.visibility = 'visible';
+        document.getElementsByClassName("pagination pagination-sm")[0].style.visibility = 'visible';
+    }
+</script>
+
