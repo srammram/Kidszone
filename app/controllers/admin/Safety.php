@@ -46,7 +46,7 @@ class Safety extends MY_Controller
         $this->load->library('datatables');
 		
         $this->datatables
-            ->select("{$this->db->dbprefix('safety_message')}.id as id, {$this->db->dbprefix('safety_message')}.title")
+            ->select("{$this->db->dbprefix('safety_message')}.id as id, {$this->db->dbprefix('safety_message')}.lang, {$this->db->dbprefix('safety_message')}.title")
             ->from("safety_message");
 			
             //$this->datatables->edit_column('status', '$1__$2', 'id, status');

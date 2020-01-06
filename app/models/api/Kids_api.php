@@ -1125,12 +1125,40 @@ class Kids_api extends CI_Model
 		return false;
 	}
 
-	function getSafetyMessageList(){
+	function getSafetyMessageList1(){
 
 		$q = $this->db->select('*')->get('safety_message');
 		if($q->num_rows()>0){
 			return $q->result();	
 		}
+		return false;
+	}
+
+
+	function getSafetyMessageList() {
+
+		$q = $this->db->select('*')->group_by('lang')->get('safety_message');
+
+		foreach($q->result() as $k => $row) {
+
+			$abc = $this->db->select('*')->where('lang', $row->lang)->get('safety_message');
+
+			//$data['lang'] = $row->lang;
+
+			foreach($abc->result() as $row1) {
+
+				$data[$row->lang][] = array(
+					'title' => $row1->title,
+					'desc_msg' => $row1->desc_msg
+				);
+
+			}
+		}
+
+		if($data) {
+			return $data;
+		}
+
 		return false;
 	}
 

@@ -11,17 +11,21 @@
 		"<a href='#' class='tip po' title='' data-content=\"<p>Are you Sure</p><a class='btn btn-danger' id='a__$1' href=' <?= admin_url('farmer/farmer_status/active/') ?>"+ y[0] +" '>Yes I`m Sure</a> <button class='btn po-close'>No</button>\"  rel='popover'><span class=\"label label-danger\">"+lang['inactive']+"</span> </a>"
 
     }
-	
-	
-	
-	function mobile_status(mob) {
-		
-		//var mobile = mob.slice(-4);		
-		//return '******'+mobile;
-        var mobile = mob;	
-        return mobile;
+
+	function lang_type(type) {
+
+        var type = type;
+
+        if(type==1) {
+            type = 'English';
+        }
+        else if(type==2) {
+            type = 'Khmer';
+        }
+
+        return type;
     }
-	
+
     $(document).ready(function () {
         'use strict';
         oTable = $('#UsrTable').dataTable({
@@ -43,7 +47,7 @@
                 $("td:first", nRow).html(index);
                 return nRow;
             },
-             "aoColumns": [  null, null, {"bSortable": true}]
+             "aoColumns": [  null, {"mRender": lang_type} , null, {"bSortable": true}]
         });
     });
 </script>
@@ -60,15 +64,11 @@
 } ?>
 
 
+<div class="box"> 
 
-<div class="box">
-   
-   
     <div class="box-content">
-    
         <div class="row">
             <div class="col-lg-12">
-                
                 <?php /*?><div class="col-lg-3">
 					<div class="form-group">
 						<?php echo lang('Start Date', 'Start Date'); ?>
@@ -113,6 +113,7 @@
                         <thead>
                         <tr>
                         	<th class="col-xs-2"><?php echo lang('S.No'); ?></th>
+                            <th class="col-xs-2"><?php echo lang('lang'); ?></th>
                             <th class="col-xs-2"><?php echo lang('title'); ?></th>
                             <th style="width:80px;"><?php echo lang('actions'); ?></th>
                         </tr>
