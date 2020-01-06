@@ -62,14 +62,19 @@
         });
     });
 </script>
-<style>.table td:nth-child(6) {
+<style>
+	.table td:nth-child(6) {
         text-align: right;
         width: 10%;
     }
 
     .table td:nth-child(8) {
         text-align: center;
-    }</style>
+    }
+	.lt{table-layout: fixed;}
+	.table-responsive{overflow: auto;}
+	.dataTables_wrapper .table-bordered{white-space: nowrap;}
+</style>
 <?php if ($Owner) {
     //echo admin_form_open('incentive/incentive_actions', 'id="action-form"');
 } ?>
@@ -141,26 +146,26 @@
                            class="table table-bordered table-hover table-striped">
                         <thead>
                         <tr>
-                        	<th class="col-xs-2"><?php echo lang('S.No'); ?></th>
+                        	<th><?php echo lang('S.No'); ?></th>
                             <!--<th style="min-width:30px; width: 30px; text-align: center;">
                                 <input class="checkbox checkth" type="checkbox" name="check"/>
                             </th>-->
-                            <th class="col-xs-2"><?php echo lang('parent_type'); ?></th>
-                            <th class="col-xs-2"><?php echo lang('father_name'); ?></th>
-                            <th class="col-xs-2"><?php echo lang('mother_name'); ?></th>
-                            <th class="col-xs-2"><?php echo lang('others_name'); ?></th>
-                            <th class="col-xs-2"><?php echo lang('teacher_name'); ?></th>
-                            <th class="col-xs-2"><?php echo lang('phone_number'); ?></th>
-                            <th class="col-xs-2"><?php echo lang('email'); ?></th>
-                            <th class="col-xs-2"><?php echo lang('kid_name1'); ?></th>
-                            <th class="col-xs-2"><?php echo lang('kid_name2'); ?></th>
-                            <th class="col-xs-2"><?php echo lang('kid_name3'); ?></th>
-                            <th class="col-xs-2"><?php echo lang('kid_name4'); ?></th>
-                            <th class="col-xs-2"><?php echo lang('kid_name5'); ?></th>
-                            <th class="col-xs-2"><?php echo lang('kid_name6'); ?></th>                            
-                            <th class="col-xs-2"><?php echo lang('no_of_kids'); ?></th>
-                            <th class="col-xs-2"><?php echo lang('reg_date'); ?></th>
-                            <th class="col-xs-2" id="action_div"><?php echo lang('actions'); ?></th>
+                            <th><?php echo lang('parent_type'); ?></th>
+                            <th><?php echo lang('father_name'); ?></th>
+                            <th><?php echo lang('mother_name'); ?></th>
+                            <th><?php echo lang('others_name'); ?></th>
+                            <th><?php echo lang('teacher_name'); ?></th>
+                            <th><?php echo lang('phone_number'); ?></th>
+                            <th><?php echo lang('email'); ?></th>
+                            <th><?php echo lang('kid_name1'); ?></th>
+                            <th><?php echo lang('kid_name2'); ?></th>
+                            <th><?php echo lang('kid_name3'); ?></th>
+                            <th><?php echo lang('kid_name4'); ?></th>
+                            <th><?php echo lang('kid_name5'); ?></th>
+                            <th><?php echo lang('kid_name6'); ?></th>                            
+                            <th><?php echo lang('no_of_kids'); ?></th>
+                            <th><?php echo lang('reg_date'); ?></th>
+                            <th id="action_div"><?php echo lang('actions'); ?></th>
                         </tr>
                         </thead>
                         <tbody>
