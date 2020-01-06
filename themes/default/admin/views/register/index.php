@@ -74,6 +74,13 @@
 	.lt{table-layout: fixed;}
 	.table-responsive{overflow: auto;}
 	.dataTables_wrapper .table-bordered{white-space: nowrap;}
+	
+/*
+	@media print{
+		#divName table thead tr th,table tbody tr td{border: 1px solid #ccc!important;}
+		#divName table thead tr th,table tbody tr td,table-bordered{border: 1px solid #ccc !important;}
+	}
+*/
 </style>
 <?php if ($Owner) {
     //echo admin_form_open('incentive/incentive_actions', 'id="action-form"');
@@ -142,7 +149,7 @@
             	<!--a href="<?//= admin_url('farmer/add_farmer'); ?>"><button type="button" class="btn btn-primary pull-right"><i class="fa fa-plus-circle"></i> <?//= lang("add_farmer"); ?></button></a>-->
                 
                 <div class="table-responsive" id="print-content">
-                    <table id="UsrTable" cellpadding="0" cellspacing="0" border="0"
+                    <table id="UsrTable" cellpadding="0" cellspacing="0" border="1"
                            class="table table-bordered table-hover table-striped">
                         <thead>
                         <tr>
@@ -331,8 +338,6 @@ $(function() {
         document.getElementById('UsrTable_filter').style.visibility = 'hidden';
         document.getElementById('action_div').style.visibility = 'hidden';
         document.getElementsByClassName("pagination pagination-sm")[0].style.visibility = 'hidden';
-
-
         var printContents = document.getElementById(divName).innerHTML;
         w=window.open();
         w.document.write(printContents);
