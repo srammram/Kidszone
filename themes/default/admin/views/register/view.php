@@ -6,7 +6,7 @@
 	.pdf_s{position: absolute;right: 2%;top: 10px;}
 	.pdf_s a{color: red;text-decoration: none;}
 	.pdf_s .fa{color: red;}
-	.kidszon_content ul p{position: relative;float: left;padding-left: 30px;}	
+	/*.kidszon_content ul p{position: relative;float: left;padding-left: 30px;}	
 .kidszon_content ul p::before {
     content: '';
     position: absolute;
@@ -15,7 +15,7 @@
     background-color: darkblue;
     left: 10px;
     top: 10px;
-}
+}*/
 	
 </style>
 <div class="box">
@@ -70,6 +70,11 @@
 									<div class="col-md-4">
 										<label class="container-checkbox">Others
 										  <input type="radio" name="parent_type" id="parent_type" <?= $result->parent_type==3 ? 'checked': FALSE; ?> disabled>
+										</label>
+									</div>
+									<div class="col-md-4">
+										<label class="container-checkbox">Teacher
+										  <input type="radio" name="parent_type" id="parent_type" <?= $result->parent_type==4 ? 'checked': FALSE; ?> disabled>
 										</label>
 									</div>
 								</div>
