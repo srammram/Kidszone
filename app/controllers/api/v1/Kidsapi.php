@@ -392,8 +392,10 @@ class Kidsapi extends REST_Controller {
 		$this->form_validation->set_rules('father_name', $this->lang->line("father_name"), 'required');
 		$this->form_validation->set_rules('phone_number', $this->lang->line("phone_number"), 'required');
 		$this->form_validation->set_rules('email', $this->lang->line("email"), 'required');*/
-		
-		//if ($this->form_validation->run() == true) {
+
+		$this->form_validation->set_rules('lang_sel', $this->lang->line("lang_sel"), 'required');
+
+		if ($this->form_validation->run() == true) {
 
 				$data = array(
 					'parent_type' => $this->input->post('parent_type'),
@@ -409,6 +411,7 @@ class Kidsapi extends REST_Controller {
 					'kid_name5' => $this->input->post('kid_name5'),
 					'kid_name6' => $this->input->post('kid_name6'),
 					'teacher_name' => $this->input->post('teacher_name'),
+					'lang_sel' => $this->input->post('lang_sel'),
 					'no_of_kids' => $this->input->post('no_of_kids'),
 					'reg_date' => date('Y-m-d H:i:s', strtotime($this->input->post('reg_date'))),
 					'accept' => $this->input->post('accept') ? 1 : 0,
@@ -478,17 +481,17 @@ class Kidsapi extends REST_Controller {
 
 				$res = $this->kids_api->insertRegister($data);
 				if($res == TRUE){
-					$result = array( 'status'=> 1, 'message'=> 'Register Success');
+					$result = array( 'status'=> 1, 'message_eng'=> 'Register Success', 'message_khmer'=> 'ចុះឈ្មោះបានដោយជោគជ័យ');
 				}else{
-					$result = array( 'status'=> 0, 'message'=> 'Not Register');
+					$result = array( 'status'=> 0, 'message_eng'=> 'Not Register', 'message_khmer'=> 'មិនត្រូវបានចុះឈ្មោះ');
 				}
-		/*} else {
+		} else {
 			$error = $this->form_validation->error_array();
 			 foreach($error as $key => $val){
 				 $errors[] = $val;
 			 }
 			 $result = array( 'status'=> 0 , 'message' => $errors[0]);
-		}*/
+		}
 		$this->response($result);
 
 	}
@@ -586,7 +589,9 @@ class Kidsapi extends REST_Controller {
 
 	public function safety_message_get(){
 
-		$data = $this->kids_api->getSafetyMessageList();
+		$lang = $_GET['lang'];
+
+		$data = $this->kids_api->getSafetyMessageList($lang);
 		
 		if(!empty($data)){
 			$result = array( 'status'=> 1, 'message'=> 'Success', 'data' => $data);
