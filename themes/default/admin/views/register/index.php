@@ -74,6 +74,12 @@
 	.lt{table-layout: fixed;}
 	.table-responsive{overflow: auto;}
 	.dataTables_wrapper .table-bordered{white-space: nowrap;}
+	.dataTables_wrapper .table-bordered tbody tr td{text-align: center;}
+	@media print{
+		@page{margin: 0px;padding: 0px;}
+		table thead tr th:last-child{border: none;}
+		table tbody tr td:last-child{border: none;}
+	}
 	
 /*
 	@media print{
@@ -154,7 +160,7 @@
                 
                 <div class="table-responsive" id="print-content">
                     <table id="UsrTable" cellpadding="0" cellspacing="0" border="1"
-                           class="table table-bordered table-hover table-striped">
+                           class="table table-bordered table-hover table-striped" style="text-align: center;white-space: nowrap;font-size: 14px;">
                         <thead>
                         <tr>
                         	<th><?php echo lang('S.No'); ?></th>
@@ -176,7 +182,7 @@
                             <th><?php echo lang('kid_name6'); ?></th>                            
                             <th><?php echo lang('no_of_kids'); ?></th>
                             <th><?php echo lang('reg_date'); ?></th>
-                            <th id="action_div"><?php echo lang('actions'); ?></th>
+                            <th bordercolor="#fff" id="action_div"><?php echo lang('actions'); ?></th>
                         </tr>
                         </thead>
                         <tbody>

@@ -35,16 +35,19 @@
     -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
     transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
 }
-	.show_hidden1,.show_hidden2,.show_hidden3 {display: none;}
+	.show_hidden1,.show_hidden2,.show_hidden3,.show_hidden4,.show_hidden5,.show_hidden6 {display: none;}
 	.kids_zon_c h4{color: black;}
-	.table-bordered tr td{padding: 8px;}
-	.table-bordered tr td,.table-bordered{border: none;}
+	.table-bordered tr td{padding: 8px;font-size: 13px;}
+	.table-bordered tr td,.table-bordered{border: none;color: #333;}
+	table tbody tr td h3{font-size: 14px;}
 	.table-bordered{margin-bottom: 0px;}
 	.table_dot tr td:first-child::after{position: absolute;right: 0px;content: ':';color: black;top: 0px;}
 	.table_dot tr td:first-child{font-weight: bold;color: #333;}
 	.table_dot tr td:last-child{font-weight: normal;color: #333;}
 	.kidszoona h3,.table-bordered tr td h3{font-size: 18px;}
 	.container-checkbox{font-weight: bold;font-size: 16px;}
+	.kidszon_content ul li,.kidszon_content ol li{font-size: 13px;color: #333;line-height: 25px;}
+	.kidszon_content ul,.kidszon_content ol{padding-left: 30px;list-style: decimal;}
 	
 /*	*/
  
@@ -84,7 +87,7 @@
 
 						</div>
 						<div class="col-md-12 col-xs-12">
-							<h3><?= lang("General information", "General information"); ?></h3>
+							<h3 style="color: #000;"><?= lang("General information", "General information"); ?></h3>
 							<h4 class="text-left">Parent name: (Age over 18 years old)</h4>
 							
 							<table class="table table-bordered table_dot_check" style="table-layout: fixed;">
@@ -107,6 +110,12 @@
 										  <!--<input type="radio" name="parent_type" id="parent_type" <?= $result->parent_type==3 ? 'checked': FALSE; ?> disabled>-->
 										  
 										  <img src="<?=base_url()?>assets/uploads/<?= $result->parent_type==3 ? 'tick.png': 'list.png'; ?>" width="15px"/>
+										</label>
+									</td>
+									<td>
+										<label class="container-checkbox">Teacher
+<!--										  <input type="radio" name="parent_type" id="parent_type" <?= $result->parent_type==4 ? 'checked': FALSE; ?> disabled>-->
+									<img src="<?=base_url()?>assets/uploads/<?= $result->parent_type==4 ? 'tick.png': 'list.png'; ?>" width="15px"/>
 										</label>
 									</td>
 								</tr>
@@ -145,7 +154,7 @@
 									<td><?= $result->email ?></td>
 								</tr>
 								<tr>
-									<td colspan="3"><h3><?= lang("Kids Name", "Kids Name"); ?></h3></td>
+									<td colspan="3"><h3 style="font-size: 16px;color: #000;"><?= lang("Kids Name", "Kids Name"); ?></h3></td>
 								</tr>
 								<tr>
 									<td>Kid Name 1</td>
@@ -183,7 +192,7 @@
 									<td><?= $result->no_of_kids ?></td>
 								</tr>
 								<tr>
-									<td colspan="3"><h3>Image</h3></td>
+									<td colspan="3"><h3 style="font-size: 16px;color: #000;">Image</h3></td>
 								</tr>
 								<tr>
 									<td>Photo</td>
@@ -202,7 +211,7 @@
 									</td>
 								</tr>
 								<tr>
-									<td colspan="3"><h3>Date</h3></td>
+									<td colspan="3"><h3 style="font-size: 16px;color: #000;">Date</h3></td>
 								</tr>
 								<tr>
 									<td>Date</td>

@@ -41,9 +41,9 @@
 							$i =1;
 							foreach($safety_message as $safety) { ?>
 							<div class="col-md-12 kids_zon_c">
-								<h4><?php echo $safety->title; ?> </h4>
+								<h4><span><?php echo $safety->title; ?></span> </h4>
 								<div class="show_hidden<?= $i;?>">
-									<strong>More Details <span>[+]</span></strong>
+									<strong>More Details <span>[-]</span></strong>
 								</div>
 								<ul class="hidden_content<?= $i;?>" xstyle="display: none;">
 									<?php echo $safety->desc_msg; ?>
@@ -166,7 +166,7 @@ $(document).ready(function() {
   $('.show_hidden1').click(function() {
     $('.hidden_content1').slideToggle("500");
     this.toggle = !this.toggle;
-   $(this).find("span").text(this.toggle ? "[-]" : "[+]");
+   $(this).find("span").text(this.toggle ? "[+]" : "[-]");
    return false;
   });
 });
@@ -174,7 +174,7 @@ $(document).ready(function() {
   $('.show_hidden2').click(function() {
     $('.hidden_content2').slideToggle("500");
     this.toggle = !this.toggle;
-   $(this).find("span").text(this.toggle ? "[-]" : "[+]");
+   $(this).find("span").text(this.toggle ? "[+]" : "[-]");
    return false;
   });
 });
@@ -182,7 +182,7 @@ $(document).ready(function() {
   $('.show_hidden3').click(function() {
     $('.hidden_content3').slideToggle("500");
     this.toggle = !this.toggle;
-   $(this).find("span").text(this.toggle ? "[-]" : "[+]");
+   $(this).find("span").text(this.toggle ? "[+]" : "[-]");
    return false;
   });
 });
