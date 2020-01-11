@@ -88,7 +88,7 @@
 						</div>
 						<div class="col-md-12 col-xs-12">
 							<h3 style="color: #000;"><?= lang("General information", "General information"); ?></h3>
-							<h4 class="text-left">Parent name: (Age over 18 years old)</h4>
+							<h4 class="text-left" style="font-size: 14px;padding-left: 9px;">Parent name: (Age over 18 years old)</h4>
 							
 							<table class="table table-bordered table_dot_check" style="table-layout: fixed;">
 							
@@ -154,7 +154,7 @@
 									<td><?= $result->email ?></td>
 								</tr>
 								<tr>
-									<td colspan="3"><h3 style="font-size: 16px;color: #000;"><?= lang("Kids Name", "Kids Name"); ?></h3></td>
+									<td colspan="3"><h3 style="font-size: 18px;color: #000;"><?= lang("Kids Name", "Kids Name"); ?></h3></td>
 								</tr>
 								<tr>
 									<td>Kid Name 1</td>
@@ -192,7 +192,7 @@
 									<td><?= $result->no_of_kids ?></td>
 								</tr>
 								<tr>
-									<td colspan="3"><h3 style="font-size: 16px;color: #000;">Image</h3></td>
+									<td colspan="3"><h3 style="font-size: 18px;color: #000;">Image</h3></td>
 								</tr>
 								<tr>
 									<td>Photo</td>
@@ -211,7 +211,7 @@
 									</td>
 								</tr>
 								<tr>
-									<td colspan="3"><h3 style="font-size: 16px;color: #000;">Date</h3></td>
+									<td colspan="3"><h3 style="font-size: 18px;color: #000;">Date</h3></td>
 								</tr>
 								<tr>
 									<td>Date</td>
