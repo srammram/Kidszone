@@ -93,7 +93,9 @@ class Register_model extends CI_Model
 	
 	function getAllSafetyMessage(){
 
+		$this->db->limit(3);
 		$q = $this->db->get('safety_message');
+
 		if($q->num_rows()>0){
 			foreach (($q->result()) as $row) {
                 $data[] = $row;
