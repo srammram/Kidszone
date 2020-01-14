@@ -216,7 +216,7 @@
 								<tr>
 									<td>Date</td>
 									<td>:</td>
-									<td><?= date('d/m/Y h:i', strtotime($result->created_on)) ?></td>
+									<td><?= date('d/m/Y H:i', strtotime($result->created_on)) ?></td>
 								</tr>
 								<tr>
 									<td colspan="3">
