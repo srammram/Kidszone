@@ -52,6 +52,7 @@
                 $("td:first", nRow).html(index);
 				pendingCount = oTable.fnSettings().fnRecordsTotal();
 				$('#pendingCount').text(pendingCount);
+                $('#print-pendingCount').text(pendingCount);
 
                 return nRow;
             },
@@ -159,9 +160,26 @@
             	<!--a href="<?//= admin_url('farmer/add_farmer'); ?>"><button type="button" class="btn btn-primary pull-right"><i class="fa fa-plus-circle"></i> <?//= lang("add_farmer"); ?></button></a>-->
                 
                 <div class="table-responsive" id="print-content">
-                    <table id="UsrTable" cellpadding="0" cellspacing="0" border="1"
-                           class="table table-bordered table-hover table-striped" style="text-align: center;white-space: nowrap;font-size: 14px;">
+
+                    <table cellpadding="0" cellspacing="0" border="0" width="100%" class="table table-bordered table-hover table-striped" style="text-align: center;white-space: nowrap;font-size: 14px;" id="pdf-header">
+                        <tr>
+                            <td colspan="3" align="center">
+                                <div>
+                                <img src="<?= base_url(); ?>assets/uploads/logos/logo.jpg" alt="logo inner" class="center-block">
+                                <h5>REGISTER LIST</h5>
+                                </div>
+                            </td>              
+                        </tr>
+                        <tr>
+                            <td align="left"><b>Start date</b>: <?= $_GET['sdate'] ?></td>
+                            <td align="left"><b>End date</b>: <?= $_GET['edate'] ?></td>                            
+                            <td align="left"><b>Total count</b>: <span id="print-pendingCount"></span></td>
+                        </tr>
+                    </table>
+
+                    <table id="UsrTable" cellpadding="0" cellspacing="0" border="1" class="table table-bordered table-hover table-striped" style="text-align: center;white-space: nowrap;font-size: 14px;">
                         <thead>
+
                         <tr>
                         	<th><?php echo lang('S.No'); ?></th>
                             <!--<th style="min-width:30px; width: 30px; text-align: center;">
@@ -341,6 +359,8 @@ $(function() {
 </script>
 
 <script type="text/javascript">
+
+document.getElementById('pdf-header').style.visibility = 'hidden';
     function printDiv(divName) {
 
         document.getElementById('UsrTable_info').style.visibility = 'hidden';
@@ -348,6 +368,8 @@ $(function() {
         document.getElementById('UsrTable_filter').style.visibility = 'hidden';
         document.getElementById('action_div').style.visibility = 'hidden';
         document.getElementsByClassName("pagination pagination-sm")[0].style.visibility = 'hidden';
+
+        document.getElementById('pdf-header').style.visibility = 'visible';
 
         var printContents = document.getElementById(divName).innerHTML;
         w=window.open();
@@ -360,6 +382,9 @@ $(function() {
         document.getElementById('UsrTable_filter').style.visibility = 'visible';
         document.getElementById('action_div').style.visibility = 'visible';
         document.getElementsByClassName("pagination pagination-sm")[0].style.visibility = 'visible';
+
+
+        document.getElementById('pdf-header').style.visibility = 'hidden';
     }
 </script>
 
