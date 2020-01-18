@@ -1168,7 +1168,7 @@ class Kids_api extends CI_Model
 		{
 			$lang = 1;
 		}
-		else if($lang=="kh"){
+		else if($lang=="km"){
 			$lang = 2;
 		}
 
