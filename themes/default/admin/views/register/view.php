@@ -147,7 +147,7 @@
 							<div class="form-group col-md-12">
 								<label class="label_green"></label>
 								<div class="clear"></div>
-								<input type="text" class="form-control" value="<?= date('d/m/Y H:i', strtotime($result->created_on)) ?>" required readonly>
+								<input type="text" class="form-control" value="<?= date('d/m/Y H:i:s', strtotime($result->created_on)) ?>" required readonly>
 							</div>
 							<div class="form-group col-md-12">
 								<label class="label_green"></label>
