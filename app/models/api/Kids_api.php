@@ -1135,7 +1135,7 @@ class Kids_api extends CI_Model
 	}
 
 
-	function getSafetyMessageList() {
+	/*function getSafetyMessageList() {
 
 		$q = $this->db->select('*')->group_by('lang')->get('safety_message');
 
@@ -1160,7 +1160,36 @@ class Kids_api extends CI_Model
 		}
 
 		return false;
+	}*/
+
+	function getSafetyMessageList($lang) {
+
+		if($lang=="en")
+		{
+			$lang = 1;
+		}
+		else if($lang=="kh"){
+			$lang = 2;
+		}
+
+		$q = $this->db->select('*')->where('lang', $lang)->get('safety_message');
+
+		foreach($q->result() as $row) {
+
+			$data[] = array(
+				'title' => $row->title,
+				'desc_msg' => $row->desc_msg
+			);
+
+		}
+
+		if($data) {
+			return $data;
+		}
+
+		return false;
 	}
+
 
 	function insertRegister($data){
 
