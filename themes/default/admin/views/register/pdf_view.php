@@ -387,7 +387,7 @@
 									<td colspan="3"><h3 style="font-size: 18px;color: #000;">កាលបរិច្ឆទ</h3></td>
 								</tr>
 								<tr>
-									<td colspan="2">Date</td>
+									<td colspan="2">កាលបរិច្ឆទ</td>
 									<td>:</td>
 									<td><?= date('d/m/Y H:i:s', strtotime($result->created_on)) ?></td>
 								</tr>
