@@ -4,7 +4,9 @@
 <script src="<?= $assets ?>js/jquery.mCustomScrollbar.concat.min.js"></script>
 <p><a href="<?= admin_url('register/pdf_view_register/'.$result->id.''); ?>" class="pull-right"><i class="fa fa-file-pdf-o" aria-hidden="true"></i></a></p>
 <style>
-	@media print{}
+	@media print{
+		.print_break{page-break-after: always;}
+	}
 /*.kidszon_content ul p{position: relative;float: left;padding-left: 30px;}	*/
 .kidszon_content ul p::before {
     content: '';
@@ -111,7 +113,7 @@
 									</td>
 								</tr>
 							</table>
-							<table class="table table-bordered table_dot" style="table-layout: fixed;">
+							<table class="table table-bordered table_dot print_break" style="table-layout: fixed;">
 								<tr>
 									<td>Father Name</td>
 									<td>:</td>
@@ -177,23 +179,25 @@
 									<td>:</td>
 									<td><?= $result->kid_name6 ?></td>
 								</tr>
-								<tr>
+								<tr >
 									<td>No of kids</td>
 									<td>:</td>
 									<td><?= $result->no_of_kids ?></td>
 								</tr>
+								</table>
+								<table class="table table-bordered" style="table-layout: fixed;">
 								<tr>
 									<td colspan="3"><h3 style="font-size: 18px;color: #000;">Image</h3></td>
 								</tr>
 								<tr>
-									<td>Photo</td>
+									<td colspan="2">Photo</td>
 									<td>:</td>
 									<td>
 										<img src="<?=base_url()?>assets/uploads/<?= !empty($result->photo) ? $result->photo : 'no_image.jpg'; ?>" border="0" disabled width="100" height="100" />
 									</td>
 								</tr>
 								<tr>
-									<td>
+									<td colspan="2">
 										Signature
 									</td>
 									<td>:</td>
@@ -205,7 +209,7 @@
 									<td colspan="3"><h3 style="font-size: 18px;color: #000;">Date</h3></td>
 								</tr>
 								<tr>
-									<td>Date</td>
+									<td colspan="2">Date</td>
 									<td>:</td>
 									<td><?= date('d/m/Y H:i:s', strtotime($result->created_on)) ?></td>
 								</tr>
@@ -258,7 +262,7 @@
 
 						</div>
 						<div class="col-md-12 col-xs-12">
-							<h3><?= lang("General information", "General information"); ?></h3>
+							<h3 style="font-size: 18px;color: #000;">ពត៌មានទូទៅ</h3>
 							<h4 class="text-left" style="font-size: 14px;padding-left: 9px;">ឈ្មោះឪពុក ម្ដាយ  : (អាយុចាប់ពី១៨ឆ្នាំឡើងទៅ)</h4>
 
 							<table class="table table-bordered table_dot_check" style="table-layout: fixed;">
@@ -287,7 +291,7 @@
 							</table>
 
 
-							<table class="table table-bordered table_dot" style="table-layout: fixed;">
+							<table class="table table-bordered table_dot print_break" style="table-layout: fixed;">
 								<tr>
 									<td>ឈ្មោះឪពុក</td>
 									<td>:</td>
@@ -321,7 +325,7 @@
 									<td><?= $result->email ?></td>
 								</tr>
 								<tr>
-									<td colspan="3"><h3 style="font-size: 18px;color: #000;"><?= lang("Kids Name", "Kids Name"); ?></h3></td>
+									<td colspan="3"><h3 style="font-size: 18px;color: #000;">ឈ្មោះក្មេង</h3></td>
 								</tr>
 								<tr>
 									<td>ឈ្មោះក្មេង 1</td>
@@ -358,18 +362,20 @@
 									<td>:</td>
 									<td><?= $result->no_of_kids ?></td>
 								</tr>
+							</table>
+							<table class="table table-bordered" style="table-layout: fixed;">
 								<tr>
-									<td colspan="3"><h3 style="font-size: 18px;color: #000;">Image</h3></td>
+									<td colspan="3"><h3 style="font-size: 18px;color: #000;">រូបភាព</h3></td>
 								</tr>
 								<tr>
-									<td>រូបអតិថិជន</td>
+									<td  colspan="2">រូបអតិថិជន</td>
 									<td>:</td>
 									<td>
 										<img src="<?=base_url()?>assets/uploads/<?= !empty($result->photo) ? $result->photo : 'no_image.jpg'; ?>" border="0" disabled width="100" height="100" />
 									</td>
 								</tr>
 								<tr>
-									<td>
+									<td colspan="2">
 									ហត្ថាលេខា
 									</td>
 									<td>:</td>
@@ -378,10 +384,10 @@
 									</td>
 								</tr>
 								<tr>
-									<td colspan="3"><h3 style="font-size: 18px;color: #000;">Date</h3></td>
+									<td colspan="3"><h3 style="font-size: 18px;color: #000;">កាលបរិច្ឆទ</h3></td>
 								</tr>
 								<tr>
-									<td>Date</td>
+									<td colspan="2">Date</td>
 									<td>:</td>
 									<td><?= date('d/m/Y H:i:s', strtotime($result->created_on)) ?></td>
 								</tr>
