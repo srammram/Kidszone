@@ -227,13 +227,14 @@ class Register extends MY_Controller
 		$result = $this->register_model->getRegisterByID($id);
 
 		$this->data['result'] = $result;
-		$this->data['safety_message'] = $this->register_model->getAllSafetyMessage();
+		$this->data['safety_message_english'] = $this->register_model->getSafetyMessageEnglish();
+		$this->data['safety_message_khmer'] = $this->register_model->getSafetyMessageKhmer();
 					
 		$bc = array(array('link' => base_url(), 'page' => lang('home')), array('link' => admin_url('register/index'), 'page' => lang('register')), array('link' => '#', 'page' => lang('view_register')));
 		$meta = array('page_title' => lang('view_register'), 'bc' => $bc);
 		
 		$this->data['id'] = $id;
-		 $this->page_construct('register/view', $meta, $this->data);
+		$this->page_construct('register/view', $meta, $this->data);
         
 	}
 	
@@ -243,7 +244,8 @@ class Register extends MY_Controller
 		$result = $this->register_model->getRegisterByID($id);
 
 		$this->data['result'] = $result;
-		$this->data['safety_message'] = $this->register_model->getAllSafetyMessage();
+		$this->data['safety_message_english'] = $this->register_model->getSafetyMessageEnglish();
+		$this->data['safety_message_khmer'] = $this->register_model->getSafetyMessageKhmer();
 					
 		$bc = array(array('link' => base_url(), 'page' => lang('home')), array('link' => admin_url('register/index'), 'page' => lang('register')), array('link' => '#', 'page' => lang('view_register')));
 		$meta = array('page_title' => lang('view_register'), 'bc' => $bc);

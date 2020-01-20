@@ -91,9 +91,23 @@ class Register_model extends CI_Model
 
 
 	
-	function getAllSafetyMessage(){
+	function getSafetyMessageEnglish(){
 
 		$this->db->limit(3);
+		$q = $this->db->get('safety_message');
+
+		if($q->num_rows()>0){
+			foreach (($q->result()) as $row) {
+                $data[] = $row;
+            }
+			return $data;
+		}
+		return false;
+	}
+
+	function getSafetyMessageKhmer(){
+
+		$this->db->limit(6,3);
 		$q = $this->db->get('safety_message');
 
 		if($q->num_rows()>0){
