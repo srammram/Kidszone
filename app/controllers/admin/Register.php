@@ -83,7 +83,7 @@ class Register extends MY_Controller
 			{$this->db->dbprefix('register')}.kid_name5, 
 			{$this->db->dbprefix('register')}.kid_name6, 			
 			{$this->db->dbprefix('register')}.no_of_kids, 
-			date_format({$this->db->dbprefix('register')}.created_on,'%d/%m/%Y %T')			
+			date_format({$this->db->dbprefix('register')}.created_on,'%d/%m/%Y,%T')			
 			")
             ->from("register");
 

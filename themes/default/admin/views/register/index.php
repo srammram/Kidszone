@@ -26,6 +26,9 @@
         else if(type==3){
             type = 'Others';
         }
+        else if(type==4){
+            type = 'Teacher';
+        }
 
         return type;
     }
