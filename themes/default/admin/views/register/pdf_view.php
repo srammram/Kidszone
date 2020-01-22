@@ -172,7 +172,7 @@
 								<tr>
 									<td>Kid Name 5</td>
 									<td>:</td>
-									<td><?= $result->kid_name4 ?></td>
+									<td><?= $result->kid_name5 ?></td>
 								</tr>
 								<tr>
 									<td>Kid Name 6</td>
@@ -350,7 +350,7 @@
 								<tr>
 									<td>ឈ្មោះក្មេង 5</td>
 									<td>:</td>
-									<td><?= $result->kid_name4 ?></td>
+									<td><?= $result->kid_name5 ?></td>
 								</tr>
 								<tr>
 									<td>ឈ្មោះក្មេង 6</td>
