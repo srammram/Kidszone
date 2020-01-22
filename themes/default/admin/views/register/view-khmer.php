@@ -171,7 +171,7 @@
 									<img  src="<?=base_url()?>assets/uploads/<?= !empty($result->photo) ? $result->photo : 'no_image.jpg'; ?>" border="0" disabled width="100" height="100" />
 								</div>
 								<div class="form-group col-md-6">
-									<label class="label_green">ហត្ថាលេខា</label>
+									<label class="label_green">ហត្ថលេខា</label>
 									<div class="clear"></div>			
 									<img src="<?=base_url()?>assets/uploads/<?= !empty($result->signature) ? $result->signature : 'no_image.jpg'; ?>" border="0" disabled width="100" height="100" />
 								</div>
