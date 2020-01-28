@@ -413,6 +413,8 @@ class Kidsapi extends REST_Controller {
 					'teacher_name' => $this->input->post('teacher_name'),
 					'lang_sel' => $this->input->post('lang_sel'),
 					'no_of_kids' => $this->input->post('no_of_kids'),
+					'no_of_students' => $this->input->post('no_of_students'),
+					'device_type' => $this->input->post('device_type'),
 					'reg_date' => date('Y-m-d H:i:s', strtotime($this->input->post('reg_date'))),
 					'accept' => $this->input->post('accept') ? 1 : 0,
 					'status' => 1,
