@@ -1,0 +1,3 @@
+ALTER TABLE `kidzooona_register` ADD `no_of_students` INT NOT NULL AFTER `no_of_kids`;
+
+ALTER TABLE `kidzooona_register` ADD `device_type` ENUM('A','I') NULL AFTER `lang_sel`;

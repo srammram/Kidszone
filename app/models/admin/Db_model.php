@@ -273,9 +273,9 @@ class Db_model extends CI_Model
 
 	function getRegisteTotalCount($para) {
 
-        $where_month = "YEAR(reg_date) = YEAR(NOW()) AND MONTH(reg_date) = MONTH(NOW())";
-        $where_year = "YEAR(reg_date) = YEAR(NOW())";
-
+        $where_month = "YEAR(created_on) = YEAR(NOW()) AND MONTH(created_on) = MONTH(NOW())";
+        $where_year = "YEAR(created_on) = YEAR(NOW())";
+        $where_current_date = "DATE(created_on) = DATE(NOW())";
 
         if($para=="total")
         {
@@ -294,8 +294,15 @@ class Db_model extends CI_Model
             $this->db->from('register');
             $this->db->where($where_year);
         }
+        else if($para=="cur_date")
+        {
+            $this->db->select('*');
+            $this->db->from('register');
+            $this->db->where($where_current_date);
+        }
 
-		$q = $this->db->get();
+        $q = $this->db->get();
+        //print_r($this->db->last_query()); die;
 		return $q->num_rows();
     }
 

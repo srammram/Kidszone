@@ -184,6 +184,11 @@
 									<td>:</td>
 									<td><?= $result->no_of_kids ?></td>
 								</tr>
+								<tr >
+									<td>No of Students</td>
+									<td>:</td>
+									<td><?= $result->no_of_students ?></td>
+								</tr>
 								</table>
 								<table class="table table-bordered" style="table-layout: fixed;">
 								<tr>
@@ -361,6 +366,11 @@
 									<td>ចំនួនក្មេង</td>
 									<td>:</td>
 									<td><?= $result->no_of_kids ?></td>
+								</tr>
+								<tr>
+									<td>ចំនួនសិស្</td>
+									<td>:</td>
+									<td><?= $result->no_of_students ?></td>
 								</tr>
 							</table>
 							<table class="table table-bordered" style="table-layout: fixed;">

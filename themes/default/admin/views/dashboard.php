@@ -63,6 +63,28 @@
 <div class="box">
 <div class="box-content">
 <div class="row">
+
+<div class="col-sm-4">
+	<div class="form_das clr-block clr-block-3">
+		<div class="col-md-8 market-update-left">
+			<h3>Today</h3>
+			<table class="table">
+				<tr>
+					<td>Total Count</td>
+					<td>:</td>
+					<td><?= !empty($register_count_today) ? $register_count_today : '0'; ?></td>
+				</tr>
+			</table>
+		</div>
+		<div class="col-md-4 market-update-right">
+			<i class="fa fa-file-text-o"> </i>
+		</div>
+	  <div class="clearfix"> </div>
+	</div>
+
+  </div>
+
+
 	<div class="col-sm-4">
 	<div class="form_das clr-block clr-block-1">
 		<div class="col-md-8 market-update-left">
@@ -71,7 +93,7 @@
 				<tr>
 					<td><?php echo date('F') ?></td>
 					<td>:</td>
-					<td><?= $register_count_month?></td>
+					<td><?= !empty($register_count_month) ? $register_count_month : '0';?></td>
 				</tr>
 			</table>
 		</div>
@@ -90,7 +112,7 @@
 				<tr>
 					<td><?= date("Y");?></td>
 					<td>:</td>
-					<td><?= $register_count_year?></td>
+					<td><?= !empty($register_count_year) ? $register_count_year : '0'; ?></td>
 				</tr>
 			</table>
 		</div>
@@ -101,7 +123,7 @@
 	</div>
 
   </div>
-  <div class="col-sm-4">
+  <?php /*?><div class="col-sm-4">
 	<div class="form_das clr-block clr-block-3">
 		<div class="col-md-8 market-update-left">
 			<h3>Total</h3>
@@ -119,7 +141,7 @@
 	  <div class="clearfix"> </div>
 	</div>
 
-  </div>
+  </div><?php */?>
 
 </div>
 </div>

@@ -51,6 +51,7 @@ class Welcome extends MY_Controller
         $this->data['register_count'] = $this->db_model->getRegisteTotalCount('total');
         $this->data['register_count_month'] = $this->db_model->getRegisteTotalCount('month');
         $this->data['register_count_year'] = $this->db_model->getRegisteTotalCount('year');
+        $this->data['register_count_today'] = $this->db_model->getRegisteTotalCount('cur_date');
         
         //$this->data['menu'] = $this->site->menuList();
 

@@ -62,7 +62,7 @@
              "aoColumns": [ null, /*{
                 "bSortable": false,
                 "mRender": checkbox
-            },*/ {"mRender": parent_type} , null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ]
+            },*/ {"mRender": parent_type} , null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ]
         });
     });
 </script>
@@ -202,6 +202,7 @@
                             <th><?php echo lang('kid_name5'); ?></th>
                             <th><?php echo lang('kid_name6'); ?></th>                            
                             <th><?php echo lang('no_of_kids'); ?></th>
+                            <th><?php echo lang('no_of_students'); ?></th>
                             <th><?php echo lang('reg_date'); ?></th>
                             <th bordercolor="#fff" id="action_div"><?php echo lang('actions'); ?></th>
                         </tr>

@@ -138,6 +138,10 @@
 												<label class="label_green">No of kids</label>
 												<input type="text" class="form-control" value="<?= $result->no_of_kids ?>" readonly>
 											</div>
+											<div class="form-group col-md-12">
+												<label class="label_green">No of Students</label>
+												<input type="text" class="form-control" value="<?= $result->no_of_students ?>" readonly>
+											</div>
 									<h3>Image</h3>
 										<div class="form-group col-md-6">
 											<label class="label_green">Photo</label>
@@ -282,6 +286,10 @@
 									<div class="form-group col-md-12">
 										<label class="label_green">ចំនួនក្មេង</label>
 										<input type="text" class="form-control" value="<?= $result->no_of_kids ?>" readonly>
+									</div>
+									<div class="form-group col-md-12">
+										<label class="label_green">ចំនួនសិស្</label>
+										<input type="text" class="form-control" value="<?= $result->no_of_students ?>" readonly>
 									</div>
 							<h3>រូបភាព</h3>
 								<div class="form-group col-md-6">
