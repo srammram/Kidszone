@@ -63,7 +63,7 @@
                 echo admin_form_open_multipart("farmer/edit_farmer/".$id, $attrib);
                 ?>
 						<div class="col-md-12 text-center" style="text-align: center;">
-							<img src="<?=base_url()?>assets/uploads/logos/logo.jpg" alt="kidszoona">
+							<img src="<?=base_url()?>assets/uploads/logos/logo.png" alt="kidszoona">
 						</div>
 						<div class="col-md-12 kidszon_content">
 							<h3>Dear all customers</h3>
@@ -244,7 +244,7 @@
                 echo admin_form_open_multipart("farmer/edit_farmer/".$id, $attrib);
                 ?>
 						<div class="col-md-12 text-center" style="text-align: center;">
-							<img src="<?=base_url()?>assets/uploads/logos/logo.jpg" alt="kidszoona">
+							<img src="<?=base_url()?>assets/uploads/logos/logo.png" alt="kidszoona">
 						</div>
 						<div class="col-md-12 kidszon_content">
 							<h3>អតិថិជនទាំងអស់ជាទីគោរព </h3>

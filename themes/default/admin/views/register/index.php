@@ -168,7 +168,7 @@
                         <tr>
                             <td colspan="3" align="center">
                                 <div>
-                                <img src="<?= base_url(); ?>assets/uploads/logos/logo.jpg" alt="logo inner" class="center-block">
+                                <img src="<?= base_url(); ?>assets/uploads/logos/logo.png" alt="logo inner" class="center-block">
                                 <h5>REGISTER LIST</h5>
                                 </div>
                             </td>              
