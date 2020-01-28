@@ -91,6 +91,10 @@
 		#divName table thead tr th,table tbody tr td,table-bordered{border: 1px solid #ccc !important;}
 	}
 */
+
+/*.dataTables_wrapper .table-bordered tbody tr td {
+    text-align: left !important;
+}*/
 </style>
 <?php if ($Owner) {
     //echo admin_form_open('incentive/incentive_actions', 'id="action-form"');
@@ -195,7 +199,7 @@
                         </tr>
                     </table>
 
-                    <table id="UsrTable" cellpadding="0" cellspacing="0" border="1" class="table table-bordered table-hover table-striped" style="text-align: center;white-space: nowrap;font-size: 14px;">
+                    <table id="UsrTable" cellpadding="0" cellspacing="0" border="1" class="table table-bordered table-hover table-striped" style="text-left: center;white-space: nowrap;font-size: 14px;">
                         <thead>
 
                         <tr>
