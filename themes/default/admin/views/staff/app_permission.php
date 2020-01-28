@@ -58,10 +58,10 @@
                       <td class="text-center"></td>
                       <td class="text-center"></td>
                       <td class="text-center">
-                          <input type="checkbox" value="1" class="checkbox" name="register-index_pdf" <?php echo $p->{'register-index_pdf'} ? "checked" : ''; ?>>
+                          <input type="checkbox" value="1" class="checkbox" name="register-index_excel" <?php echo $p->{'register-index_excel'} ? "checked" : ''; ?>>
                       </td>
                       <td class="text-center">
-                          <input type="checkbox" value="1" class="checkbox" name="register-index_excel" <?php echo $p->{'register-index_excel'} ? "checked" : ''; ?>>
+                          <input type="checkbox" value="1" class="checkbox" name="register-index_pdf" <?php echo $p->{'register-index_pdf'} ? "checked" : ''; ?>>
                       </td>
                   </tr>
                   <tr>
