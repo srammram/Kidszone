@@ -18,11 +18,11 @@
 							</div>
 							<div class="form-group">
 								<label class="label_green">Password</label>
-								<input type="text" class="form-control" name="password" id="password" required >
+								<input type="password" class="form-control" name="password" id="password" required >
 							</div>
 							<div class="form-group">
 								<label class="label_green">Confirm Password</label>
-								<input type="text" class="form-control" name="confirm_password" id="confirm_password" required >
+								<input type="password" class="form-control" name="confirm_password" id="confirm_password" required >
 							</div>
 						</div>
 					</div>

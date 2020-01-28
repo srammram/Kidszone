@@ -21,11 +21,11 @@
 
 							<div class="form-group">
 								<label class="label_green">Password</label>
-								<input type="text" class="form-control" name="password" id="password" >
+								<input type="password" class="form-control" name="password" id="password" >
 							</div>
 							<div class="form-group">
 								<label class="label_green">Confirm Password</label>
-								<input type="text" class="form-control" name="confirm_password" id="confirm_password" >
+								<input type="password" class="form-control" name="confirm_password" id="confirm_password" >
 							</div>
 
 						</div>

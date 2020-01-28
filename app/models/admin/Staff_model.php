@@ -145,17 +145,10 @@ class Staff_model extends CI_Model
     }
 
 
-	function update_staff($id,$data, $address_array, $access_array){
-		
-		$this->db->delete('user_access', array('user_id' => $id));
-		$this->db->delete('user_address', array('user_id' => $id));
+	function update_staff($id,$data){		
+;
 		$this->db->where('id',$id);
 		if($this->db->update('users',$data)){
-			
-			$address_array['user_id'] = $id;
-			$access_array['user_id'] = $id;
-			$this->db->insert('user_access', $access_array);
-			$this->db->insert('user_address', $address_array);
 	    	return true;
 		}
 		return false;
