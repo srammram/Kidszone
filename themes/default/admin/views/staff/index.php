@@ -44,7 +44,8 @@
                 $("td:first", nRow).html(index);
                 return nRow;
             },
-             "aoColumns": [  null, null,null, null, {"mRender": mobile_status}, null, null, null,  {"mRender": active_status},  {"bSortable": true}]
+             "aoColumns": [ null, null, null, null, null, null, {"mRender": active_status},  {"bSortable": true}]
+
         });
     });
 </script>
@@ -119,8 +120,6 @@
                             <th class="col-xs-2"><?php echo lang('last_name'); ?></th>
                             <th class="col-xs-2"><?php echo lang('phone'); ?></th>
                             <th class="col-xs-2"><?php echo lang('email'); ?></th>
-                            <th class="col-xs-2"><?php echo lang('role'); ?></th>
-                            <th class="col-xs-3"><?php echo lang('created_date'); ?></th>
                             <th style="width:100px;"><?php echo lang('status'); ?></th>
                             <th style="width:80px;"><?php echo lang('actions'); ?></th>
                         </tr>

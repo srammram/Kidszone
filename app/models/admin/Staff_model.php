@@ -9,7 +9,7 @@ class Staff_model extends CI_Model
     }
 	
 	
-	function get_username($username) {
+	function get_username_old($username) {
 
 		$this->db->select('username')->from('users')->where('username', $username);
 		
@@ -31,19 +31,52 @@ class Staff_model extends CI_Model
 		//return $this->db->last_query();
 
 	}
+
+	function get_username($un, $id=NULL) {
+
+		//return $id;
+
+		if(!$id) {
+			$this->db->select('username')
+			->from('users')
+			->where('username', $un);
+		}
+		else
+		{
+			$this->db->select('username')
+			->from('users')
+			->where(array('username = ' => $un,'id!=' => $id));
+		}
+
+		$q = $this->db->get();
+		//print_r($this->db->last_query());die;
+		if($q->num_rows()>0) {
+			//return true;
+			return json_encode(array(
+				'valid' => false,
+			));
+		}
+		else {
+			//return false;
+			return json_encode(array(
+				'valid' => true,
+			));
+		}
+
+		//return $this->db->last_query();
+
+	}
+
 	
-	function add_staff($data, $address_array, $access_array){
+	function add_staff($data){
 		
 		$this->db->insert('users', $data);//print_r($this->db->last_query());die;
         if($id = $this->db->insert_id()){
-			$address_array['user_id'] = $id;
-			$access_array['user_id'] = $id;
-			$this->db->insert('user_access', $access_array);
-			$this->db->insert('user_address', $address_array);
 	    	return true;
 		}
 		return false;
-    }
+	}
+
 	function getAppPermission($id){
 		$this->db->select('*');
 		$this->db->where('user_id', $id);
@@ -68,27 +101,22 @@ class Staff_model extends CI_Model
     }
 
 
-	function app_permission_staff($id, $data, $web_data, $web_result){
+	function web_permission_staff($id, $web_data){
 
-		
-		//$this->db->delete('user_access', array('user_id' => $id));
 		$this->db->select('*');
-		$this->db->where('user_id',$id);
-		$q = $this->db->get('app_permission');
-		if($q->num_rows()>0){
-			$this->db->where('user_id',$id);
-			$this->db->update('app_permission', $data);
+		$this->db->where('user_id', $id);
+		$q = $this->db->get('web_permissions');
 
-			// Web
-			$this->insert_web_permission($web_data, $web_result);
+		if($q->num_rows()>0) {
+
+			$this->db->where('user_id', $id);
+			$this->db->update('web_permissions', $web_data);
 			return true;
 
 		}else{
 			$data['user_id'] = $id;
-			$this->db->insert('app_permission', $data);
+			$this->db->insert('web_permissions', $web_data);
 
-			// Web
-			$this->insert_web_permission($web_data, $web_result);
 			return true;
 		}
 		return false;

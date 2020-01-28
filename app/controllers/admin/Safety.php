@@ -29,6 +29,8 @@ class Safety extends MY_Controller
 
     function index($action=false){
 
+		$this->site->webPermission($this->session->userdata('user_id'), 'safety', 'index');
+
         $this->data['error'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('error');
         $this->data['action'] = $action;
 		
@@ -131,6 +133,7 @@ class Safety extends MY_Controller
 	
     function safety_edit($id){
 
+		$this->site->webPermission($this->session->userdata('user_id'), 'safety', 'safety_edit');
 		$result = $this->safety_model->getSafetyByID($id);
 
 		if($this->input->post('safety_edit')){

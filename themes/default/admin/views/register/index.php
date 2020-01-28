@@ -106,21 +106,36 @@
 <div class="box-header">
         <h2 class="blue"><i class="fa-fw fa fa-users"></i><?= lang('Register'); ?></h2>
 
+
+        <?php 
+        if($this->data['menu']->{'register-index_excel'}==1 || 
+        $this->data['menu']->{'register-index_excel'}=="" || 
+        $this->data['menu']->{'register-index_pdf'}==1 || 
+        $this->data['menu']->{'register-index_pdf'}==""
+        ) { ?>
+
         <div class="box-icon">
             <ul class="btn-tasks">
                 <li class="dropdown">
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#"><i class="icon fa fa-tasks tip" data-placement="left" title="<?= lang("actions") ?>"></i></a>
                     <ul class="dropdown-menu pull-right tasks-menus" role="menu" aria-labelledby="dLabel">
                         <!--<li><a href="#" id="excel" data-action="export_excel"><i class="fa fa-file-excel-o"></i> <?= lang('export_to_excel') ?></a></li>-->
-
-
                         
-                        <li><a href="javascript:void(0)" id="xls"><i class="fa fa-file-pdf-o"></i> <?= lang('export_to_excel') ?></a></li>
-                        <li><a href="javascript:void(0)" onclick="printDiv('print-content')"><i class="fa fa-file-pdf-o"></i> <?= lang('print_pdf') ?></a></li>
+                        <?php if($this->data['menu']->{'register-index_excel'}==1 || $this->data['menu']->{'register-index_excel'}=="") { ?>
+                            <li><a href="javascript:void(0)" id="xls"><i class="fa fa-file-pdf-o"></i> <?= lang('export_to_excel') ?></a></li>
+                        <?php } ?>
+
+
+                        <?php if($this->data['menu']->{'register-index_pdf'}==1 || $this->data['menu']->{'register-index_pdf'}=="") { ?>
+                            <li><a href="javascript:void(0)" onclick="printDiv('print-content')"><i class="fa fa-file-pdf-o"></i> <?= lang('print_pdf') ?></a></li>
+                        <?php } ?>
+
                     </ul>
                 </li>
             </ul>
         </div>
+        <?php } ?>
+
     </div>
     <div class="box-content">    
         <div class="row">

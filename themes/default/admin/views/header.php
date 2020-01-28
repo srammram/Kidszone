@@ -123,7 +123,7 @@
                 <div class="sidebar-nav nav-collapse collapse navbar-collapse" id="sidebar_menu">
                     <ul class="nav main-menu">
                        <li class="logo_img_s">
-                       	<img src="<?= base_url(); ?>assets/uploads/logos/logo.jpg" alt="logo inner" class="center-block">
+                       	<img src="<?= base_url(); ?>assets/uploads/logos/logo.png" alt="logo inner" class="center-block">
                        </li>
                         <li class="mm_welcome active">
                             <a href="<?= admin_url() ?>">
@@ -173,6 +173,29 @@
                                     </li>-->
                                 </ul>
                             </li>
+
+                            <li class="mm_contract">
+                                <a class="dropmenu" href="#">
+                                    <i class="fa fa-star"></i>
+                                    <span class="text"> People </span>
+                                    <span class="chevron closed"></span>
+                                </a>
+                                <ul>
+                                    <li id="contract_index">
+                                        <a class="submenu" href="<?= admin_url('staff'); ?>">
+                                           <i class="fa fa-star"></i>
+                                            <span class="text"> Staff list</span>
+                                        </a>
+                                    </li>
+                                    <li id="contract_add">
+                                        <a class="submenu" href="<?= admin_url('staff/add_staff'); ?>">
+                                           <i class="fa fa-star"></i>
+                                            <span class="text"> Staff Add</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
                             
                             <?php if ($Owner1 || $Admin1) { ?>
                                 <li class="mm_system_settings" >

@@ -30,6 +30,8 @@ class Register extends MY_Controller
 
     function index($action=false){
 
+		$this->site->webPermission($this->session->userdata('user_id'), 'register', 'index');
+
         $this->data['error'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('error');
         $this->data['action'] = $action;		
 
@@ -38,7 +40,7 @@ class Register extends MY_Controller
 		
         $this->page_construct('register/index', $meta, $this->data);
 	}
-	
+
     function pdf($action=false){
 
         $this->data['error'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('error');
@@ -57,7 +59,6 @@ class Register extends MY_Controller
 
     }
 
-	
     function getRegister(){
 		
 		$sdate = $_GET['sdate'];
@@ -113,7 +114,7 @@ class Register extends MY_Controller
 		//echo $this->db->last_query();
 		
     }
-	
+
 	function add_register() {
 
 
@@ -221,10 +222,10 @@ class Register extends MY_Controller
   
         }
     }
-	
+
 	function view_register($id){
 		
-
+		$this->site->webPermission($this->session->userdata('user_id'), 'register', 'view_register');
 		$result = $this->register_model->getRegisterByID($id);
 
 		$this->data['result'] = $result;
@@ -238,10 +239,10 @@ class Register extends MY_Controller
 		$this->page_construct('register/view', $meta, $this->data);
         
 	}
-	
+
 	function pdf_view_register($id){
 		
-
+		$this->site->webPermission($this->session->userdata('user_id'), 'register', 'pdf_view_register');
 		$result = $this->register_model->getRegisterByID($id);
 
 		$this->data['result'] = $result;
@@ -258,10 +259,8 @@ class Register extends MY_Controller
 		 $html = $this->load->view($this->theme . 'register/pdf_view', $this->data, true);
 		 //echo $html; die;
 		 $name = 'register_'.$result->refer_code.'_' . date('Y_m_d_H_i_s');
-		 $this->sma->generate_pdf($html, $name.'.pdf');
-        
+		 $this->sma->generate_pdf($html, $name.'.pdf');        
     }
-
 	
     function edit_farmer($id){
 
@@ -382,7 +381,8 @@ class Register extends MY_Controller
             $this->data['id'] = $id;
 			 $this->page_construct('farmer/edit', $meta, $this->data);
         }
-    }
+	}
+
 	function farmer_status($status,$id){
 
 		$this->site->webPermission($this->session->userdata('user_id'), 'farmer', 'farmer_status');
@@ -394,7 +394,7 @@ class Register extends MY_Controller
         $this->farmer_model->update_farmer_status($data,$id);
 		redirect($_SERVER["HTTP_REFERER"]);
     }
-	
+
 	function getdistrict_byprovince_rep(){
 		$options['rep'] = array();
 		$options['loc'] = array();
@@ -424,7 +424,7 @@ class Register extends MY_Controller
 		
 		echo json_encode($options);exit;
 	}
-	
+
 	function getcommune_bydistrict_rep(){
 		$options['rep'] = array();
 		$options['loc'] = array();
@@ -453,8 +453,7 @@ class Register extends MY_Controller
 		
 		echo json_encode($options);exit;
 	}
-	
-	
+
 	function getvillage_bycommune_rep(){
 		$options['rep'] = array();
 		$options['loc'] = array();
@@ -482,8 +481,7 @@ class Register extends MY_Controller
         }
 		
 		echo json_encode($options);exit;
-	}
-	
+	}	
 
     function register_actions()
     {
