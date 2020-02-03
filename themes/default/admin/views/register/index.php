@@ -62,11 +62,22 @@
              "aoColumns": [ null, /*{
                 "bSortable": false,
                 "mRender": checkbox
-            },*/ {"mRender": parent_type} , null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ]
+            },*/ {"mRender": parent_type} , null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+
+            "aoColumnDefs": [
+                { "sClass": "parentType", "aTargets": [ 1 ] }
+            ],
+
+
         });
     });
 </script>
 <style>
+
+    .parentType{
+        text-align: left !important;
+    }
+
 	.table td:nth-child(6) {
         text-align: right;
         width: 10%;
@@ -75,6 +86,15 @@
     .table td:nth-child(8) {
         text-align: center;
     }
+
+    .table td:nth-child(1) {
+        text-align: left !important;
+    }
+
+
+
+
+
 	.lt{table-layout: fixed;}
 	.table-responsive{overflow: auto;}
 	.dataTables_wrapper .table-bordered{white-space: nowrap;}
@@ -83,8 +103,12 @@
 		@page{margin: 0px;padding: 0px;}
 		table thead tr th:last-child{border: none;}
 		table tbody tr td:last-child{border: none;}
-	}
-	
+	}    
+
+    .table .temp_tbody .parentType {
+        text-align: left !important;
+    }
+
 /*
 	@media print{
 		#divName table thead tr th,table tbody tr td{border: 1px solid #ccc!important;}
@@ -199,7 +223,7 @@
                         </tr>
                     </table>
 
-                    <table id="UsrTable" cellpadding="0" cellspacing="0" border="1" class="table table-bordered table-hover table-striped" style="text-left: center;white-space: nowrap;font-size: 14px;">
+                    <table id="UsrTable" cellpadding="0" cellspacing="0" border="1" class="table table-bordered table-hover table-striped" style="text-align: center !important;white-space: nowrap;font-size: 14px;">
                         <thead>
 
                         <tr>
@@ -226,7 +250,7 @@
                             <th bordercolor="#fff" id="action_div"><?php echo lang('actions'); ?></th>
                         </tr>
                         </thead>
-                        <tbody>
+                        <tbody class="temp_tbody">
                         <tr>
                             <td colspan="8" class="dataTables_empty"><?= lang('loading_data_from_server') ?></td>
                         </tr>
@@ -393,6 +417,7 @@ document.getElementById('pdf-header').style.visibility = 'hidden';
         document.getElementsByClassName("pagination pagination-sm")[0].style.visibility = 'hidden';
 
         document.getElementById('pdf-header').style.visibility = 'visible';
+        $('.parentType').css('text-align','left');
 
         var printContents = document.getElementById(divName).innerHTML;
         w=window.open();
