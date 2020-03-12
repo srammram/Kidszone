@@ -395,9 +395,34 @@ class Kidsapi extends REST_Controller {
 
 		$this->form_validation->set_rules('lang_sel', $this->lang->line("lang_sel"), 'required');
 
+
+
 		if ($this->form_validation->run() == true) {
 
+//$lang = $_GET['lang'];
+
+
+		$data1 = $this->kids_api->getSafetyMessageList($this->input->post('lang_sel'));
+		
+		
+		// $data1arr = split ("\.", $data1); 
+		// var sa1 = $data1arr[0];
+		
+			//$d1 = array('$data1');
+			//$d2 = array_chunk($d1, 1);
+	//print_r(array_chunk($d1, 2));
+	//print_r(array_chunk($d1, 2, true));
+		
+		//$res = $this->kids_api->insertRegister($data);
+//print_r($data1)."@@@@@@@@@@@@@@";die;
+
 				$data = array(
+				
+				//'sm1' = $this->$data1arr[0];
+					'sm1' => json_encode($data1,JSON_UNESCAPED_UNICODE),
+					//'sm2' => json_decode($sm1),
+					//'sm2' => $this->input->post('sm2'),
+					//'sm3' => $this->input->post('sm3'),
 					'parent_type' => $this->input->post('parent_type'),
 					'father_name' => $this->input->post('father_name'),
 					'mother_name' => $this->input->post('mother_name'),

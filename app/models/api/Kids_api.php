@@ -1186,7 +1186,7 @@ class Kids_api extends CI_Model
 		if($data) {
 			return $data;
 		}
-
+//print_r($this->db->last_query());
 		return false;
 	}
 

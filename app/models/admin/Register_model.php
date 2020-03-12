@@ -20,6 +20,12 @@ class Register_model extends CI_Model
 		}
 		return false;
     }
+	//function addsm($data1 ){
+		
+		//$this->db->insert('sm1', $data1);//print_r($this->db->last_query());die;
+       
+		//return false;
+    //}
 	
 	function update_farmer($id,$data, $address_array){		
 
@@ -115,6 +121,21 @@ class Register_model extends CI_Model
                 $data[] = $row;
             }
 			return $data;
+		}
+		return false;
+	}
+
+	function getsm($id){
+		//$id = $this->db->insert_id();
+		
+		$this->db->select('sm1');
+		$this->db->from('register');
+		$this->db->where('id',$id);
+		$q = $this->db->get();
+		//print_r($this->db->last_query());
+		
+		if($q->num_rows()>0){
+			return $q->row();
 		}
 		return false;
 	}

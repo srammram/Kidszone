@@ -398,18 +398,18 @@ class Kidsapi_demo extends REST_Controller {
 		//if ($this->form_validation->run() == true) {
 
 				$data = array(
-					//'parent_type' => $request->parent_type,
+					'parent_type' => $request->parent_type,
 					'father_name' => $request->father_name,
 					'mother_name' => $request->mother_name,
-					//'others_name' => $request->others_name,
+					'others_name' => $request->others_name,
 					'phone_number' => $request->phone_number,
 					'email' => $request->email,
-					/*'kid_name1' => $request->kid_name1,
+					'kid_name1' => $request->kid_name1,
 					'kid_name2' => $request->kid_name2,
 					'kid_name3' => $request->kid_name3,
 					'kid_name4' => $request->kid_name4,
 					'kid_name5' => $request->kid_name5,
-					'kid_name6' => $request->kid_name6,*/
+					'kid_name6' => $request->kid_name6,
 					'reg_date' => date('Y-m-d H:i:s', strtotime($request->reg_date)),
 					'accept' => $request->accept ? 1 : 0,
 					'status' => 1,
@@ -540,12 +540,16 @@ class Kidsapi_demo extends REST_Controller {
 	
 	public function login_post(){
 
-		$this->form_validation->set_rules('username', $this->lang->line("user name"), 'required');
-		$this->form_validation->set_rules('password', $this->lang->line("password"), 'required');
+
+		$postdata = file_get_contents('php://input');
+		$request = json_decode($postdata);
+
+		//$this->form_validation->set_rules('username', $this->lang->line("user name"), 'required');
+		//$this->form_validation->set_rules('password', $this->lang->line("password"), 'required');
 		
-		if ($this->form_validation->run() == true) {
+		//if ($this->form_validation->run() == true) {
 			
-			$res = $this->kids_api->loginReg($this->input->post('username'), $this->input->post('password'));
+			$res = $this->kids_api_demo->loginReg($request->username, $request->password);
 		
 			
 			if($res->status == 1){
@@ -560,13 +564,13 @@ class Kidsapi_demo extends REST_Controller {
 				$result = array( 'status'=> 0, 'message'=> 'Invalid credientials');
 			}
 			
-		} else {
+		/*} else {
 			$error = $this->form_validation->error_array();
 			 foreach($error as $key => $val){
 				 $errors[] = $val;
 			 }
 			 $result = array( 'status'=> 0 , 'message' => $errors[0]);
-		}
+		}*/
 		$this->response($result);
 	}
 

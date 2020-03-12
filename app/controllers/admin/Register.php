@@ -146,6 +146,7 @@ class Register extends MY_Controller
 				'active' => 1,
 				'first_name' => $this->input->post('first_name'),
 				'last_name' => $this->input->post('last_name'),
+				//'lang_sel' => $this->input->post('lang_sel'),
 				'phone' => $this->input->post('phone'),
 				'occupation' => $this->input->post('occupation'),
 				'wife_name' => $this->input->post('wife_name'),
@@ -229,8 +230,9 @@ class Register extends MY_Controller
 		$result = $this->register_model->getRegisterByID($id);
 
 		$this->data['result'] = $result;
-		$this->data['safety_message_english'] = $this->register_model->getSafetyMessageEnglish();
-		$this->data['safety_message_khmer'] = $this->register_model->getSafetyMessageKhmer();
+		//$this->data['safety_message_english'] = $this->register_model->getSafetyMessageEnglish();
+		$this->data['sm'] = $this->register_model->getsm($id);
+		//$this->data['safety_message_khmer'] = $this->register_model->getSafetyMessageKhmer();
 					
 		$bc = array(array('link' => base_url(), 'page' => lang('home')), array('link' => admin_url('register/index'), 'page' => lang('register')), array('link' => '#', 'page' => lang('view_register')));
 		$meta = array('page_title' => lang('view_register'), 'bc' => $bc);
@@ -246,8 +248,9 @@ class Register extends MY_Controller
 		$result = $this->register_model->getRegisterByID($id);
 
 		$this->data['result'] = $result;
-		$this->data['safety_message_english'] = $this->register_model->getSafetyMessageEnglish();
-		$this->data['safety_message_khmer'] = $this->register_model->getSafetyMessageKhmer();
+		$this->data['sm'] = $this->register_model->getsm($id);
+		//$this->data['safety_message_english'] = $this->register_model->getSafetyMessageEnglish();
+		//$this->data['safety_message_khmer'] = $this->register_model->getSafetyMessageKhmer();
 					
 		$bc = array(array('link' => base_url(), 'page' => lang('home')), array('link' => admin_url('register/index'), 'page' => lang('register')), array('link' => '#', 'page' => lang('view_register')));
 		$meta = array('page_title' => lang('view_register'), 'bc' => $bc);

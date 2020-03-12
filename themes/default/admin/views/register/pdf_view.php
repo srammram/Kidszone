@@ -66,15 +66,17 @@
 							<img src="<?=base_url()?>assets/uploads/logos/logo.png" alt="kidszoona">
 						</div>
 						<div class="col-md-12 kidszon_content">
-							<h3>Dear all customers</h3>
-							<p>Here is a place did not have to control the behavior of children.</p>
-							<p><b>For the safety of your child, we must comply with the follow wing our message.</b></p>
+							<p>Regulation apply for get in Kidzooona Zone</p><br>
+									<h3>Dear all customers</h3>
+									<p>Here is a place did not have to control the behavior of children.</p>
+									<p><b>For the safety of your child, we must comply with the follow wing our message.</b></p>
 
 							<?php
 							$i =1;
-							foreach($safety_message_english as $safety) { ?>
+							$obj = json_decode($sm->sm1);
+							foreach($obj as $safety) { ?>
 							<div class="col-md-12 kids_zon_c">
-								<h4><?php echo $safety->title; ?> </h4>
+								<h4><?php echo $safety->title;echo $safety->sm; ?> </h4>
 								<div class="show_hidden<?= $i;?>">
 									<strong>More Details <span>[+]</span></strong>
 								</div>
@@ -235,7 +237,7 @@
 </div>
 <?php } ?>
 
-<?php if($result->lang_sel=="kh") { ?>
+<?php if($result->lang_sel=="km") { ?>
 <div class="box">
   <div class="box-content">
     <div class="row">
@@ -247,15 +249,17 @@
 							<img src="<?=base_url()?>assets/uploads/logos/logo.png" alt="kidszoona">
 						</div>
 						<div class="col-md-12 kidszon_content">
-							<h3>អតិថិជនទាំងអស់ជាទីគោរព </h3>
-							<p> មិនមែនជាទីកន្លែងសំរាប់គ្រប់គ្រងនូវការប្រព្រឹត្ដរបស់កុមារនោះទេការណែនាំ រឺ នីតិវិធី</p>
-							<p><b>ដើម្បីធានានូវសុវត្តិភាពរបស់កូនលោកអ្នក, យើងខ្ញុំត្រូវតែអនុវត្តតាមសាររបស់យើង។</b></p>
+							<p> បទបញ្ជានានាដែលពាក់ព័ន្ធទៅនឹងការចូលទៅក្នុងបរិវេណkidzooona</p><br>
+									<h3>អតិថិជនទាំងអស់ជាទីគោរព </h3>
+									<p>Kidzooona មិនមែនជាទីកន្លែង សំរាប់គ្រប់គ្រងនូវការប្រព្រឹត្តរបស់កុមារនោះទេ</p>
+									<p><b>ដើម្បីធានានូវសុវត្តិភាពរបស់កូនលោកអ្នក, យើងខ្ញុំត្រូវតែអនុវត្តតាមសាររបស់យើង។</b></p>
 
 							<?php
 							$i =1;
-							foreach($safety_message_khmer as $safety) { ?>
+							$obj = json_decode($sm->sm1);
+							foreach($obj as $safety) { ?>
 							<div class="col-md-12 kids_zon_c">
-								<h4><?php echo $safety->title; ?> </h4>
+								<h4><?php echo $safety->title;echo $safety->sm; ?> </h4>
 								<div class="show_hidden<?= $i;?>">
 									<strong>More Details <span>[+]</span></strong>
 								</div>
