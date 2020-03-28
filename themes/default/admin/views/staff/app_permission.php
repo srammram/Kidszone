@@ -25,7 +25,7 @@
                   <tr>
                       <th rowspan="2" class="text-center"><?= lang("module_name"); ?>
                       </th>
-                      <th colspan="8" class="text-center"><?= lang("permissions"); ?></th>
+                      <th colspan="10" class="text-center"><?= lang("permissions"); ?></th>
                   </tr>
                   <tr>
                       <th class="text-center"><?= lang("index"); ?></th>
@@ -105,6 +105,32 @@
                       <td class="text-center">
                           <input type="checkbox" value="1" class="checkbox" name="staff-app_permission_staff" <?php echo $p->{'staff-app_permission_staff'} ? "checked" : ''; ?>>
                       </td>
+                      <td class="text-center"></td>
+                      <td class="text-center"></td>
+                  </tr>
+
+                  <tr>
+                      <td><?= lang("Outlet"); ?></td>
+                      <td class="text-center">
+                          <input type="checkbox" value="1" class="checkbox" name="outlet-index" <?php echo $p->{'outlet-index'} ? "checked" : ''; ?>>
+                      </td>
+                      <td class="text-center">
+                          <input type="checkbox" value="1" class="checkbox" name="outlet-add_outlet" <?php echo $p->{'outlet-add_outlet'} ? "checked" : ''; ?>>
+                      </td>
+                      <td class="text-center">
+                          <input type="checkbox" value="1" class="checkbox" name="outlet-edit_outlet" <?php echo $p->{'outlet-edit_outlet'} ? "checked" : ''; ?>>
+                      </td>
+                      <td class="text-center">
+                          <input type="checkbox" value="1" class="checkbox" name="outlet-delete" <?php echo $p->{'outlet-delete'} ? "checked" : ''; ?>>
+                      </td>                      
+                      <td class="text-center">
+                          <input type="checkbox" value="1" class="checkbox" name="outlet-view_outlet" <?php echo $p->{'outlet-view_outlet'} ? "checked" : ''; ?>>
+                      </td>
+                      <td class="text-center"></td>
+                      <td class="text-center">
+                          <input type="checkbox" value="1" class="checkbox" name="outlet-outlet_status" <?php echo $p->{'outlet-outlet_status'} ? "checked" : ''; ?>>
+                      </td>
+                      <td class="text-center"></td>
                       <td class="text-center"></td>
                       <td class="text-center"></td>
                   </tr>

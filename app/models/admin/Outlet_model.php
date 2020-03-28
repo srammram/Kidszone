@@ -154,4 +154,16 @@ class Outlet_model extends CI_Model
 		return false;
     }
 
+
+	function delete_update($data,$id){
+		$this->db->where('id', $id);
+		
+		if($this->db->update('outlet',$data)){
+
+			//print_r($this->db->last_query()); die;
+			return true;
+		}
+		return false;
+    }
+
 }

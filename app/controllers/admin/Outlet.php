@@ -29,7 +29,7 @@ class Outlet extends MY_Controller
 	/*###### Staff*/
     function index($action=false){
 		
-		//$this->site->webPermission($this->session->userdata('user_id'), 'outlet', 'index');
+		$this->site->webPermission($this->session->userdata('user_id'), 'outlet', 'index');
 
         $this->data['error'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('error');
         $this->data['action'] = $action;
@@ -58,13 +58,15 @@ class Outlet extends MY_Controller
        			$this->datatables->where("DATE({$this->db->dbprefix('users')}.created_on) <=", date("Y-m-d", strtotime(str_replace('/', '-', $edate))));
 			}
 			
+			$this->datatables->where("is_delete", 0);
+
             $this->datatables->edit_column('status', '$1__$2', 'id, status');
 			
 			$edit = "<a href='" . admin_url('outlet/edit_outlet/$1') . "' data-toggle='tooltip'  data-original-title='' aria-describedby='tooltip' title='Click here to Edit'  ><i class='fa fa-pencil-square-o' aria-hidden='true'  style='color:#656464; font-size:18px'></i></a>";
 			
 			$view = "<a href='" . admin_url('outlet/view_outlet/$1') . "' data-toggle='tooltip'  data-original-title='' aria-describedby='tooltip' title='Click here to View'  ><i class='fa fa-eye' aria-hidden='true'  style='color:#656464; font-size:18px'></i></a>";
 			
-			//$delete = "<a href='" . admin_url('welcome/delete/users/$1') . "' data-toggle='tooltip'  data-original-title='' aria-describedby='tooltip' title='Delete'  ><i class='fa fa-trash' style='color:#656464; font-size:18px'></i></a>";
+			$delete = "<a href='" . admin_url('outlet/delete/$1') . "' data-toggle='tooltip'  data-original-title='' aria-describedby='tooltip' title='Delete'  ><i class='fa fa-trash' style='color:#656464; font-size:18px'></i></a>";
 			/*$delete = "<a href='#' class='tip po'  data-content=\"<p>"
             . lang('r_u_sure') . "</p><a class='btn btn-danger' id='a__$1' href='" . admin_url('welcome/delete/users/$1') . "'>"
             . lang('i_m_sure') . "</a> <button class='btn po-close'>" . lang('no') . "</button>\"  rel='popover'><i class=\"fa fa-trash-o\"></i> </a>";*/
@@ -113,7 +115,7 @@ class Outlet extends MY_Controller
 		//echo '<pre>';
 		//print_r($_POST); die;
 
-		//$this->site->webPermission($this->session->userdata('user_id'), 'outlet', 'add_outlet');
+		$this->site->webPermission($this->session->userdata('user_id'), 'outlet', 'add_outlet');
 
 		$this->form_validation->set_rules('name', lang("name"), 'required');
 		$this->form_validation->set_rules('code', lang("code"), 'is_unique[outlet.code]');
@@ -158,7 +160,7 @@ class Outlet extends MY_Controller
 	
 	function view_outlet($id){
 		
-		//$this->site->webPermission($this->session->userdata('user_id'), 'outlet', 'view_outlet');
+		$this->site->webPermission($this->session->userdata('user_id'), 'outlet', 'view_outlet');
 		$result = $this->outlet_model->getOutLetBy_ID($id);
 
 		$this->data['result'] = $result;
@@ -176,7 +178,7 @@ class Outlet extends MY_Controller
 		//echo '<pre>';
 		//print_r($_POST); die;
 
-		//$this->site->webPermission($this->session->userdata('user_id'), 'outlet', 'edit_outlet');
+		$this->site->webPermission($this->session->userdata('user_id'), 'outlet', 'edit_outlet');
 
 		$result = $this->outlet_model->getOutLetBy_ID($id);
 		//print_r($result);
@@ -226,12 +228,24 @@ class Outlet extends MY_Controller
 	
 	function outlet_status($status,$id){		
 
-		//$this->site->webPermission($this->session->userdata('user_id'), 'outlet', 'outlet_status');
+		$this->site->webPermission($this->session->userdata('user_id'), 'outlet', 'outlet_status');
         $data['status'] = 0;
         if($status=='active'){
             $data['status'] = 1;
         }
         $this->outlet_model->update_outlet_status($data,$id);
 		redirect($_SERVER["HTTP_REFERER"]);
-    }
+	}
+	
+
+	function delete($id){		
+
+		$this->site->webPermission($this->session->userdata('user_id'), 'outlet', 'delete');
+		$data['is_delete'] = 1;
+		
+		$this->outlet_model->delete_update($data,$id);
+		$this->session->set_flashdata('message', lang("outlet_deleted"));
+		redirect($_SERVER["HTTP_REFERER"]);
+	}
+
 }

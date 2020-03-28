@@ -283,6 +283,12 @@ class Staff extends MY_Controller
 					'staff-delete' => (($this->input->post('staff-delete')!=NULL) ? 1 : 0),
 					'staff-staff_status' => (($this->input->post('staff-staff_status')!=NULL) ? 1 : 0),
 					'staff-app_permission_staff' => (($this->input->post('staff-app_permission_staff')!=NULL) ? 1 : 0),
+					'outlet-index' => (($this->input->post('outlet-index')!=NULL) ? 1 : 0),
+					'outlet-add_outlet' => (($this->input->post('outlet-add_outlet')!=NULL) ? 1 : 0),
+					'outlet-edit_outlet' => (($this->input->post('outlet-edit_outlet')!=NULL) ? 1 : 0),
+					'outlet-view_outlet' => (($this->input->post('outlet-view_outlet')!=NULL) ? 1 : 0),
+					'outlet-delete' => (($this->input->post('outlet-delete')!=NULL) ? 1 : 0),
+					'outlet-outlet_status' => (($this->input->post('outlet-outlet_status')!=NULL) ? 1 : 0),
 					'user_id' => $id
 				);
 
