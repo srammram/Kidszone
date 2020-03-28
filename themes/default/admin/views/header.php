@@ -196,6 +196,29 @@
                                 </ul>
                             </li>
 
+                            <li class="mm_contract">
+                                <a class="dropmenu" href="#">
+                                    <i class="fa fa-star"></i>
+                                    <span class="text"> Outlet </span>
+                                    <span class="chevron closed"></span>
+                                </a>
+                                <ul>
+                                    <li id="contract_index">
+                                        <a class="submenu" href="<?= admin_url('outlet'); ?>">
+                                           <i class="fa fa-star"></i>
+                                            <span class="text"> Outlet list</span>
+                                        </a>
+                                    </li>
+                                    <li id="contract_add">
+                                        <a class="submenu" href="<?= admin_url('outlet/add_outlet'); ?>">
+                                           <i class="fa fa-star"></i>
+                                            <span class="text"> Outlet Add</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
+
                             
                             <?php if ($Owner1 || $Admin1) { ?>
                                 <li class="mm_system_settings" >
