@@ -93,12 +93,12 @@ $('form[class="add_from"]').bootstrapValidator({
                     notEmpty: {
                         message: 'Please enter the latitude'
                     },
-					/*remote: {
+					remote: {
 							type: 'POST',
 							url: '<?=admin_url('outlet/get_latitude')?>',
 							message: 'Latitude code already exists.',
 							delay: 1000
-	                }*/
+	                }
                 }
             },
 
@@ -107,12 +107,12 @@ $('form[class="add_from"]').bootstrapValidator({
                     notEmpty: {
                         message: 'Please enter the longitude'
                     },
-					/*remote: {
+					remote: {
 							type: 'POST',
 							url: '<?=admin_url('outlet/get_longitude')?>',
 							message: 'Longitude code already exists.',
 							delay: 1000
-	                }*/
+	                }
                 }
             },
 

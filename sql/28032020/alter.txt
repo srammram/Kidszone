@@ -3,3 +3,9 @@ ALTER TABLE `kidzooona_web_permissions` ADD `outlet-index` TINYINT(1) NOT NULL A
 
 
 ALTER TABLE `kidzooona_web_permissions` CHANGE `outlet-add_staff` `outlet-add_outlet` TINYINT(1) NOT NULL, CHANGE `outlet-edit_staff` `outlet-edit_outlet` TINYINT(1) NOT NULL, CHANGE `outlet-view_staff` `outlet-view_outlet` TINYINT(1) NOT NULL;
+
+
+ALTER TABLE `kidzooona_register` ADD `outlet_id` INT NOT NULL AFTER `device_type`;
+
+
+ALTER TABLE `kidzooona_register` ADD `lat` FLOAT(10,6) NOT NULL AFTER `outlet_id`, ADD `lng` FLOAT(10,6) NOT NULL AFTER `lat`;

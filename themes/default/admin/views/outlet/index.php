@@ -118,8 +118,8 @@
                             <th class="col-xs-2"><?php echo lang('code'); ?></th>
                              <th class="col-xs-2"><?php echo lang('name'); ?></th>
                             <th class="col-xs-2"><?php echo lang('device_ip'); ?></th>
-                            <th class="col-xs-2"><?php echo lang('lat'); ?></th>
-                            <th class="col-xs-2"><?php echo lang('lng'); ?></th>
+                            <th class="col-xs-2"><?php echo lang('latitude'); ?></th>
+                            <th class="col-xs-2"><?php echo lang('longitude'); ?></th>
                             <th style="width:100px;"><?php echo lang('status'); ?></th>
                             <th style="width:80px;"><?php echo lang('actions'); ?></th>
                         </tr>

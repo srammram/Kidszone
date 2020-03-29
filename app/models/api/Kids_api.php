@@ -1196,6 +1196,12 @@ class Kids_api extends CI_Model
 		//$this->db->insert('register', $data);
 		//$this->db->last_query(); die;
 
+		//if ( ! $this->db->insert('register', $data)) {
+			//$error = $this->db->error(); // Has keys 'code' and 'message'
+		//}
+
+		//echo '<pre>';
+		//print_r($error);
 		//echo '<pre>';
 		//print_r($data);
 		//die;
@@ -1232,6 +1238,41 @@ class Kids_api extends CI_Model
 		
 		return 0;
 		
+	}
+
+
+	function getOutLet($lat, $lng, $device_ip){
+
+		// 3959 in meters is 6371393
+
+		if(!empty($device_ip)){
+			$where = 'WHERE device_ip = '.$device_ip.'';
+		}
+
+		$query = $this->db->query('SELECT
+		id, (
+			6371393 * acos (
+			cos ( radians('.$lat.') )
+			* cos( radians( lat ) )
+			* cos( radians( lng ) - radians('.$lng.') )
+			+ sin ( radians('.$lat.') )
+			* sin( radians( lat ) )
+		  )
+		) AS distance 
+	  	FROM kidzooona_outlet '.$where.'
+	  	HAVING distance < 500 
+	  	ORDER BY distance 
+	  	LIMIT 0 , 1');
+
+		//print_r($this->db->last_query()); die;
+
+		$row = $query->row();
+
+		if (isset($row)) {
+
+			return $row->id;
+		}
+		return false;
 	}
 	
 }

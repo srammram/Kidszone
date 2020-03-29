@@ -51,13 +51,19 @@ class Outlet_model extends CI_Model
 		if(!$id) {
 			$this->db->select('lat')
 			->from('outlet')
-			->where('lat', $lat);
+			->where('lat', $lat, FALSE);
 		}
 		else
 		{
+			/*$this->db->select('lat')
+			->from('outlet')
+			->where(array('lat = ' => $lat,'id!=' => $id));*/
+
 			$this->db->select('lat')
 			->from('outlet')
-			->where(array('lat = ' => $lat,'id!=' => $id));
+			->where('lat', $lat, FALSE)
+			->where('id!=', $id);
+
 		}
 
 		$q = $this->db->get();
@@ -87,13 +93,18 @@ class Outlet_model extends CI_Model
 		if(!$id) {
 			$this->db->select('lng')
 			->from('outlet')
-			->where('lng', $lng);
+			->where('lng', $lng, FALSE);
 		}
 		else
 		{
-			$this->db->select('lng')
+			/*$this->db->select('lng')
 			->from('outlet')
-			->where(array('lng = ' => $lat,'id!=' => $id));
+			->where(array('lng = ' => $lat,'id!=' => $id));*/
+
+			$this->db->select('lng')
+			->from('outlet')			
+			->where('lng', $lng, FALSE)
+			->where('id!=', $id);
 		}
 
 		$q = $this->db->get();

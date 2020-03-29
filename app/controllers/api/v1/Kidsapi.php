@@ -395,34 +395,19 @@ class Kidsapi extends REST_Controller {
 
 		$this->form_validation->set_rules('lang_sel', $this->lang->line("lang_sel"), 'required');
 
-
-
 		if ($this->form_validation->run() == true) {
 
-//$lang = $_GET['lang'];
+				$data1 = $this->kids_api->getSafetyMessageList($this->input->post('lang_sel'));
 
+				$lat = $this->input->post('lat');
+				$lng = $this->input->post('lng');
+				$device_ip = !empty($this->input->post('device_ip')) ? $this->input->post('device_ip') : NULL;
 
-		$data1 = $this->kids_api->getSafetyMessageList($this->input->post('lang_sel'));
-		
-		
-		// $data1arr = split ("\.", $data1); 
-		// var sa1 = $data1arr[0];
-		
-			//$d1 = array('$data1');
-			//$d2 = array_chunk($d1, 1);
-	//print_r(array_chunk($d1, 2));
-	//print_r(array_chunk($d1, 2, true));
-		
-		//$res = $this->kids_api->insertRegister($data);
-//print_r($data1)."@@@@@@@@@@@@@@";die;
+				$outlet_id = $this->kids_api->getOutLet($lat, $lng, $device_ip);
 
 				$data = array(
 				
-				//'sm1' = $this->$data1arr[0];
 					'sm1' => json_encode($data1,JSON_UNESCAPED_UNICODE),
-					//'sm2' => json_decode($sm1),
-					//'sm2' => $this->input->post('sm2'),
-					//'sm3' => $this->input->post('sm3'),
 					'parent_type' => $this->input->post('parent_type'),
 					'father_name' => $this->input->post('father_name'),
 					'mother_name' => $this->input->post('mother_name'),
@@ -440,6 +425,10 @@ class Kidsapi extends REST_Controller {
 					'no_of_kids' => $this->input->post('no_of_kids'),
 					'no_of_students' => $this->input->post('no_of_students'),
 					'device_type' => $this->input->post('device_type'),
+					'lat' => $this->input->post('lat'),
+					'lng' => $this->input->post('lng'),
+					'device_ip' => $this->input->post('device_ip'),
+					'outlet_id' => $outlet_id,
 					'reg_date' => date('Y-m-d H:i:s', strtotime($this->input->post('reg_date'))),
 					'accept' => $this->input->post('accept') ? 1 : 0,
 					'status' => 1,
