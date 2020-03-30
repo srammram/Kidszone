@@ -33,7 +33,8 @@ class Register extends MY_Controller
 		$this->site->webPermission($this->session->userdata('user_id'), 'register', 'index');
 
         $this->data['error'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('error');
-        $this->data['action'] = $action;		
+		$this->data['action'] = $action;
+		$this->data['outlet'] = $this->register_model->getALLOutlet();
 
         $bc = array(array('link' => base_url(), 'page' => lang('home')), array('link' => '#', 'page' => lang('register')));
         $meta = array('page_title' => lang('register'), 'bc' => $bc);
@@ -63,7 +64,7 @@ class Register extends MY_Controller
 		
 		$sdate = $_GET['sdate'];
 		$edate = $_GET['edate'];
-		
+		$outlet = $_GET['outlet'];
 		
         $this->load->library('datatables');
 		
@@ -76,24 +77,32 @@ class Register extends MY_Controller
 			{$this->db->dbprefix('register')}.others_name, 
 			{$this->db->dbprefix('register')}.teacher_name, 
 			{$this->db->dbprefix('register')}.phone_number, 
+			t2.name, 
 			{$this->db->dbprefix('register')}.email, 
 			{$this->db->dbprefix('register')}.kid_name1, 
 			{$this->db->dbprefix('register')}.kid_name2, 
 			{$this->db->dbprefix('register')}.kid_name3, 
 			{$this->db->dbprefix('register')}.kid_name4, 
 			{$this->db->dbprefix('register')}.kid_name5, 
-			{$this->db->dbprefix('register')}.kid_name6, 			
+			{$this->db->dbprefix('register')}.kid_name6, 		
 			{$this->db->dbprefix('register')}.no_of_kids, 
 			{$this->db->dbprefix('register')}.no_of_students, 
 			date_format({$this->db->dbprefix('register')}.created_on,'%d/%m/%Y,%T')			
 			")
-            ->from("register");
+			->from("register");
+			$this->datatables->join('outlet t2', 't2.id = register.outlet_id');
+			$this->datatables->where('t2.is_delete = 0');
 
 			$this->db->order_by("{$this->db->dbprefix('register')}.created_on",'DESC');
 
 			if(!empty($sdate) && !empty($edate)){
 				$this->datatables->where("DATE({$this->db->dbprefix('register')}.created_on) >=", date("Y-m-d", strtotime(str_replace('/', '-', $sdate))));
        			$this->datatables->where("DATE({$this->db->dbprefix('register')}.created_on) <=", date("Y-m-d", strtotime(str_replace('/', '-', $edate))));
+			}
+
+			if(!empty($outlet)) { 
+
+				$this->datatables->where("{$this->db->dbprefix('register')}.outlet_id = ".$outlet);
 			}
 
 			

@@ -41,7 +41,7 @@
             "aLengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, "<?= lang('all') ?>"]],
             "iDisplayLength": <?= $Settings->rows_per_page ?>,
             'bProcessing': true, 'bServerSide': true,
-            'sAjaxSource': '<?= admin_url('register/getRegister?sdate='.$_GET['sdate'].'&edate='.$_GET['edate']) ?>',
+            'sAjaxSource': '<?= admin_url('register/getRegister?sdate='.$_GET['sdate'].'&edate='.$_GET['edate'].'&outlet='.$_GET['outlet']) ?>',
             'fnServerData': function (sSource, aoData, fnCallback) {
                 aoData.push({
                     "name": "<?= $this->security->get_csrf_token_name() ?>",
@@ -62,7 +62,7 @@
              "aoColumns": [ null, /*{
                 "bSortable": false,
                 "mRender": checkbox
-            },*/ {"mRender": parent_type} , null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+            },*/ {"mRender": parent_type} , null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
 
             "aoColumnDefs": [
                 { "sClass": "parentType", "aTargets": [ 1 ] }
@@ -129,6 +129,7 @@
     echo admin_form_open('register/register_actions', 'id="action-form"');
 //} ?>
 
+
 <div class="box">
 
 <div class="box-header">
@@ -185,6 +186,21 @@
 				</div>
             </div>
 
+            <div class="col-lg-3">        
+				<div class="form-group">
+					<?php echo lang('outlet', 'outlet'); ?>
+					<div class="controls">
+                        <?php
+							$o[''] = 'All';
+							foreach ($outlet as $value) {
+								$o[$value->id] = $value->name;
+							}
+                            echo form_dropdown('outlet', $o, $_GET['o'], 'class="form-control select"  id="outlet"'); 
+                        ?>
+					</div>
+				</div>
+            </div>
+
             <div class="col-lg-3 row">
 				<div class="form-group col-lg-7">
 					<?php echo lang('&nbsp;'); ?><br>
@@ -237,6 +253,7 @@
                             <th><?php echo lang('others_name'); ?></th>
                             <th><?php echo lang('teacher_name'); ?></th>
                             <th><?php echo lang('phone_number'); ?></th>
+                            <th><?php echo lang('outlet'); ?></th>
                             <th><?php echo lang('email'); ?></th>
                             <th><?php echo lang('kid_name1'); ?></th>
                             <th><?php echo lang('kid_name2'); ?></th>
@@ -364,12 +381,12 @@ $(document).ready(function(){
 
         var sdate = $('#start_date').val();
         var edate = $('#end_date').val();
-        var rperson = $('#rperson').val();
+        var outlet = $('#outlet').val();
 
         //if(sdate != '' && edate != ''){
             //$('#UsrTable').DataTable().destroy();
             //fetch_data(start_date,end_date);
-            window.location.href = '<?php echo 'http://'.$_SERVER['HTTP_HOST'].$uri_parts[0]; ?>?sdate='+sdate+'&edate='+edate+'&rperson='+rperson;
+            window.location.href = '<?php echo 'http://'.$_SERVER['HTTP_HOST'].$uri_parts[0]; ?>?sdate='+sdate+'&edate='+edate+'&outlet='+outlet;
         //}else{
             //alert('Both Date is Required and Choose what to show!');
         //}

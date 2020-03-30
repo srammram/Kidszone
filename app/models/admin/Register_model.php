@@ -140,5 +140,22 @@ class Register_model extends CI_Model
 		return false;
 	}
 
+	public function getALLOutlet() {
+
+		$this->db->select('*');
+		$this->db->from('outlet');
+		$this->db->where('status', 1);
+		$this->db->where('is_delete', 0);
+		$q = $this->db->get();
+
+		// print_r($this->db->last_query());die;
+		if ($q->num_rows() > 0) {
+		 foreach (($q->result()) as $row) {
+			 $data[] = $row;
+		 }
+			 return $data;
+		}
+		 return FALSE;
+	 }
 
 }
