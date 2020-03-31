@@ -219,6 +219,13 @@
 
             <div class="clearfix"></div>
                 <span style="color:red"><b>Total Count: <span id="pendingCount"></span></b></span>
+
+                <ul class="text-left list-inline" id="total_outlet_count">
+                    <?php foreach ($all_outlet_count as $value) { ?>
+                    <li><b><?= $value->name?></b> : <span style="color:red"><?= $value->cnt?></span></li>
+                    <?php } ?>
+                </ul>
+
             	<!--a href="<?//= admin_url('farmer/add_farmer'); ?>"><button type="button" class="btn btn-primary pull-right"><i class="fa fa-plus-circle"></i> <?//= lang("add_farmer"); ?></button></a>-->
                 
                 <div class="table-responsive" id="print-content">
@@ -431,6 +438,8 @@ document.getElementById('pdf-header').style.visibility = 'hidden';
         document.getElementById('UsrTable_length').style.visibility = 'hidden';
         document.getElementById('UsrTable_filter').style.visibility = 'hidden';
         document.getElementById('action_div').style.visibility = 'hidden';
+        document.getElementById('total_outlet_count').style.visibility = 'hidden';
+        
         document.getElementsByClassName("pagination pagination-sm")[0].style.visibility = 'hidden';
 
         document.getElementById('pdf-header').style.visibility = 'visible';
@@ -446,6 +455,7 @@ document.getElementById('pdf-header').style.visibility = 'hidden';
         document.getElementById('UsrTable_length').style.visibility = 'visible';
         document.getElementById('UsrTable_filter').style.visibility = 'visible';
         document.getElementById('action_div').style.visibility = 'visible';
+        document.getElementById('total_outlet_count').style.visibility = 'visible';
         document.getElementsByClassName("pagination pagination-sm")[0].style.visibility = 'visible';
 
 

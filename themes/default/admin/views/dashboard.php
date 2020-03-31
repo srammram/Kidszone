@@ -75,6 +75,18 @@
 					<td><?= !empty($register_count_today) ? $register_count_today : '0'; ?></td>
 				</tr>
 			</table>
+
+			<table class="table">
+				<tr>
+					<td>
+						<ul class="text-left list-inline">
+							<?php foreach ($outlet_count_today as $value) { ?>
+								<li><?= $value->name?> : <b><?= $value->cnt?></b></li>
+							<?php } ?>
+						</ul>
+					</td>
+				</tr>
+			</table>
 		</div>
 		<div class="col-md-4 market-update-right">
 			<i class="fa fa-file-text-o"> </i>
@@ -96,6 +108,18 @@
 					<td><?= !empty($register_count_month) ? $register_count_month : '0';?></td>
 				</tr>
 			</table>
+
+			<table class="table">
+				<tr>
+					<td>
+						<ul class="text-left list-inline">
+							<?php foreach ($outlet_count_month as $value) { ?>
+								<li><?= $value->name?> : <b><?= $value->cnt?></b></li>
+							<?php } ?>
+						</ul>
+					</td>
+				</tr>
+			</table>
 		</div>
 		<div class="col-md-4 market-update-right">
 			<i class="fa fa-file-text-o"> </i>
@@ -113,6 +137,18 @@
 					<td><?= date("Y");?></td>
 					<td>:</td>
 					<td><?= !empty($register_count_year) ? $register_count_year : '0'; ?></td>
+				</tr>
+			</table>
+
+			<table class="table">
+				<tr>
+					<td>
+						<ul class="text-left list-inline">
+							<?php foreach ($outlet_count_year as $value) { ?>
+								<li><?= $value->name?> : <b><?= $value->cnt?></b></li>
+							<?php } ?>
+						</ul>
+					</td>
 				</tr>
 			</table>
 		</div>

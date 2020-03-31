@@ -109,6 +109,10 @@
 												<input type="text" class="form-control" name="phone" value="<?= $result->phone_number ?>" id="phone" required readonly>
 											</div>
 											<div class="form-group col-md-12">
+												<label class="label_green">Outlet</label>
+												<input type="text" class="form-control" name="outlet" value="<?= $outlet->name ?>" id="outlet" required readonly>
+											</div>
+											<div class="form-group col-md-12">
 												<label class="label_green">Email</label>
 												<input type="text" class="form-control" name="email" id="email"   value="<?= $result->email ?>" required readonly>
 											</div>
@@ -258,6 +262,10 @@
 									<div class="form-group col-md-12">
 										<label class="label_green">លេខទូរសព្វ័</label>
 										<input type="text" class="form-control" name="phone" value="<?= $result->phone_number ?>" id="phone" required readonly>
+									</div>
+									<div class="form-group col-md-12">
+										<label class="label_green">សាខា</label>
+										<input type="text" class="form-control" name="outlet" value="<?= $outlet->name ?>" id="outlet" required readonly>
 									</div>
 									<div class="form-group col-md-12">
 										<label class="label_green">អ៊ីម៉ែល</label>

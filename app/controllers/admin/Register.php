@@ -35,6 +35,7 @@ class Register extends MY_Controller
         $this->data['error'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('error');
 		$this->data['action'] = $action;
 		$this->data['outlet'] = $this->register_model->getALLOutlet();
+		$this->data['all_outlet_count'] = $this->register_model->getALLOutletCount();
 
         $bc = array(array('link' => base_url(), 'page' => lang('home')), array('link' => '#', 'page' => lang('register')));
         $meta = array('page_title' => lang('register'), 'bc' => $bc);
@@ -91,7 +92,7 @@ class Register extends MY_Controller
 			")
 			->from("register");
 			$this->datatables->join('outlet t2', 't2.id = register.outlet_id');
-			$this->datatables->where('t2.is_delete = 0');
+			//$this->datatables->where('t2.is_delete = 0');
 
 			$this->db->order_by("{$this->db->dbprefix('register')}.created_on",'DESC');
 
@@ -100,12 +101,11 @@ class Register extends MY_Controller
        			$this->datatables->where("DATE({$this->db->dbprefix('register')}.created_on) <=", date("Y-m-d", strtotime(str_replace('/', '-', $edate))));
 			}
 
-			if(!empty($outlet)) { 
+			if(!empty($outlet)) {
 
 				$this->datatables->where("{$this->db->dbprefix('register')}.outlet_id = ".$outlet);
 			}
 
-			
             //$this->datatables->edit_column('status', '$1__$2', 'id, status');
 
 			//$edit = "<a href='" . admin_url('register/edit_register/$1') . "' data-toggle='tooltip'  data-original-title='' aria-describedby='tooltip' title='Click here to Edit'  ><i class='fa fa-pencil-square-o' aria-hidden='true'  style='color:#656464; font-size:18px'></i></a>";
@@ -237,8 +237,10 @@ class Register extends MY_Controller
 		
 		$this->site->webPermission($this->session->userdata('user_id'), 'register', 'view_register');
 		$result = $this->register_model->getRegisterByID($id);
+		$outlet = $this->register_model->getOutLetByID($result->outlet_id);
 
 		$this->data['result'] = $result;
+		$this->data['outlet'] = $outlet;
 		//$this->data['safety_message_english'] = $this->register_model->getSafetyMessageEnglish();
 		$this->data['sm'] = $this->register_model->getsm($id);
 		//$this->data['safety_message_khmer'] = $this->register_model->getSafetyMessageKhmer();
@@ -255,8 +257,10 @@ class Register extends MY_Controller
 		
 		$this->site->webPermission($this->session->userdata('user_id'), 'register', 'pdf_view_register');
 		$result = $this->register_model->getRegisterByID($id);
+		$outlet = $this->register_model->getOutLetByID($result->outlet_id);
 
 		$this->data['result'] = $result;
+		$this->data['outlet'] = $outlet;
 		$this->data['sm'] = $this->register_model->getsm($id);
 		//$this->data['safety_message_english'] = $this->register_model->getSafetyMessageEnglish();
 		//$this->data['safety_message_khmer'] = $this->register_model->getSafetyMessageKhmer();
@@ -534,17 +538,18 @@ class Register extends MY_Controller
 					$this->excel->getActiveSheet()->SetCellValue('C1', lang('mother_name'));
 					$this->excel->getActiveSheet()->SetCellValue('D1', lang('others_name'));
 					$this->excel->getActiveSheet()->SetCellValue('E1', lang('teacher_name'));
-                    $this->excel->getActiveSheet()->SetCellValue('F1', lang('phone_number'));
-					$this->excel->getActiveSheet()->SetCellValue('G1', lang('email'));
-					$this->excel->getActiveSheet()->SetCellValue('H1', lang('kid_name1'));
-					$this->excel->getActiveSheet()->SetCellValue('I1', lang('kid_name2'));
-					$this->excel->getActiveSheet()->SetCellValue('J1', lang('kid_name3'));
-					$this->excel->getActiveSheet()->SetCellValue('K1', lang('kid_name4'));
-					$this->excel->getActiveSheet()->SetCellValue('L1', lang('kid_name5'));
-					$this->excel->getActiveSheet()->SetCellValue('M1', lang('kid_name6'));
-					$this->excel->getActiveSheet()->SetCellValue('N1', lang('no_of_kids'));
-					$this->excel->getActiveSheet()->SetCellValue('O1', lang('reg_date'));
-					$this->excel->getActiveSheet()->SetCellValue('P1', lang('accept'));
+					$this->excel->getActiveSheet()->SetCellValue('F1', lang('phone_number'));
+					$this->excel->getActiveSheet()->SetCellValue('G1', lang('outlet'));
+					$this->excel->getActiveSheet()->SetCellValue('H1', lang('email'));
+					$this->excel->getActiveSheet()->SetCellValue('I1', lang('kid_name1'));
+					$this->excel->getActiveSheet()->SetCellValue('J1', lang('kid_name2'));
+					$this->excel->getActiveSheet()->SetCellValue('K1', lang('kid_name3'));
+					$this->excel->getActiveSheet()->SetCellValue('L1', lang('kid_name4'));
+					$this->excel->getActiveSheet()->SetCellValue('M1', lang('kid_name5'));
+					$this->excel->getActiveSheet()->SetCellValue('N1', lang('kid_name6'));
+					$this->excel->getActiveSheet()->SetCellValue('O1', lang('no_of_kids'));
+					$this->excel->getActiveSheet()->SetCellValue('P1', lang('reg_date'));
+					$this->excel->getActiveSheet()->SetCellValue('Q1', lang('accept'));
 
                     $row = 2;
                     //foreach ($_POST['val'] as $id) {
@@ -559,7 +564,10 @@ class Register extends MY_Controller
 							}
 							else if($result->parent_type==3){
 								$parent_type = 'Others';
-							}
+							}							
+
+
+							$outlet = $this->register_model->getOutLetByID($result->outlet_id);
 
 							$this->excel->getActiveSheet()->SetCellValue('A' . $row, $parent_type);
 							$this->excel->getActiveSheet()->SetCellValue('B' . $row, $result->father_name);
@@ -567,16 +575,17 @@ class Register extends MY_Controller
 							$this->excel->getActiveSheet()->SetCellValue('D' . $row, $result->others_name);
 							$this->excel->getActiveSheet()->SetCellValue('E' . $row, $result->teacher_name);
 							$this->excel->getActiveSheet()->SetCellValue('F' . $row, $result->phone_number);
-							$this->excel->getActiveSheet()->SetCellValue('G' . $row, $result->email);
-							$this->excel->getActiveSheet()->SetCellValue('H' . $row, $result->kid_name1);
-							$this->excel->getActiveSheet()->SetCellValue('I' . $row, $result->kid_name2);
-							$this->excel->getActiveSheet()->SetCellValue('J' . $row, $result->kid_name3);
-							$this->excel->getActiveSheet()->SetCellValue('K' . $row, $result->kid_name4);
-							$this->excel->getActiveSheet()->SetCellValue('L' . $row, $result->kid_name5);
-							$this->excel->getActiveSheet()->SetCellValue('M' . $row, $result->kid_name6);						
-							$this->excel->getActiveSheet()->SetCellValue('N' . $row, $result->no_of_kids);
-							$this->excel->getActiveSheet()->SetCellValue('O' . $row, date('d/m/Y H:i', strtotime($result->created_on)));
-							$this->excel->getActiveSheet()->SetCellValue('P' . $row, ($result->accept==1) ? 'YES': 'NO');
+							$this->excel->getActiveSheet()->SetCellValue('G' . $row, $outlet->name);
+							$this->excel->getActiveSheet()->SetCellValue('H' . $row, $result->email);
+							$this->excel->getActiveSheet()->SetCellValue('I' . $row, $result->kid_name1);
+							$this->excel->getActiveSheet()->SetCellValue('J' . $row, $result->kid_name2);
+							$this->excel->getActiveSheet()->SetCellValue('K' . $row, $result->kid_name3);
+							$this->excel->getActiveSheet()->SetCellValue('L' . $row, $result->kid_name4);
+							$this->excel->getActiveSheet()->SetCellValue('M' . $row, $result->kid_name5);
+							$this->excel->getActiveSheet()->SetCellValue('N' . $row, $result->kid_name6);						
+							$this->excel->getActiveSheet()->SetCellValue('O' . $row, $result->no_of_kids);
+							$this->excel->getActiveSheet()->SetCellValue('P' . $row, date('d/m/Y H:i', strtotime($result->created_on)));
+							$this->excel->getActiveSheet()->SetCellValue('Q' . $row, ($result->accept==1) ? 'YES': 'NO');
 							$row++;
 						}
                     //}

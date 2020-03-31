@@ -144,6 +144,11 @@
 									<td><?= $result->phone_number ?></td>
 								</tr>
 								<tr>
+									<td>Outlet</td>
+									<td>:</td>
+									<td><?= $outlet->name ?></td>
+								</tr>
+								<tr>
 									<td>Email</td>
 									<td>:</td>
 									<td><?= $result->email ?></td>
@@ -327,6 +332,11 @@
 									<td>លេខទូរសព្វ័</td>
 									<td>:</td>
 									<td><?= $result->phone_number ?></td>
+								</tr>
+								<tr>
+									<td>សាខា</td>
+									<td>:</td>
+									<td><?= $outlet->name ?></td>
 								</tr>
 								<tr>
 									<td>អ៊ីម៉ែល</td>

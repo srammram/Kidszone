@@ -56,7 +56,17 @@ class Register_model extends CI_Model
 		}
 		return false;
 	}
-	
+
+	function getOutLetByID($id){
+		$this->db->select('d.*');
+		$this->db->from('outlet d');
+		$this->db->where('d.id',$id);
+		$q = $this->db->get();
+		if($q->num_rows()>0){
+			return $q->row();
+		}
+		return false;
+	}	
 
 	function getALLRegisterExcel(){
 
@@ -146,6 +156,7 @@ class Register_model extends CI_Model
 		$this->db->from('outlet');
 		$this->db->where('status', 1);
 		$this->db->where('is_delete', 0);
+		$this->db->order_by('name', 'asc');
 		$q = $this->db->get();
 
 		// print_r($this->db->last_query());die;
@@ -157,5 +168,28 @@ class Register_model extends CI_Model
 		}
 		 return FALSE;
 	 }
+
+
+	 public function getALLOutletCount() {
+
+		$this->db->select('name, count(*) AS cnt');
+		$this->db->from('register');
+		$this->db->join('outlet', 'outlet.id = register.outlet_id');
+		$this->db->group_by("register.outlet_id");
+		$this->db->order_by('name', 'asc');
+		$q = $this->db->get();
+
+		//print_r($this->db->last_query());die;
+		if ($q->num_rows() > 0) {
+		 foreach (($q->result()) as $row) {
+			 $data[] = $row;
+		 }
+			 return $data;
+		}
+		 return FALSE;
+	 }
+
+
+	 
 
 }

@@ -306,4 +306,64 @@ class Db_model extends CI_Model
 		return $q->num_rows();
     }
 
+
+	function getOutLetTotalCount($para) {
+
+        $where_month = "YEAR(r.created_on) = YEAR(NOW()) AND MONTH(r.created_on) = MONTH(NOW())";
+        $where_year = "YEAR(r.created_on) = YEAR(NOW())";
+        $where_current_date = "DATE(r.created_on) = DATE(NOW())";
+
+        $this->db->select('r.outlet_id, o.id, o.name, count(*) AS cnt');
+        $this->db->from('register r');
+        $this->db->join('outlet o', 'o.id = r.outlet_id');
+        //$this->db->where('o.status', 1);
+        $this->db->group_by("r.outlet_id");
+        $this->db->order_by('o.name', 'asc');
+
+        if($para=="month")
+        {
+            $this->db->where($where_month);
+        }
+        else if($para=="year")
+        {
+            $this->db->where($where_year);
+        }
+        else if($para=="cur_date")
+        {
+            $this->db->where($where_current_date);
+        }
+
+
+        $q = $this->db->get();
+        //print_r($this->db->last_query()); die;
+
+		if ($q->num_rows() > 0) {
+		 foreach (($q->result()) as $row) {
+			 $data[] = $row;
+		 }
+			 return $data;
+		}
+		 return FALSE;
+    }
+
+
+    public function getALLOutlet() {
+
+		$this->db->select('*');
+		$this->db->from('outlet');
+		$this->db->where('status', 1);
+		$this->db->where('is_delete', 0);
+		$this->db->order_by('name', 'asc');
+		$q = $this->db->get();
+
+		// print_r($this->db->last_query());die;
+		if ($q->num_rows() > 0) {
+		 foreach (($q->result()) as $row) {
+			 $data[] = $row;
+		 }
+			 return $data;
+		}
+		 return FALSE;
+	 }
+
 }
