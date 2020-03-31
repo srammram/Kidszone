@@ -109,6 +109,7 @@ $('form[class="add_from"]').bootstrapValidator({
 					remote: {
 							type: 'POST',
 							url: '<?=admin_url('outlet/get_longitude')?>',
+							data: { id: <?php echo $result->id; ?> },
 							message: 'Longitude code already exists.',
 							delay: 1000
 	                }

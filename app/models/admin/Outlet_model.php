@@ -137,7 +137,7 @@ class Outlet_model extends CI_Model
 	}
 
 	function update_outlet($id,$data){		
-;
+
 		$this->db->where('id',$id);
 		if($this->db->update('outlet',$data)){
 	    	return true;

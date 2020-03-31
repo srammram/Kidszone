@@ -133,7 +133,7 @@ class Outlet extends MY_Controller
 				'lat' => $this->input->post('lat'),
 				'lng' => $this->input->post('lng'),
 				'device_ip' => $this->input->post('device_ip'),
-				'active' => 1,
+				'status' => 1,
 				'created_on' => date('Y-m-d H:i:s'),
 				'created_by' => $this->session->userdata('user_id'),
 			);
