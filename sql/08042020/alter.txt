@@ -1,0 +1,1 @@
+ALTER TABLE `kidzooona_register` ADD `device_imei` VARCHAR(50) NOT NULL AFTER `device_ip`;

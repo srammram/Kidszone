@@ -428,6 +428,7 @@ class Kidsapi extends REST_Controller {
 					'lat' => $this->input->post('lat'),
 					'lng' => $this->input->post('lng'),
 					'device_ip' => $this->input->post('device_ip'),
+					'device_imei' => $this->input->post('device_imei'),
 					'outlet_id' => $outlet_id,
 					'reg_date' => date('Y-m-d H:i:s', strtotime($this->input->post('reg_date'))),
 					'accept' => $this->input->post('accept') ? 1 : 0,
