@@ -403,7 +403,7 @@ class Kidsapi extends REST_Controller {
 				$lng = $this->input->post('lng');
 				$device_ip = !empty($this->input->post('device_ip')) ? $this->input->post('device_ip') : NULL;
 
-				$outlet_id = $this->kids_api->getOutLet($lat, $lng, $device_ip);
+				$outlet_id = $this->kids_api->getOutLet($lat, $lng, trim($device_ip));
 
 				$data = array(
 				

@@ -116,6 +116,14 @@ $('form[class="add_from"]').bootstrapValidator({
                 }
             },
 
+			device_ip: {
+				validators: {
+                    notEmpty: {
+                        message: 'Please enter the device ip'
+                    },
+				}
+			}
+
         	},
         submitButtons: 'input[type="submit"]'
     }).find('input[name="need_loan"]')
