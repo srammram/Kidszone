@@ -1,0 +1,13 @@
+ALTER TABLE `kidzooona_register` ADD `customer_name` VARCHAR(255) NOT NULL AFTER `id`;
+
+ALTER TABLE `kidzooona_register` ADD `gender` ENUM('M','F') NULL DEFAULT NULL AFTER `customer_name`;
+
+
+ALTER TABLE `kidzooona_register` ADD `nationality` INT NOT NULL AFTER `gender`;
+
+ALTER TABLE `kidzooona_register` ADD `pt_others` INT NOT NULL AFTER `parent_type`;
+
+
+ALTER TABLE `kidzooona_register` ADD `kid1_age` INT NOT NULL AFTER `kid_name6`, ADD `kid1_gender` ENUM('M','F') NULL DEFAULT NULL AFTER `kid1_age`, ADD `kid2_age` INT NOT NULL AFTER `kid1_gender`, ADD `kid2_gender` ENUM('M','F') NULL AFTER `kid2_age`, ADD `kid3_age` INT NOT NULL AFTER `kid2_gender`, ADD `kid3_gender` ENUM('M','F') NULL AFTER `kid3_age`, ADD `kid4_age` INT NOT NULL AFTER `kid3_gender`, ADD `kid4_gender` ENUM('M','F') NULL AFTER `kid4_age`, ADD `kid5_age` INT NOT NULL AFTER `kid4_gender`, ADD `kid5_gender` ENUM('M','F') NULL AFTER `kid5_age`, ADD `kid6_age` INT NOT NULL AFTER `kid5_gender`, ADD `kid6_gender` ENUM('M','F') NULL AFTER `kid6_age`;
+
+ALTER TABLE `kidzooona_register` ADD `school_name` VARCHAR(255) NOT NULL AFTER `no_of_students`, ADD `no_of_boys` INT NOT NULL AFTER `school_name`, ADD `no_of_girls` INT NOT NULL AFTER `no_of_boys`;

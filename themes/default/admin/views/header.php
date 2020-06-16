@@ -262,6 +262,29 @@
                                 </ul>
                             </li>
                             
+                            <li class="mm_contract">
+                                <a class="dropmenu" href="#">
+                                    <i class="fa fa-star"></i>
+                                    <span class="text"> Nationality </span>
+                                    <span class="chevron closed"></span>
+                                </a>
+                                <ul>
+                                    <li id="contract_index">
+                                        <a class="submenu" href="<?= admin_url('nationality'); ?>">
+                                           <i class="fa fa-star"></i>
+                                            <span class="text"> Nationality list</span>
+                                        </a>
+                                    </li>
+                                    <li id="contract_add">
+                                        <a class="submenu" href="<?= admin_url('nationality/add_nationality'); ?>">
+                                           <i class="fa fa-star"></i>
+                                            <span class="text"> Nationality Add</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
+
                             <?php if ($Owner1 || $Admin1) { ?>
                                 <li class="mm_system_settings" >
                                     <a class="dropmenu" href="#">
