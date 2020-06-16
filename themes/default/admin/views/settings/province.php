@@ -55,15 +55,19 @@
 <div class="box">
    
    
-  
+  <?php
+
+  echo '<pre>';
+  print_r($this->data['menu']);
+  ?>
     
     <div class="box-content">
         <div class="row">
             <div class="col-lg-12">                
 
-                  <?php if($this->data['menu']->{'system_settings-add_province'}==1 || $this->data['menu']->{'system_settings-add_province'}=="") { ?>
+                  <?php //if($this->data['menu']->{'system_settings-add_province'}==1 || $this->data['menu']->{'system_settings-add_province'}=="") { ?>
 				  <a href="<?= admin_url('system_settings/add_province'); ?>" data-toggle="modal" data-target="#myModal"><button type="button" class="btn btn-primary pull-right"><i class="fa fa-plus-circle"></i> <?= lang("add_province"); ?></button></a>
-                  <?php } ?>
+                  <?php //} ?>
     
                 <div class="table-responsive">
                     <table id="UsrTable" cellpadding="0" cellspacing="0" border="0"
