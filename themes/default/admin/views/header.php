@@ -218,7 +218,49 @@
                                 </ul>
                             </li>
 
+                            <li class="mm_contract">
+                                <a class="dropmenu" href="#">
+                                    <i class="fa fa-star"></i>
+                                    <span class="text"> Others </span>
+                                    <span class="chevron closed"></span>
+                                </a>
+                                <ul>
+                                    <li id="contract_index">
+                                        <a class="submenu" href="<?= admin_url('others'); ?>">
+                                           <i class="fa fa-star"></i>
+                                            <span class="text"> Others list</span>
+                                        </a>
+                                    </li>
+                                    <li id="contract_add">
+                                        <a class="submenu" href="<?= admin_url('others/add_others'); ?>">
+                                           <i class="fa fa-star"></i>
+                                            <span class="text"> Others Add</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
 
+                            <li class="mm_contract">
+                                <a class="dropmenu" href="#">
+                                    <i class="fa fa-star"></i>
+                                    <span class="text"> Age </span>
+                                    <span class="chevron closed"></span>
+                                </a>
+                                <ul>
+                                    <li id="contract_index">
+                                        <a class="submenu" href="<?= admin_url('age'); ?>">
+                                           <i class="fa fa-star"></i>
+                                            <span class="text"> Age list</span>
+                                        </a>
+                                    </li>
+                                    <li id="contract_add">
+                                        <a class="submenu" href="<?= admin_url('age/add_age'); ?>">
+                                           <i class="fa fa-star"></i>
+                                            <span class="text"> Age Add</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
                             
                             <?php if ($Owner1 || $Admin1) { ?>
                                 <li class="mm_system_settings" >

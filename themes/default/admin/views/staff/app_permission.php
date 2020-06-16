@@ -134,6 +134,58 @@
                       <td class="text-center"></td>
                       <td class="text-center"></td>
                   </tr>
+
+                  <tr>
+                      <td><?= lang("Others"); ?></td>
+                      <td class="text-center">
+                          <input type="checkbox" value="1" class="checkbox" name="others-index" <?php echo $p->{'others-index'} ? "checked" : ''; ?>>
+                      </td>
+                      <td class="text-center">
+                          <input type="checkbox" value="1" class="checkbox" name="others-add_others" <?php echo $p->{'others-add_others'} ? "checked" : ''; ?>>
+                      </td>
+                      <td class="text-center">
+                          <input type="checkbox" value="1" class="checkbox" name="others-edit_others" <?php echo $p->{'others-edit_others'} ? "checked" : ''; ?>>
+                      </td>
+                      <td class="text-center">
+                          <input type="checkbox" value="1" class="checkbox" name="others-delete" <?php echo $p->{'others-delete'} ? "checked" : ''; ?>>
+                      </td>                      
+                      <td class="text-center">
+                          <input type="checkbox" value="1" class="checkbox" name="others-view_others" <?php echo $p->{'others-view_others'} ? "checked" : ''; ?>>
+                      </td>
+                      <td class="text-center"></td>
+                      <td class="text-center">
+                          <input type="checkbox" value="1" class="checkbox" name="others-others_status" <?php echo $p->{'others-others_status'} ? "checked" : ''; ?>>
+                      </td>
+                      <td class="text-center"></td>
+                      <td class="text-center"></td>
+                      <td class="text-center"></td>
+                  </tr>
+
+                  <tr>
+                      <td><?= lang("Age"); ?></td>
+                      <td class="text-center">
+                          <input type="checkbox" value="1" class="checkbox" name="age-index" <?php echo $p->{'age-index'} ? "checked" : ''; ?>>
+                      </td>
+                      <td class="text-center">
+                          <input type="checkbox" value="1" class="checkbox" name="age-add_age" <?php echo $p->{'age-add_age'} ? "checked" : ''; ?>>
+                      </td>
+                      <td class="text-center">
+                          <input type="checkbox" value="1" class="checkbox" name="age-edit_age" <?php echo $p->{'age-edit_age'} ? "checked" : ''; ?>>
+                      </td>
+                      <td class="text-center">
+                          <input type="checkbox" value="1" class="checkbox" name="age-delete" <?php echo $p->{'age-delete'} ? "checked" : ''; ?>>
+                      </td>                      
+                      <td class="text-center">
+                          <input type="checkbox" value="1" class="checkbox" name="age-view_age" <?php echo $p->{'age-view_age'} ? "checked" : ''; ?>>
+                      </td>
+                      <td class="text-center"></td>
+                      <td class="text-center">
+                          <input type="checkbox" value="1" class="checkbox" name="age-age_status" <?php echo $p->{'age-age_status'} ? "checked" : ''; ?>>
+                      </td>
+                      <td class="text-center"></td>
+                      <td class="text-center"></td>
+                      <td class="text-center"></td>
+                  </tr>
                   </tbody>
               </table>
 

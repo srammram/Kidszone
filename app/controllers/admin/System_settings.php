@@ -1053,6 +1053,113 @@ class system_settings extends MY_Controller
         }
     }
 
+
+	/*###### Age*/
+    function age($action=false){
+		
+        //$this->site->wbPermission($this->session->userdata('user_id'), 'system_settings', 'age');
+
+        $this->data['error'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('error');
+        $this->data['action'] = $action;
+        $bc = array(array('link' => base_url(), 'page' => lang('home')), array('link' => '#', 'page' => lang('province')));
+        $meta = array('page_title' => lang('province'), 'bc' => $bc);
+        //$this->data['menu'] = $this->site->menuList();
+        $this->page_construct('settings/age', $meta, $this->data);
+    }
+    function getAge(){
+        
+        //$this->data['menu'] = $this->site->menuList();
+        $this->load->library('datatables');
+        $this->datatables
+            ->select("id,name,status")
+            ->from("age")
+			->where('age.is_delete', 0);
+            //$this->datatables->order_by('province.id', 'DESC');
+            $this->datatables->edit_column('status', '$1__$2', 'id, status');
+
+
+            if($this->data['menu']->{'system_settings-edit_age'}==1 || $this->data['menu']->{'system_settings-edit_age'}=="") {
+
+            $edit = "<a href='" . admin_url('system_settings/edit_age/$1') . "' data-toggle='modal' data-target='#myModal'  data-original-title='' aria-describedby='tooltip' title='Click here to full details' data-backdrop='static' data-keyboard='false'><i class='fa fa-pencil-square-o' aria-hidden='true'  style='color:#656464; font-size:18px'></i></a>";
+
+            }
+			
+			//$delete = "<a href='" . admin_url('welcome/delete/province/$1') . "' data-toggle='tooltip'  data-original-title='' aria-describedby='tooltip' title='Delete'  ><i class='fa fa-trash' style='color:#656464; font-size:18px'></i></a>";
+			
+			$delete = "<a href='#' class='tip po'  data-content=\"<p>"
+            . lang('r_u_sure') . "</p><a class='btn btn-danger' id='a__$1' href='" . admin_url('welcome/delete/age/$1') . "'>"
+            . lang('i_m_sure') . "</a> <button class='btn po-close'>" . lang('no') . "</button>\"  rel='popover'><i class=\"fa fa-trash-o\"></i> </a>";
+			
+			$this->datatables->add_column("Actions", "<div>".$edit."</div><div>".$delete."</div>", "id");
+			
+       //$this->datatables->unset_column('id');
+        echo $this->datatables->generate();
+    }
+
+    function add_age(){
+        
+        //$this->site->webPermission($this->session->userdata('user_id'), 'system_settings', 'add_age');
+        $this->form_validation->set_rules('name', lang("province_name"), 'required|is_unique[province.name]');   
+        if ($this->form_validation->run() == true) {
+            $data = array(
+                'name' => $this->input->post('name'),
+                'status' => 1,
+            );
+        }elseif ($this->input->post('add_age')) {
+            $this->session->set_flashdata('error', validation_errors());
+            admin_redirect("system_settings/age");
+        }
+        if ($this->form_validation->run() == true && $this->settings_model->add_age($data)){
+			
+            $this->session->set_flashdata('message', lang("age_added"));
+            admin_redirect('system_settings/age');
+        } else {
+            $this->data['error'] = (validation_errors() ? validation_errors() : $this->session->flashdata('error'));
+            $this->load->view($this->theme . 'settings/age_add', $this->data);
+        }
+    }
+    function edit_age($id){
+        
+        $this->site->webPermission($this->session->userdata('user_id'), 'system_settings', 'edit_age');
+		$result = $this->settings_model->getAgeby_ID($id);
+		$this->form_validation->set_rules('name', lang("province_name"), 'required'); 
+        
+        if ($this->input->post('name') != $result->name) {
+            $this->form_validation->set_rules('name', lang("name"), 'is_unique[province.name]');
+        }
+        
+        if ($this->form_validation->run() == true) {
+
+            $data = array(
+				'name' => $this->input->post('name')
+            );
+        } elseif ($this->input->post('edit_age')) {
+            $this->session->set_flashdata('error', validation_errors());
+            admin_redirect("system_settings/age");
+        }
+
+        if ($this->form_validation->run() == true && $this->settings_model->update_age($id, $data)) { 
+            $this->session->set_flashdata('message', lang("age_updated"));
+            admin_redirect("system_settings/age");
+        } else {
+            $this->data['error'] = (validation_errors() ? validation_errors() : $this->session->flashdata('error'));
+			$this->data['result'] = $result;
+            $this->data['id'] = $id;
+            $this->load->view($this->theme . 'settings/age_edit', $this->data);
+        }
+    }
+    function age_status($status,$id){
+        
+        $this->site->webPermission($this->session->userdata('user_id'), 'system_settings', 'age_status');
+        $data['status'] = 0;
+        if($status=='active'){
+            $data['status'] = 1;
+        }
+        $this->settings_model->update_age_status($data,$id);
+		redirect($_SERVER["HTTP_REFERER"]);
+    }
+
+
 	/*###### Province*/
     function province($action=false){
 		
@@ -2815,5 +2922,16 @@ class system_settings extends MY_Controller
         $this->settings_model->update_role_status($data,$id);
 		redirect($_SERVER["HTTP_REFERER"]);
     }
+
+    function check_duplicate_value($table, $fieldName, $id=NULL, $wFieldName=NULL) {
+
+
+		$value = $this->input->post($fieldName);
+        $id = $id;
+        //$id = $this->input->post('id');
+		$data = $this->settings_model->check_duplicate_value($id, $value, $fieldName, $wFieldName, $table);
+
+		echo $data;
+	}
 
 }

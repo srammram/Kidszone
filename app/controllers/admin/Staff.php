@@ -289,6 +289,19 @@ class Staff extends MY_Controller
 					'outlet-view_outlet' => (($this->input->post('outlet-view_outlet')!=NULL) ? 1 : 0),
 					'outlet-delete' => (($this->input->post('outlet-delete')!=NULL) ? 1 : 0),
 					'outlet-outlet_status' => (($this->input->post('outlet-outlet_status')!=NULL) ? 1 : 0),
+					'others-index' => (($this->input->post('others-index')!=NULL) ? 1 : 0),
+					'others-add_others' => (($this->input->post('others-add_others')!=NULL) ? 1 : 0),
+					'others-edit_others' => (($this->input->post('others-edit_others')!=NULL) ? 1 : 0),
+					'others-view_others' => (($this->input->post('others-view_others')!=NULL) ? 1 : 0),
+					'others-delete' => (($this->input->post('others-delete')!=NULL) ? 1 : 0),
+					'others-others_status' => (($this->input->post('others-others_status')!=NULL) ? 1 : 0),
+					'age-index' => (($this->input->post('age-index')!=NULL) ? 1 : 0),
+					'age-add_age' => (($this->input->post('age-add_age')!=NULL) ? 1 : 0),
+					'age-edit_age' => (($this->input->post('age-edit_age')!=NULL) ? 1 : 0),
+					'age-view_age' => (($this->input->post('age-view_age')!=NULL) ? 1 : 0),
+					'age-delete' => (($this->input->post('age-delete')!=NULL) ? 1 : 0),
+					'age-age_status' => (($this->input->post('age-age_status')!=NULL) ? 1 : 0),
+
 					'user_id' => $id
 				);
 

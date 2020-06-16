@@ -212,7 +212,57 @@ class Settings_model extends CI_Model
 			return true;
 		}
 		return false;
+	}
+	
+
+	/*### Age*/
+	function add_age($data){
+		
+		$this->db->insert('age', $data);
+        if($id = $this->db->insert_id()){
+	    	return true;
+		}
+		return false;
     }
+	function update_age($id,$data){
+		$this->db->where('id',$id);
+		
+		if($this->db->update('age',$data)){
+	    	return true;
+		}
+		return false;
+    }
+    function getAgeby_ID($id){
+		$this->db->select('*');
+		$this->db->from('age');
+		$this->db->where('id',$id);
+		$q = $this->db->get();
+		if($q->num_rows()>0){
+			return $q->row();
+		}
+		return false;
+    }
+	function getALLAge(){
+
+		$this->db->where('status', 1);
+		$q = $this->db->get('age');
+		if($q->num_rows()>0){
+			foreach (($q->result()) as $row) {
+                $data[] = $row;
+            }
+			return $data;
+		}
+		return false;
+	}
+    function update_age_status($data,$id){
+		$this->db->where('id',$id);
+		
+		if($this->db->update('age',$data)){
+			return true;
+		}
+		return false;
+    }
+
 	
 	/*### Commune*/
 	function add_commune($data){
@@ -1076,5 +1126,41 @@ class Settings_model extends CI_Model
 			return true;
 		}
 		return false;
-    }
+	}
+	
+
+	function check_duplicate_value($id=NULL, $value, $fieldName, $wFieldName=NULL, $table) {
+
+		//return $id;
+
+		if(!$id) {
+			$this->db->select($fieldName)
+			->from($table)
+			->where($fieldName, $value);
+		}
+		else
+		{
+			$this->db->select($fieldName)
+			->from($table)
+			->where(array($fieldName.' = ' => $value, $wFieldName.'!=' => $id));
+		}
+
+		$q = $this->db->get();
+		//print_r($this->db->last_query());
+		if($q->num_rows()>0) {
+			//return true;
+			return json_encode(array(
+				'valid' => false,
+			));
+		}
+		else {
+			//return false;
+			return json_encode(array(
+				'valid' => true,
+			));
+		}
+
+		//return $this->db->last_query();
+
+	}
 }

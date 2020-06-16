@@ -241,6 +241,10 @@ class Welcome extends MY_Controller
         elseif($table_name == 'role'){
             $this->site->webPermission($this->session->userdata('user_id'), 'system_settings', 'delete_role');
         }
+
+        elseif($table_name == 'age'){
+            //$this->site->webPermission($this->session->userdata('user_id'), 'system_settings', 'delete_age');
+        }
 		//$q = $this->db->update($table_name, $delete_array, array('id' => $delete_id));
 		$q = $this->db->delete($table_name, array('id' => $delete_id));
 		if($q){
