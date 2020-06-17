@@ -4,9 +4,11 @@
 <script src="<?= $assets ?>js/jquery.mCustomScrollbar.concat.min.js"></script>
 <p><a href="<?= admin_url('register/pdf_view_register/'.$result->id.''); ?>" class="pull-right"><i class="fa fa-file-pdf-o" aria-hidden="true"></i></a></p>
 <style>
+/*
 	@media print{
 		.print_break{page-break-after: always;}
 	}
+*/
 /*.kidszon_content ul p{position: relative;float: left;padding-left: 30px;}	*/
 .kidszon_content ul p::before {
     content: '';
@@ -51,6 +53,10 @@
 	.kidszon_content ul li,.kidszon_content ol li{font-size: 13px;color: #333;line-height: 25px;}
 	.kidszon_content ul,.kidszon_content ol{padding-left: 30px;list-style: decimal;}
 	
+	.table_dot tr td:first-child{width: 45%;}
+	.table_dot tr td:nth-of-type(2){width: 5%;}
+	.table_dot tr td:nth-of-type(3){width: 50%;}
+	
 /*	*/
  
 </style>
@@ -94,22 +100,20 @@
 
 							<table class="table table-bordered table_dot print_break" style="table-layout: fixed;">
 								<tr>
-									<td>Customer Name</td>
-									<td>:</td>
-									<td><?= $result->customer_name ?></td>
+									<td style="width: 45%">Customer Name</td>
+									<td style="width: 5%">:</td>
+									<td style="width: 50%"><?= $result->customer_name ?></td>
 								</tr>
 								<tr>
-									<td>Gender</td>
-									<td>:
-									<label class="container-checkbox">Male
-									  <img src="<?=base_url()?>assets/uploads/<?= $result->gender=='M' ? 'tick.png': 'list.png'; ?>" width="15px"/>
-									</label>
-									</td>
-
-									<td>
-									<label class="container-checkbox">Female
-										  <img src="<?=base_url()?>assets/uploads/<?= $result->gender=='F' ? 'tick.png': 'list.png'; ?>" width="15px"/>
-									</label>									
+									<td style="width: 45%">Gender</td>
+									<td style="width: 5%">:</td>
+									<td style="width: 50%">
+										<label class="container-checkbox">Male
+										  <img src="<?=base_url()?>assets/uploads/<?= $result->gender=='M' ? 'tick.png': 'list.png'; ?>" width="15px"/>
+										</label>
+										<label class="container-checkbox">Female
+											  <img src="<?=base_url()?>assets/uploads/<?= $result->gender=='F' ? 'tick.png': 'list.png'; ?>" width="15px"/>
+										</label>									
 									</td>
 								</tr>
 							</table>
@@ -140,71 +144,71 @@
 							</table>
 							<table class="table table-bordered table_dot print_break" style="table-layout: fixed;">
 								<tr>
-									<td>Others</td>
-									<td>:</td>
-									<td><?= $others->name ?></td>
+									<td style="width: 45%">Others</td>
+									<td style="width: 5%">:</td>
+									<td style="width: 50%"><?= $others->name ?></td>
 								</tr>
 								<tr>
-									<td>Mobile Number</td>
-									<td>:</td>
-									<td><?= $result->phone_number ?></td>
+									<td style="width: 45%">Mobile Number</td>
+									<td style="width: 5%">:</td>
+									<td style="width: 50%"><?= $result->phone_number ?></td>
 								</tr>
 								<tr>
-									<td>Outlet</td>
-									<td>:</td>
-									<td><?= $outlet->name ?></td>
+									<td style="width: 45%">Outlet</td>
+									<td style="width: 5%">:</td>
+									<td style="width: 50%"><?= $outlet->name ?></td>
 								</tr>
 								<tr>
-									<td>Email</td>
-									<td>:</td>
-									<td><?= $result->email ?></td>
+									<td style="width: 45%">Email</td>
+									<td style="width: 5%">:</td>
+									<td style="width: 50%"><?= $result->email ?></td>
 								</tr>
 								<tr>
 									<td colspan="3"><h3 style="font-size: 18px;color: #000;"><?= lang("Kids Name", "Kids Name"); ?></h3></td>
 								</tr>
 								<tr>
-									<td>Kid Name 1</td>
-									<td>:</td>
-									<td><?= $result->kid_name1 ?></td>
+									<td style="width: 45%">Kid Name 1</td>
+									<td style="width: 5%">:</td>
+									<td style="width: 50%"><?= $result->kid_name1 ?></td>
 								</tr>
 								<tr>
-									<td>Age</td>
-									<td>:</td>
-									<td><?= $kid1_age->name ?></td>
+									<td style="width: 45%">Age</td>
+									<td style="width: 5%">:</td>
+									<td style="width: 50%"><?= $kid1_age->name ?></td>
 								</tr>
 								<tr>
-									<td>Gender</td>
-									<td>:
+									<td style="width: 45%">Gender</td>
+									<td style="width: 5%">:
+									
+									</td>
+
+									<td style="width: 50%">
 									<label class="container-checkbox">Male
 									  <img src="<?=base_url()?>assets/uploads/<?= $result->kid1_gender=='M' ? 'tick.png': 'list.png'; ?>" width="15px"/>
 									</label>
-									</td>
-
-									<td>
 									<label class="container-checkbox">Female
 										  <img src="<?=base_url()?>assets/uploads/<?= $result->kid1_gender=='F' ? 'tick.png': 'list.png'; ?>" width="15px"/>
 									</label>									
 									</td>
 								</tr>
 								<tr>
-									<td>Kid Name 2</td>
-									<td>:</td>
-									<td><?= $result->kid_name2 ?></td>
+									<td style="width: 45%">Kid Name 2</td>
+									<td style="width: 5%">:</td>
+									<td style="width: 50%"><?= $result->kid_name2 ?></td>
 								</tr>
 								<tr>
-									<td>Age</td>
-									<td>:</td>
-									<td><?= $kid2_age->name ?></td>
+									<td style="width: 45%">Age</td>
+									<td style="width: 5%">:</td>
+									<td style="width: 50%"><?= $kid2_age->name ?></td>
 								</tr>
 								<tr>
-									<td>Gender</td>
-									<td>:
+									<td style="width: 45%">Gender</td>
+									<td style="width: 5%">:
+									</td>
+									<td style="width: 50%">
 									<label class="container-checkbox">Male
 									  <img src="<?=base_url()?>assets/uploads/<?= $result->kid2_gender=='M' ? 'tick.png': 'list.png'; ?>" width="15px"/>
 									</label>
-									</td>
-
-									<td>
 									<label class="container-checkbox">Female
 										  <img src="<?=base_url()?>assets/uploads/<?= $result->kid2_gender=='F' ? 'tick.png': 'list.png'; ?>" width="15px"/>
 									</label>									
@@ -212,24 +216,25 @@
 								</tr>
 
 								<tr>
-									<td>Kid Name 3</td>
-									<td>:</td>
-									<td><?= $result->kid_name3 ?></td>
+									<td style="width: 45%">Kid Name 3</td>
+									<td style="width: 5%">:</td>
+									<td style="width: 50%"><?= $result->kid_name3 ?></td>
 								</tr>
 								<tr>
-									<td>Age</td>
-									<td>:</td>
-									<td><?= $kid3_age->name ?></td>
+									<td style="width: 45%">Age</td>
+									<td style="width: 5%">:</td>
+									<td style="width: 50%"><?= $kid3_age->name ?></td>
 								</tr>
 								<tr>
-									<td>Gender</td>
-									<td>:
+									<td style="width: 45%">Gender</td>
+									<td style="width: 5%">:
+									
+									</td>
+
+									<td style="width: 45%">
 									<label class="container-checkbox">Male
 									  <img src="<?=base_url()?>assets/uploads/<?= $result->kid3_gender=='M' ? 'tick.png': 'list.png'; ?>" width="15px"/>
 									</label>
-									</td>
-
-									<td>
 									<label class="container-checkbox">Female
 										  <img src="<?=base_url()?>assets/uploads/<?= $result->kid3_gender=='F' ? 'tick.png': 'list.png'; ?>" width="15px"/>
 									</label>									
@@ -249,12 +254,13 @@
 								<tr>
 									<td>Gender</td>
 									<td>:
-									<label class="container-checkbox">Male
-									  <img src="<?=base_url()?>assets/uploads/<?= $result->kid4_gender=='M' ? 'tick.png': 'list.png'; ?>" width="15px"/>
-									</label>
+									
 									</td>
 
 									<td>
+									<label class="container-checkbox">Male
+									  <img src="<?=base_url()?>assets/uploads/<?= $result->kid4_gender=='M' ? 'tick.png': 'list.png'; ?>" width="15px"/>
+									</label>
 									<label class="container-checkbox">Female
 										  <img src="<?=base_url()?>assets/uploads/<?= $result->kid4_gender=='F' ? 'tick.png': 'list.png'; ?>" width="15px"/>
 									</label>									
@@ -274,12 +280,13 @@
 								<tr>
 									<td>Gender</td>
 									<td>:
-									<label class="container-checkbox">Male
-									  <img src="<?=base_url()?>assets/uploads/<?= $result->kid5_gender=='M' ? 'tick.png': 'list.png'; ?>" width="15px"/>
-									</label>
+									
 									</td>
 
 									<td>
+									<label class="container-checkbox">Male
+									  <img src="<?=base_url()?>assets/uploads/<?= $result->kid5_gender=='M' ? 'tick.png': 'list.png'; ?>" width="15px"/>
+									</label>
 									<label class="container-checkbox">Female
 										  <img src="<?=base_url()?>assets/uploads/<?= $result->kid5_gender=='F' ? 'tick.png': 'list.png'; ?>" width="15px"/>
 									</label>									
@@ -299,12 +306,13 @@
 								<tr>
 									<td>Gender</td>
 									<td>:
-									<label class="container-checkbox">Male
-									  <img src="<?=base_url()?>assets/uploads/<?= $result->kid6_gender=='M' ? 'tick.png': 'list.png'; ?>" width="15px"/>
-									</label>
+									
 									</td>
 
 									<td>
+									<label class="container-checkbox">Male
+									  <img src="<?=base_url()?>assets/uploads/<?= $result->kid6_gender=='M' ? 'tick.png': 'list.png'; ?>" width="15px"/>
+									</label>
 									<label class="container-checkbox">Female
 										  <img src="<?=base_url()?>assets/uploads/<?= $result->kid6_gender=='F' ? 'tick.png': 'list.png'; ?>" width="15px"/>
 									</label>									
@@ -419,7 +427,25 @@
 						<div class="col-md-12 col-xs-12">
 							<h3 style="font-size: 18px;color: #000;">ពត៌មានទូទៅ</h3>
 							<h4 class="text-left" style="font-size: 14px;padding-left: 9px;">ឈ្មោះឪពុក ម្ដាយ  : (អាយុចាប់ពី១៨ឆ្នាំឡើងទៅ)</h4>
-
+							<table class="table table-bordered table_dot print_break" style="table-layout: fixed;">
+								<tr>
+									<td style="width: 45%">ឈ្មោះអតិថិជន*</td>
+									<td style="width: 5%">:</td>
+									<td style="width: 50%"><?= $result->customer_name ?></td>
+								</tr>
+								<tr>
+									<td style="width: 45%">Gender</td>
+									<td style="width: 5%">:</td>
+									<td style="width: 50%">
+										<label class="container-checkbox">Male
+										  <img src="<?=base_url()?>assets/uploads/<?= $result->gender=='M' ? 'tick.png': 'list.png'; ?>" width="15px"/>
+										</label>
+										<label class="container-checkbox">Female
+											  <img src="<?=base_url()?>assets/uploads/<?= $result->gender=='F' ? 'tick.png': 'list.png'; ?>" width="15px"/>
+										</label>									
+									</td>
+								</tr>
+							</table>
 							<table class="table table-bordered table_dot_check" style="table-layout: fixed;">
 							
 								<tr>
@@ -448,9 +474,9 @@
 
 							<table class="table table-bordered table_dot print_break" style="table-layout: fixed;">
 								<tr>
-									<td>ឈ្មោះឪពុក</td>
-									<td>:</td>
-									<td><?= $result->father_name ?></td>
+									<td style="width: 45%">ឈ្មោះឪពុក</td>
+									<td style="width: 5%">:</td>
+									<td style="width: 50%"><?= $result->father_name ?></td>
 								</tr>
 								<tr>
 									<td>ឈ្មោះម្ដាយ</td>

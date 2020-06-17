@@ -355,57 +355,57 @@
 							<h3>ពត៌មានទូទៅ</h3>
 							<h4 class="text-left">ឈ្មោះឪពុក ម្ដាយ  : (អាយុចាប់ពី១៨ឆ្នាំឡើងទៅ)</h4>
 							<div class="form-group col-md-12">
-											<label class="label_green">Customer Name </label>
+											<label class="label_green">ឈ្មោះអតិថិជន*:</label>
 											<input type="text" class="form-control" name="customer_name" id="customer_name" value="<?= $result->customer_name ?>" required readonly>
 										</div>
 
 										<div class="form-group col-md-12">
 											<div class="col-md-3" style="padding: 0px;">
-												<label class="container-checkbox">Male
+												<label class="container-checkbox">ប្រុស
 												<input type="radio" name="gender" id="gender" <?= $result->gender=='M' ? 'checked': FALSE; ?> disabled>
 												</label>
 											</div>
 											<div class="col-md-3" style="padding: 0px;">
-												<label class="container-checkbox">Female
+												<label class="container-checkbox">ស្រី
 												<input type="radio" name="gender" id="gender" <?= $result->gender=='F' ? 'checked': FALSE; ?> disabled>
 												</label>
 											</div>
 										</div>
 
 										<div class="form-group col-md-12">
-											<label class="label_green">Nationality </label>
+											<label class="label_green">សញ្ជាតិ </label>
 											<input type="text" class="form-control" name="nationality" id="nationality" value="<?= $nationality->name ?>" required readonly>
 										</div>
 
 										<div class="form-group col-md-12">
 											<div class="col-md-3" style="padding: 0px;">
-												<label class="container-checkbox">Father
+												<label class="container-checkbox">ឪពុក
 												<input type="radio" name="parent_type" id="parent_type" <?= $result->parent_type==1 ? 'checked': FALSE; ?> disabled>
 												</label>
 											</div>
 											<div class="col-md-3" style="padding: 0px;">
-												<label class="container-checkbox">Mother
+												<label class="container-checkbox">ម្តាយ
 												<input type="radio" name="parent_type" id="parent_type" <?= $result->parent_type==2 ? 'checked': FALSE; ?> disabled>
 												</label>
 											</div>
 											<div class="col-md-3" style="padding: 0px;">
-												<label class="container-checkbox">Teacher
+												<label class="container-checkbox">គ្រូ
 												<input type="radio" name="parent_type" id="parent_type" <?= $result->parent_type==4 ? 'checked': FALSE; ?> disabled>
 												</label>
 											</div>
 											<div class="col-md-3" >
-												<label class="container-checkbox">Others
+												<label class="container-checkbox">ផ្សេងទៀត
 												<input type="radio" name="parent_type" id="parent_type" <?= $result->parent_type==3 ? 'checked': FALSE; ?> disabled>
 												</label>
 											</div>
 										</div>
 
 											<div class="form-group col-md-12">
-												<label class="label_green">Others </label>
+												<label class="label_green">ផ្សេងទៀត </label>
 												<input type="text" class="form-control" name="others" id="others" value="<?= $others->name ?>" required readonly>
 											</div>
 											<div class="form-group col-md-12">
-												<label class="label_green">Mobile Number</label>
+												<label class="label_green">លេខទូរស័ព្ទ*</label>
 												<input type="text" class="form-control" name="phone" value="<?= $result->phone_number ?>" id="phone" required readonly>
 											</div>
 											<div class="form-group col-md-12">
@@ -413,49 +413,49 @@
 												<input type="text" class="form-control" name="outlet" value="<?= $outlet->name ?>" id="outlet" required readonly>
 											</div>
 											<div class="form-group col-md-12">
-												<label class="label_green">Email</label>
+												<label class="label_green">អ៊ីម៉ែល</label>
 												<input type="text" class="form-control" name="email" id="email"   value="<?= $result->email ?>" required readonly>
 											</div>
-										<h3><?= lang("Information of Chlidrens", "Information of Chlidrens"); ?></h3>
+										<h3>* ពត៌មានអំពីក្មេងចូលលេង៖ អតិប្បរមា ក្មេង ៦ នាក់</h3>
 											<div class="form-group col-md-12">
-												<label class="label_green">Kid Name 1</label>
+												<label class="label_green">ឈ្មោះក្មេងទី ១ </label>
 												<input type="text" class="form-control"  value="<?= $result->kid_name1 ?>" required readonly>
 											</div>
 											<div class="form-group col-md-12">
-												<label class="label_green">Age</label>
+												<label class="label_green">អាយុ</label>
 												<input type="text" class="form-control"  value="<?= $kid1_age->name ?>" required readonly>
 											</div>
 
 											<div class="form-group col-md-12">
 											<div class="col-md-3" style="padding: 0px;">
-												<label class="container-checkbox">Male
+												<label class="container-checkbox">ប្រុស
 												<input type="radio" name="gender1" id="gender1" <?= $result->kid1_gender=='M' ? 'checked': FALSE; ?> disabled>
 												</label>
 											</div>
 											<div class="col-md-3" style="padding: 0px;">
-												<label class="container-checkbox">Female
+												<label class="container-checkbox">ស្រី
 												<input type="radio" name="gender1" id="gender1" <?= $result->kid1_gender=='F' ? 'checked': FALSE; ?> disabled>
 												</label>
 											</div>
 										</div>
 
 											<div class="form-group col-md-12">
-												<label class="label_green">Kid Name 2</label>
+												<label class="label_green">ឈ្មោះក្មេងទី ២ </label>
 												<input type="text" class="form-control" value="<?= $result->kid_name2 ?>" readonly>
 											</div>
 											<div class="form-group col-md-12">
-												<label class="label_green">Age</label>
+												<label class="label_green">អាយុ</label>
 												<input type="text" class="form-control"  value="<?= $kid2_age->name ?>" required readonly>
 											</div>
 
 											<div class="form-group col-md-12">
 											<div class="col-md-3" style="padding: 0px;">
-												<label class="container-checkbox">Male
+												<label class="container-checkbox">ប្រុស
 												<input type="radio" name="gender2" id="gender2" <?= $result->kid2_gender=='M' ? 'checked': FALSE; ?> disabled>
 												</label>
 											</div>
 											<div class="col-md-3" style="padding: 0px;">
-												<label class="container-checkbox">Female
+												<label class="container-checkbox">ស្រី
 												<input type="radio" name="gender2" id="gender2" <?= $result->kid2_gender=='F' ? 'checked': FALSE; ?> disabled>
 												</label>
 											</div>
@@ -546,28 +546,28 @@
 											</div>
 
 											<div class="form-group col-md-12">
-												<label class="label_green">No of kids</label>
-												<input type="text" class="form-control" value="<?= $result->no_of_kids ?>" readonly>
+												<label class="label_green">* ចំនួនក្មេងសរុប </label>
+												<input type="text" class="form-control" value="<?= $result->no_of_kids ?>" readonly>នាក់
 											</div>
 
-											<h3>Information of Students</h3>
+											<h3>* ពត៌មានអំពីសិស្ស៖</h3>
 
 											<div class="form-group col-md-12">
-												<label class="label_green">School Name</label>
+												<label class="label_green">ឈ្មោះសាលារៀន</label>
 												<input type="text" class="form-control" value="<?= $result->school_name ?>" readonly>
 											</div>
 											<div class="form-group col-md-12">
-												<label class="label_green">No of Students</label>
+												<label class="label_green">ចំនួនសិស្សសរុប</label>
 												<input type="text" class="form-control" value="<?= $result->no_of_students ?>" readonly>
 											</div>
 
 											<div class="form-group col-md-12">
-												<label class="label_green">No of Boys</label>
+												<label class="label_green">ចំនួនសិស្សប្រុស</label>
 												<input type="text" class="form-control" value="<?= $result->no_of_boys ?>" readonly>
 											</div>
 
 											<div class="form-group col-md-12">
-												<label class="label_green">No of Girls</label>
+												<label class="label_green">ចំនួនសិស្សស្រី</label>
 												<input type="text" class="form-control" value="<?= $result->no_of_girls ?>" readonly>
 											</div>
 									<h3>Image</h3>
@@ -590,7 +590,7 @@
 									<div class="form-group col-md-12">
 										<label class="label_green"></label>
 										<div class="clear"></div>			
-										<input type="checkbox" name="accept" id="accept" <?= $result->accept==1 ? 'checked': FALSE; ?> disabled> &nbsp;<b>I agree to follow the rules</b>
+										<input type="checkbox" name="accept" id="accept" <?= $result->accept==1 ? 'checked': FALSE; ?> disabled> &nbsp;<b>ខ្ញុំបានយល់ព្រមធ្វើតាមលក្ខន្តិកៈរបស់ ឃីតហ្ស៊ូណា</b>
 									</div>
 					</div>
 				<div class="col-sm-12 last_sa_se"><?php //echo form_submit('edit_farmer', lang('submit'), 'class="btn btn-primary"'); ?></div>
