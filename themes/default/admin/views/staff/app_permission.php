@@ -146,8 +146,8 @@
                       <td class="text-center">
                           <input type="checkbox" value="1" class="checkbox" name="others-edit_others" <?php echo $p->{'others-edit_others'} ? "checked" : ''; ?>>
                       </td>
-                      <td class="text-center">
-                          <input type="checkbox" value="1" class="checkbox" name="others-delete" <?php echo $p->{'others-delete'} ? "checked" : ''; ?>>
+                      <td class="text-center">&nbsp;
+                          <?php /* ?><input type="checkbox" value="1" class="checkbox" name="others-delete" <?php echo $p->{'others-delete'} ? "checked" : ''; ?>><?php */?>
                       </td>                      
                       <td class="text-center">
                           <input type="checkbox" value="1" class="checkbox" name="others-view_others" <?php echo $p->{'others-view_others'} ? "checked" : ''; ?>>
@@ -172,8 +172,8 @@
                       <td class="text-center">
                           <input type="checkbox" value="1" class="checkbox" name="age-edit_age" <?php echo $p->{'age-edit_age'} ? "checked" : ''; ?>>
                       </td>
-                      <td class="text-center">
-                          <input type="checkbox" value="1" class="checkbox" name="age-delete" <?php echo $p->{'age-delete'} ? "checked" : ''; ?>>
+                      <td class="text-center">&nbsp;
+                          <?php /* ?><input type="checkbox" value="1" class="checkbox" name="age-delete" <?php echo $p->{'age-delete'} ? "checked" : ''; ?>><?php */?>
                       </td>                      
                       <td class="text-center">
                           <input type="checkbox" value="1" class="checkbox" name="age-view_age" <?php echo $p->{'age-view_age'} ? "checked" : ''; ?>>
