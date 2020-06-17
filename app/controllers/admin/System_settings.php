@@ -1099,7 +1099,7 @@ class system_settings extends MY_Controller
     function add_age(){
         
         //$this->site->webPermission($this->session->userdata('user_id'), 'system_settings', 'add_age');
-        $this->form_validation->set_rules('name', lang("province_name"), 'required|is_unique[province.name]');   
+        $this->form_validation->set_rules('name', lang("name"), 'required|is_unique[age.name]');   
         if ($this->form_validation->run() == true) {
             $data = array(
                 'name' => $this->input->post('name'),
@@ -1120,12 +1120,12 @@ class system_settings extends MY_Controller
     }
     function edit_age($id){
         
-        $this->site->webPermission($this->session->userdata('user_id'), 'system_settings', 'edit_age');
+        //$this->site->webPermission($this->session->userdata('user_id'), 'system_settings', 'edit_age');
 		$result = $this->settings_model->getAgeby_ID($id);
-		$this->form_validation->set_rules('name', lang("province_name"), 'required'); 
+		$this->form_validation->set_rules('name', lang("name"), 'required'); 
         
         if ($this->input->post('name') != $result->name) {
-            $this->form_validation->set_rules('name', lang("name"), 'is_unique[province.name]');
+            $this->form_validation->set_rules('name', lang("name"), 'is_unique[age.name]');
         }
         
         if ($this->form_validation->run() == true) {
@@ -1150,7 +1150,7 @@ class system_settings extends MY_Controller
     }
     function age_status($status,$id){
         
-        $this->site->webPermission($this->session->userdata('user_id'), 'system_settings', 'age_status');
+        //$this->site->webPermission($this->session->userdata('user_id'), 'system_settings', 'age_status');
         $data['status'] = 0;
         if($status=='active'){
             $data['status'] = 1;
