@@ -99,8 +99,18 @@ class Nationality extends MY_Controller
 		
         if ($this->form_validation->run() == true) {
 
+			$this->db->select_max('sort');
+			$res1 = $this->db->get('nationality');
+		
+			if ($res1->num_rows() > 0)
+			{
+				$res2 = $res1->result_array();
+				$max = $res2[0]['sort']+1;
+			}
+
             $data = array(
-                'name' => $this->input->post('name'),
+				'name' => $this->input->post('name'),
+				'sort' => $max,
 				'status' => 1,
 				'created_on' => date('Y-m-d H:i:s'),
 				'created_by' => $this->session->userdata('user_id'),
