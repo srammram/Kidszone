@@ -68,6 +68,43 @@ class Register_model extends CI_Model
 		return false;
 	}	
 
+	function getNationalityByID($id){
+		$this->db->select('d.*');
+		$this->db->from('nationality d');
+		$this->db->where('d.id',$id);
+		$q = $this->db->get();
+		if($q->num_rows()>0){
+			return $q->row();
+		}
+		return false;
+	}
+
+	function getOthersByID($id){
+		$this->db->select('d.*');
+		$this->db->from('others d');
+		$this->db->where('d.id',$id);
+		$q = $this->db->get();
+		if($q->num_rows()>0){
+			return $q->row();
+		}
+		return false;
+	}
+
+
+	function getKidsAgeByID($id){
+		$this->db->select('d.*');
+		$this->db->from('age d');
+		$this->db->where('d.id',$id);
+		$q = $this->db->get();
+		if($q->num_rows()>0){
+			return $q->row();
+		}
+		return false;
+	}
+
+
+
+
 	function getALLRegisterExcel(){
 
 		//$this->db->where('province.is_delete', 0);

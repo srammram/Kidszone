@@ -73,10 +73,7 @@ class Register extends MY_Controller
 			->select("
 			{$this->db->dbprefix('register')}.id as id, 
 			{$this->db->dbprefix('register')}.parent_type, 
-			{$this->db->dbprefix('register')}.father_name, 
-			{$this->db->dbprefix('register')}.mother_name, 
-			{$this->db->dbprefix('register')}.others_name, 
-			{$this->db->dbprefix('register')}.teacher_name, 
+			{$this->db->dbprefix('register')}.customer_name, 
 			{$this->db->dbprefix('register')}.phone_number, 
 			t2.name, 
 			{$this->db->dbprefix('register')}.email, 
@@ -239,8 +236,29 @@ class Register extends MY_Controller
 		$result = $this->register_model->getRegisterByID($id);
 		$outlet = $this->register_model->getOutLetByID($result->outlet_id);
 
+		$nationality = $this->register_model->getNationalityByID($result->nationality);
+		$others = $this->register_model->getOthersByID($result->pt_others);
+
+		$kid1_age = $this->register_model->getKidsAgeByID($result->kid1_age);
+		$kid2_age = $this->register_model->getKidsAgeByID($result->kid2_age);
+		$kid3_age = $this->register_model->getKidsAgeByID($result->kid3_age);
+		$kid4_age = $this->register_model->getKidsAgeByID($result->kid4_age);
+		$kid5_age = $this->register_model->getKidsAgeByID($result->kid5_age);
+		$kid6_age = $this->register_model->getKidsAgeByID($result->kid6_age);
+
+
 		$this->data['result'] = $result;
 		$this->data['outlet'] = $outlet;
+
+		$this->data['nationality'] = $nationality;
+		$this->data['others'] = $others;
+		$this->data['kid1_age'] = $kid1_age;
+		$this->data['kid2_age'] = $kid2_age;
+		$this->data['kid3_age'] = $kid3_age;
+		$this->data['kid4_age'] = $kid4_age;
+		$this->data['kid5_age'] = $kid5_age;
+		$this->data['kid6_age'] = $kid6_age;
+
 		//$this->data['safety_message_english'] = $this->register_model->getSafetyMessageEnglish();
 		$this->data['sm'] = $this->register_model->getsm($id);
 		//$this->data['safety_message_khmer'] = $this->register_model->getSafetyMessageKhmer();
@@ -259,8 +277,29 @@ class Register extends MY_Controller
 		$result = $this->register_model->getRegisterByID($id);
 		$outlet = $this->register_model->getOutLetByID($result->outlet_id);
 
+		$nationality = $this->register_model->getNationalityByID($result->nationality);
+		$others = $this->register_model->getOthersByID($result->pt_others);
+
+		$kid1_age = $this->register_model->getKidsAgeByID($result->kid1_age);
+		$kid2_age = $this->register_model->getKidsAgeByID($result->kid2_age);
+		$kid3_age = $this->register_model->getKidsAgeByID($result->kid3_age);
+		$kid4_age = $this->register_model->getKidsAgeByID($result->kid4_age);
+		$kid5_age = $this->register_model->getKidsAgeByID($result->kid5_age);
+		$kid6_age = $this->register_model->getKidsAgeByID($result->kid6_age);
+
+
 		$this->data['result'] = $result;
 		$this->data['outlet'] = $outlet;
+
+		$this->data['nationality'] = $nationality;
+		$this->data['others'] = $others;
+		$this->data['kid1_age'] = $kid1_age;
+		$this->data['kid2_age'] = $kid2_age;
+		$this->data['kid3_age'] = $kid3_age;
+		$this->data['kid4_age'] = $kid4_age;
+		$this->data['kid5_age'] = $kid5_age;
+		$this->data['kid6_age'] = $kid6_age;
+
 		$this->data['sm'] = $this->register_model->getsm($id);
 		//$this->data['safety_message_english'] = $this->register_model->getSafetyMessageEnglish();
 		//$this->data['safety_message_khmer'] = $this->register_model->getSafetyMessageKhmer();

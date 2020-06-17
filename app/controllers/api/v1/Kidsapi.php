@@ -408,10 +408,15 @@ class Kidsapi extends REST_Controller {
 				$data = array(
 				
 					'sm1' => json_encode($data1,JSON_UNESCAPED_UNICODE),
+
+					'customer_name' => $this->input->post('customer_name'),
+					'gender' => $this->input->post('gender'),
+					'nationality' => $this->input->post('nationality'),
 					'parent_type' => $this->input->post('parent_type'),
-					'father_name' => $this->input->post('father_name'),
-					'mother_name' => $this->input->post('mother_name'),
-					'others_name' => $this->input->post('others_name'),
+					'pt_others' => $this->input->post('pt_others'),
+					//'father_name' => $this->input->post('father_name'),
+					//'mother_name' => $this->input->post('mother_name'),
+					//'others_name' => $this->input->post('others_name'),
 					'phone_number' => $this->input->post('phone_number'),
 					'email' => $this->input->post('email'),
 					'kid_name1' => $this->input->post('kid_name1'),
@@ -420,10 +425,29 @@ class Kidsapi extends REST_Controller {
 					'kid_name4' => $this->input->post('kid_name4'),
 					'kid_name5' => $this->input->post('kid_name5'),
 					'kid_name6' => $this->input->post('kid_name6'),
-					'teacher_name' => $this->input->post('teacher_name'),
-					'lang_sel' => $this->input->post('lang_sel'),
+
+					'kid1_age' => $this->input->post('kid1_age'),
+					'kid2_age' => $this->input->post('kid2_age'),
+					'kid3_age' => $this->input->post('kid3_age'),
+					'kid4_age' => $this->input->post('kid4_age'),
+					'kid5_age' => $this->input->post('kid5_age'),
+					'kid6_age' => $this->input->post('kid6_age'),
+
+					'kid1_gender' => $this->input->post('kid1_gender'),
+					'kid2_gender' => $this->input->post('kid2_gender'),
+					'kid3_gender' => $this->input->post('kid3_gender'),
+					'kid4_gender' => $this->input->post('kid4_gender'),
+					'kid5_gender' => $this->input->post('kid5_gender'),
+					'kid6_gender' => $this->input->post('kid6_gender'),
+					//'teacher_name' => $this->input->post('teacher_name'),
 					'no_of_kids' => $this->input->post('no_of_kids'),
+
+					'school_name' => $this->input->post('school_name'),
+					'no_of_boys' => $this->input->post('no_of_boys'),
+					'no_of_girls' => $this->input->post('no_of_girls'),
 					'no_of_students' => $this->input->post('no_of_students'),
+
+					'lang_sel' => $this->input->post('lang_sel'),
 					'device_type' => $this->input->post('device_type'),
 					'lat' => $this->input->post('lat'),
 					'lng' => $this->input->post('lng'),
@@ -609,6 +633,48 @@ class Kidsapi extends REST_Controller {
 		$lang = $_GET['lang'];
 
 		$data = $this->kids_api->getSafetyMessageList($lang);
+		
+		if(!empty($data)){
+			$result = array( 'status'=> 1, 'message'=> 'Success', 'data' => $data);
+		}else{
+			$result = array( 'status'=> 0, 'message'=> 'Empty data');
+		}
+
+		$this->response($result);
+	}
+
+
+	public function age_get(){
+
+		$data = $this->kids_api->getAgeList();
+		
+		if(!empty($data)){
+			$result = array( 'status'=> 1, 'message'=> 'Success', 'data' => $data);
+		}else{
+			$result = array( 'status'=> 0, 'message'=> 'Empty data');
+		}
+
+		$this->response($result);
+	}
+
+
+	public function others_get(){
+
+		$data = $this->kids_api->getOthersList();
+		
+		if(!empty($data)){
+			$result = array( 'status'=> 1, 'message'=> 'Success', 'data' => $data);
+		}else{
+			$result = array( 'status'=> 0, 'message'=> 'Empty data');
+		}
+
+		$this->response($result);
+	}
+
+
+	public function nationality_get(){
+
+		$data = $this->kids_api->getNationalityList();
 		
 		if(!empty($data)){
 			$result = array( 'status'=> 1, 'message'=> 'Success', 'data' => $data);

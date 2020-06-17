@@ -1191,6 +1191,65 @@ class Kids_api extends CI_Model
 	}
 
 
+
+	function getAgeList() {
+
+		$q = $this->db->select('*')->get('age');
+
+		foreach($q->result() as $row) {
+
+			$data[] = array(
+				'name' => $row->name
+			);
+
+		}
+
+		if($data) {
+			return $data;
+		}
+//print_r($this->db->last_query());
+		return false;
+	}
+
+	function getOthersList() {
+
+		$q = $this->db->select('*')->get('others');
+
+		foreach($q->result() as $row) {
+
+			$data[] = array(
+				'name' => $row->name
+			);
+
+		}
+
+		if($data) {
+			return $data;
+		}
+//print_r($this->db->last_query());
+		return false;
+	}
+
+	function getNationalityList() {
+
+		$q = $this->db->select('*')->order_by('sort', 'ASC')->get('nationality');
+
+		foreach($q->result() as $row) {
+
+			$data[] = array(
+				'name' => $row->name
+			);
+
+		}
+
+		if($data) {
+			return $data;
+		}
+//print_r($this->db->last_query());
+		return false;
+	}
+
+
 	function insertRegister($data){
 
 		//$this->db->insert('register', $data);

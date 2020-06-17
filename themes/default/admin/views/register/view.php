@@ -23,6 +23,7 @@
 <?php
 
 //echo '<pre>';
+//print_r($outlet);
 //print_r($result);
 ?>
 
@@ -66,20 +67,39 @@
 								<div class="col-md-12 col-xs-12">
 									<h3><?= lang("General information", "General information"); ?></h3>
 									<h4 class="text-left">Parent name: (Age over 18 years old)</h4>
+
+										<div class="form-group col-md-12">
+											<label class="label_green">Customer Name </label>
+											<input type="text" class="form-control" name="customer_name" id="customer_name" value="<?= $result->customer_name ?>" required readonly>
+										</div>
+
 										<div class="form-group col-md-12">
 											<div class="col-md-3" style="padding: 0px;">
-												<label class="container-checkbox">Father Name
+												<label class="container-checkbox">Male
+												<input type="radio" name="gender" id="gender" <?= $result->gender=='M' ? 'checked': FALSE; ?> disabled>
+												</label>
+											</div>
+											<div class="col-md-3" style="padding: 0px;">
+												<label class="container-checkbox">Female
+												<input type="radio" name="gender" id="gender" <?= $result->gender=='F' ? 'checked': FALSE; ?> disabled>
+												</label>
+											</div>
+										</div>
+
+										<div class="form-group col-md-12">
+											<label class="label_green">Nationality </label>
+											<input type="text" class="form-control" name="nationality" id="nationality" value="<?= $nationality->name ?>" required readonly>
+										</div>
+
+										<div class="form-group col-md-12">
+											<div class="col-md-3" style="padding: 0px;">
+												<label class="container-checkbox">Father
 												<input type="radio" name="parent_type" id="parent_type" <?= $result->parent_type==1 ? 'checked': FALSE; ?> disabled>
 												</label>
 											</div>
 											<div class="col-md-3" style="padding: 0px;">
-												<label class="container-checkbox">Mother Name
+												<label class="container-checkbox">Mother
 												<input type="radio" name="parent_type" id="parent_type" <?= $result->parent_type==2 ? 'checked': FALSE; ?> disabled>
-												</label>
-											</div>
-											<div class="col-md-3" >
-												<label class="container-checkbox">Others
-												<input type="radio" name="parent_type" id="parent_type" <?= $result->parent_type==3 ? 'checked': FALSE; ?> disabled>
 												</label>
 											</div>
 											<div class="col-md-3" style="padding: 0px;">
@@ -87,22 +107,16 @@
 												<input type="radio" name="parent_type" id="parent_type" <?= $result->parent_type==4 ? 'checked': FALSE; ?> disabled>
 												</label>
 											</div>
+											<div class="col-md-3" >
+												<label class="container-checkbox">Others
+												<input type="radio" name="parent_type" id="parent_type" <?= $result->parent_type==3 ? 'checked': FALSE; ?> disabled>
+												</label>
+											</div>
 										</div>
+
 											<div class="form-group col-md-12">
-												<label class="label_green">Father Name </label>
-												<input type="text" class="form-control" name="father_name" id="father_name" value="<?= $result->father_name ?>" required readonly>
-											</div>
-											<div class="form-group col-md-12">
-												<label class="label_green">Mother Name</label>
-												<input type="text" class="form-control" name="mother_name" id="mother_name"  value="<?= $result->mother_name ?>" readonly>
-											</div>
-											<div class="form-group col-md-12">
-												<label class="label_green">Others Name</label>
-												<input type="text" class="form-control" name="phone" value="<?= $result->others_name ?>" id="phone" required readonly>
-											</div>
-											<div class="form-group col-md-12">
-												<label class="label_green">Teacher Name</label>
-												<input type="text" class="form-control" name="phone" value="<?= $result->teacher_name ?>" id="phone" required readonly>
+												<label class="label_green">Others </label>
+												<input type="text" class="form-control" name="others" id="others" value="<?= $others->name ?>" required readonly>
 											</div>
 											<div class="form-group col-md-12">
 												<label class="label_green">Mobile Number</label>
@@ -116,18 +130,70 @@
 												<label class="label_green">Email</label>
 												<input type="text" class="form-control" name="email" id="email"   value="<?= $result->email ?>" required readonly>
 											</div>
-										<h3><?= lang("Kids Name", "Kids Name"); ?></h3>
+										<h3><?= lang("Information of Chlidrens", "Information of Chlidrens"); ?></h3>
 											<div class="form-group col-md-12">
 												<label class="label_green">Kid Name 1</label>
 												<input type="text" class="form-control"  value="<?= $result->kid_name1 ?>" required readonly>
 											</div>
 											<div class="form-group col-md-12">
+												<label class="label_green">Age</label>
+												<input type="text" class="form-control"  value="<?= $kid1_age->name ?>" required readonly>
+											</div>
+
+											<div class="form-group col-md-12">
+											<div class="col-md-3" style="padding: 0px;">
+												<label class="container-checkbox">Male
+												<input type="radio" name="gender1" id="gender1" <?= $result->kid1_gender=='M' ? 'checked': FALSE; ?> disabled>
+												</label>
+											</div>
+											<div class="col-md-3" style="padding: 0px;">
+												<label class="container-checkbox">Female
+												<input type="radio" name="gender1" id="gender1" <?= $result->kid1_gender=='F' ? 'checked': FALSE; ?> disabled>
+												</label>
+											</div>
+										</div>
+
+											<div class="form-group col-md-12">
 												<label class="label_green">Kid Name 2</label>
 												<input type="text" class="form-control" value="<?= $result->kid_name2 ?>" readonly>
 											</div>
 											<div class="form-group col-md-12">
+												<label class="label_green">Age</label>
+												<input type="text" class="form-control"  value="<?= $kid2_age->name ?>" required readonly>
+											</div>
+
+											<div class="form-group col-md-12">
+											<div class="col-md-3" style="padding: 0px;">
+												<label class="container-checkbox">Male
+												<input type="radio" name="gender2" id="gender2" <?= $result->kid2_gender=='M' ? 'checked': FALSE; ?> disabled>
+												</label>
+											</div>
+											<div class="col-md-3" style="padding: 0px;">
+												<label class="container-checkbox">Female
+												<input type="radio" name="gender2" id="gender2" <?= $result->kid2_gender=='F' ? 'checked': FALSE; ?> disabled>
+												</label>
+											</div>
+
+
+											<div class="form-group col-md-12">
 												<label class="label_green">Kid Name 3</label>
 												<input type="text" class="form-control" value="<?= $result->kid_name3 ?>" required readonly>
+											</div>
+											<div class="form-group col-md-12">
+												<label class="label_green">Age</label>
+												<input type="text" class="form-control"  value="<?= $kid3_age->name ?>" required readonly>
+											</div>
+
+											<div class="form-group col-md-12">
+											<div class="col-md-3" style="padding: 0px;">
+												<label class="container-checkbox">Male
+												<input type="radio" name="gender3" id="gender3" <?= $result->kid3_gender=='M' ? 'checked': FALSE; ?> disabled>
+												</label>
+											</div>
+											<div class="col-md-3" style="padding: 0px;">
+												<label class="container-checkbox">Female
+												<input type="radio" name="gender3" id="gender3" <?= $result->kid3_gender=='F' ? 'checked': FALSE; ?> disabled>
+												</label>
 											</div>
 											
 											<div class="form-group col-md-12">
@@ -135,8 +201,41 @@
 												<input type="text" class="form-control" value="<?= $result->kid_name4 ?>" required readonly>
 											</div>
 											<div class="form-group col-md-12">
+												<label class="label_green">Age</label>
+												<input type="text" class="form-control"  value="<?= $kid4_age->name ?>" required readonly>
+											</div>
+
+											<div class="form-group col-md-12">
+											<div class="col-md-3" style="padding: 0px;">
+												<label class="container-checkbox">Male
+												<input type="radio" name="gender4" id="gender4" <?= $result->kid4_gender=='M' ? 'checked': FALSE; ?> disabled>
+												</label>
+											</div>
+											<div class="col-md-3" style="padding: 0px;">
+												<label class="container-checkbox">Female
+												<input type="radio" name="gender4" id="gender4" <?= $result->kid4_gender=='F' ? 'checked': FALSE; ?> disabled>
+												</label>
+											</div>
+
+											<div class="form-group col-md-12">
 												<label class="label_green">Kid Name 5</label>
 												<input type="text" class="form-control" value="<?= $result->kid_name5 ?>" readonly>
+											</div>
+											<div class="form-group col-md-12">
+												<label class="label_green">Age</label>
+												<input type="text" class="form-control"  value="<?= $kid5_age->name ?>" required readonly>
+											</div>
+
+											<div class="form-group col-md-12">
+											<div class="col-md-3" style="padding: 0px;">
+												<label class="container-checkbox">Male
+												<input type="radio" name="gender5" id="gender5" <?= $result->kid5_gender=='M' ? 'checked': FALSE; ?> disabled>
+												</label>
+											</div>
+											<div class="col-md-3" style="padding: 0px;">
+												<label class="container-checkbox">Female
+												<input type="radio" name="gender4" id="gender5" <?= $result->kid5_gender=='F' ? 'checked': FALSE; ?> disabled>
+												</label>
 											</div>
 											
 											<div class="form-group col-md-12">
@@ -144,12 +243,46 @@
 												<input type="text" class="form-control" value="<?= $result->kid_name6 ?>" required readonly>
 											</div>
 											<div class="form-group col-md-12">
+												<label class="label_green">Age</label>
+												<input type="text" class="form-control"  value="<?= $kid6_age->name ?>" required readonly>
+											</div>
+
+											<div class="form-group col-md-12">
+											<div class="col-md-3" style="padding: 0px;">
+												<label class="container-checkbox">Male
+												<input type="radio" name="gender6" id="gender6" <?= $result->kid6_gender=='M' ? 'checked': FALSE; ?> disabled>
+												</label>
+											</div>
+											<div class="col-md-3" style="padding: 0px;">
+												<label class="container-checkbox">Female
+												<input type="radio" name="gender6" id="gender6" <?= $result->kid6_gender=='F' ? 'checked': FALSE; ?> disabled>
+												</label>
+											</div>
+
+											<div class="form-group col-md-12">
 												<label class="label_green">No of kids</label>
 												<input type="text" class="form-control" value="<?= $result->no_of_kids ?>" readonly>
+											</div>
+
+											<h3>Information of Students</h3>
+
+											<div class="form-group col-md-12">
+												<label class="label_green">School Name</label>
+												<input type="text" class="form-control" value="<?= $result->school_name ?>" readonly>
 											</div>
 											<div class="form-group col-md-12">
 												<label class="label_green">No of Students</label>
 												<input type="text" class="form-control" value="<?= $result->no_of_students ?>" readonly>
+											</div>
+
+											<div class="form-group col-md-12">
+												<label class="label_green">No of Boys</label>
+												<input type="text" class="form-control" value="<?= $result->no_of_boys ?>" readonly>
+											</div>
+
+											<div class="form-group col-md-12">
+												<label class="label_green">No of Girls</label>
+												<input type="text" class="form-control" value="<?= $result->no_of_girls ?>" readonly>
 											</div>
 									<h3>Image</h3>
 										<div class="form-group col-md-6">
@@ -221,113 +354,244 @@
 								<div class="col-md-12 col-xs-12">
 							<h3>ពត៌មានទូទៅ</h3>
 							<h4 class="text-left">ឈ្មោះឪពុក ម្ដាយ  : (អាយុចាប់ពី១៨ឆ្នាំឡើងទៅ)</h4>
-								<div class="form-group col-md-12">
-									<div class="col-md-3" style="padding: 0px;">
-										<label class="container-checkbox">ឪពុក
-										  <input type="radio" name="parent_type" id="parent_type" <?= $result->parent_type==1 ? 'checked': FALSE; ?> disabled>
-										</label>
-									</div>
-									<div class="col-md-3" style="padding: 0px;">
-										<label class="container-checkbox">ម្ដាយ
-										  <input type="radio" name="parent_type" id="parent_type" <?= $result->parent_type==2 ? 'checked': FALSE; ?> disabled>
-										</label>
-									</div>
-									<div class="col-md-3" >
-										<label class="container-checkbox">ផ្សេងទៀត
-										  <input type="radio" name="parent_type" id="parent_type" <?= $result->parent_type==3 ? 'checked': FALSE; ?> disabled>
-										</label>
-									</div>
-									<div class="col-md-3" style="padding: 0px;">
-										<label class="container-checkbox">គ្រូបង្រៀន
-										  <input type="radio" name="parent_type" id="parent_type" <?= $result->parent_type==4 ? 'checked': FALSE; ?> disabled>
-										</label>
-									</div>
-								</div>
-									<div class="form-group col-md-12">
-										<label class="label_green">ឈ្មោះឪពុក</label>
-										<input type="text" class="form-control" name="father_name" id="father_name" value="<?= $result->father_name ?>" required readonly>
-									</div>
-									<div class="form-group col-md-12">
-										<label class="label_green">ឈ្មោះម្ដាយ</label>
-										<input type="text" class="form-control" name="mother_name" id="mother_name"  value="<?= $result->mother_name ?>" readonly>
-									</div>
-									<div class="form-group col-md-12">
-										<label class="label_green">ឈ្មោះផ្សេងទៀត</label>
-										<input type="text" class="form-control" name="phone" value="<?= $result->others_name ?>" id="phone" required readonly>
-									</div>
-									<div class="form-group col-md-12">
-										<label class="label_green">ឈ្មោះគ្រូបង្រៀន</label>
-										<input type="text" class="form-control" name="phone" value="<?= $result->teacher_name ?>" id="phone" required readonly>
-									</div>
-									<div class="form-group col-md-12">
-										<label class="label_green">លេខទូរសព្វ័</label>
-										<input type="text" class="form-control" name="phone" value="<?= $result->phone_number ?>" id="phone" required readonly>
-									</div>
-									<div class="form-group col-md-12">
-										<label class="label_green">សាខា</label>
-										<input type="text" class="form-control" name="outlet" value="<?= $outlet->name ?>" id="outlet" required readonly>
-									</div>
-									<div class="form-group col-md-12">
-										<label class="label_green">អ៊ីម៉ែល</label>
-										<input type="text" class="form-control" name="email" id="email"   value="<?= $result->email ?>" required readonly>
-									</div>
-								<h3>ឈ្មោះក្មេង</h3>
-									<div class="form-group col-md-12">
-										<label class="label_green">ឈ្មោះក្មេង 1</label>
-										<input type="text" class="form-control"  value="<?= $result->kid_name1 ?>" required readonly>
-									</div>
-									<div class="form-group col-md-12">
-										<label class="label_green">ឈ្មោះក្មេង 2</label>
-										<input type="text" class="form-control" value="<?= $result->kid_name2 ?>" readonly>
-									</div>
-									<div class="form-group col-md-12">
-										<label class="label_green">ឈ្មោះក្មេង 3</label>
-										<input type="text" class="form-control" value="<?= $result->kid_name3 ?>" required readonly>
-									</div>
-									
-									<div class="form-group col-md-12">
-										<label class="label_green">ឈ្មោះក្មេង 4</label>
-										<input type="text" class="form-control" value="<?= $result->kid_name4 ?>" required readonly>
-									</div>
-									<div class="form-group col-md-12">
-										<label class="label_green">ឈ្មោះក្មេង 5</label>
-										<input type="text" class="form-control" value="<?= $result->kid_name5 ?>" readonly>
-									</div>
-									
-									<div class="form-group col-md-12">
-										<label class="label_green">ឈ្មោះក្មេង 6</label>
-										<input type="text" class="form-control" value="<?= $result->kid_name6 ?>" required readonly>
-									</div>
-									<div class="form-group col-md-12">
-										<label class="label_green">ចំនួនក្មេង</label>
-										<input type="text" class="form-control" value="<?= $result->no_of_kids ?>" readonly>
-									</div>
-									<div class="form-group col-md-12">
-										<label class="label_green">ចំនួនសិស្</label>
-										<input type="text" class="form-control" value="<?= $result->no_of_students ?>" readonly>
-									</div>
-							<h3>រូបភាព</h3>
-								<div class="form-group col-md-6">
-									<label class="label_green">រូបអតិថិជន</label>
-									<div class="clear"></div>			
-									<img  src="<?=base_url()?>assets/uploads/<?= !empty($result->photo) ? $result->photo : 'no_image.jpg'; ?>" border="0" disabled width="100" height="100" />
-								</div>
-								<div class="form-group col-md-6">
-									<label class="label_green">ហត្ថលេខា</label>
-									<div class="clear"></div>			
-									<img src="<?=base_url()?>assets/uploads/<?= !empty($result->signature) ? $result->signature : 'no_image.jpg'; ?>" border="0" disabled width="100" height="100" />
-								</div>
-							<h3>កាលបរិច្ឆទ</h3>
 							<div class="form-group col-md-12">
-								<label class="label_green"></label>
-								<div class="clear"></div>
-								<input type="text" class="form-control" value="<?= date('d/m/Y H:i:s', strtotime($result->created_on)) ?>" required readonly>
-							</div>
-							<div class="form-group col-md-12">
-								<label class="label_green"></label>
-								<div class="clear"></div>			
-								<input type="checkbox" name="accept" id="accept" <?= $result->accept==1 ? 'checked': FALSE; ?> disabled> &nbsp;<b>ខ្ញុំយល់ព្រមតាមបទបញ្ចាខាងលើ</b>
-							</div>
+											<label class="label_green">Customer Name </label>
+											<input type="text" class="form-control" name="customer_name" id="customer_name" value="<?= $result->customer_name ?>" required readonly>
+										</div>
+
+										<div class="form-group col-md-12">
+											<div class="col-md-3" style="padding: 0px;">
+												<label class="container-checkbox">Male
+												<input type="radio" name="gender" id="gender" <?= $result->gender=='M' ? 'checked': FALSE; ?> disabled>
+												</label>
+											</div>
+											<div class="col-md-3" style="padding: 0px;">
+												<label class="container-checkbox">Female
+												<input type="radio" name="gender" id="gender" <?= $result->gender=='F' ? 'checked': FALSE; ?> disabled>
+												</label>
+											</div>
+										</div>
+
+										<div class="form-group col-md-12">
+											<label class="label_green">Nationality </label>
+											<input type="text" class="form-control" name="nationality" id="nationality" value="<?= $nationality->name ?>" required readonly>
+										</div>
+
+										<div class="form-group col-md-12">
+											<div class="col-md-3" style="padding: 0px;">
+												<label class="container-checkbox">Father
+												<input type="radio" name="parent_type" id="parent_type" <?= $result->parent_type==1 ? 'checked': FALSE; ?> disabled>
+												</label>
+											</div>
+											<div class="col-md-3" style="padding: 0px;">
+												<label class="container-checkbox">Mother
+												<input type="radio" name="parent_type" id="parent_type" <?= $result->parent_type==2 ? 'checked': FALSE; ?> disabled>
+												</label>
+											</div>
+											<div class="col-md-3" style="padding: 0px;">
+												<label class="container-checkbox">Teacher
+												<input type="radio" name="parent_type" id="parent_type" <?= $result->parent_type==4 ? 'checked': FALSE; ?> disabled>
+												</label>
+											</div>
+											<div class="col-md-3" >
+												<label class="container-checkbox">Others
+												<input type="radio" name="parent_type" id="parent_type" <?= $result->parent_type==3 ? 'checked': FALSE; ?> disabled>
+												</label>
+											</div>
+										</div>
+
+											<div class="form-group col-md-12">
+												<label class="label_green">Others </label>
+												<input type="text" class="form-control" name="others" id="others" value="<?= $others->name ?>" required readonly>
+											</div>
+											<div class="form-group col-md-12">
+												<label class="label_green">Mobile Number</label>
+												<input type="text" class="form-control" name="phone" value="<?= $result->phone_number ?>" id="phone" required readonly>
+											</div>
+											<div class="form-group col-md-12">
+												<label class="label_green">Outlet</label>
+												<input type="text" class="form-control" name="outlet" value="<?= $outlet->name ?>" id="outlet" required readonly>
+											</div>
+											<div class="form-group col-md-12">
+												<label class="label_green">Email</label>
+												<input type="text" class="form-control" name="email" id="email"   value="<?= $result->email ?>" required readonly>
+											</div>
+										<h3><?= lang("Information of Chlidrens", "Information of Chlidrens"); ?></h3>
+											<div class="form-group col-md-12">
+												<label class="label_green">Kid Name 1</label>
+												<input type="text" class="form-control"  value="<?= $result->kid_name1 ?>" required readonly>
+											</div>
+											<div class="form-group col-md-12">
+												<label class="label_green">Age</label>
+												<input type="text" class="form-control"  value="<?= $kid1_age->name ?>" required readonly>
+											</div>
+
+											<div class="form-group col-md-12">
+											<div class="col-md-3" style="padding: 0px;">
+												<label class="container-checkbox">Male
+												<input type="radio" name="gender1" id="gender1" <?= $result->kid1_gender=='M' ? 'checked': FALSE; ?> disabled>
+												</label>
+											</div>
+											<div class="col-md-3" style="padding: 0px;">
+												<label class="container-checkbox">Female
+												<input type="radio" name="gender1" id="gender1" <?= $result->kid1_gender=='F' ? 'checked': FALSE; ?> disabled>
+												</label>
+											</div>
+										</div>
+
+											<div class="form-group col-md-12">
+												<label class="label_green">Kid Name 2</label>
+												<input type="text" class="form-control" value="<?= $result->kid_name2 ?>" readonly>
+											</div>
+											<div class="form-group col-md-12">
+												<label class="label_green">Age</label>
+												<input type="text" class="form-control"  value="<?= $kid2_age->name ?>" required readonly>
+											</div>
+
+											<div class="form-group col-md-12">
+											<div class="col-md-3" style="padding: 0px;">
+												<label class="container-checkbox">Male
+												<input type="radio" name="gender2" id="gender2" <?= $result->kid2_gender=='M' ? 'checked': FALSE; ?> disabled>
+												</label>
+											</div>
+											<div class="col-md-3" style="padding: 0px;">
+												<label class="container-checkbox">Female
+												<input type="radio" name="gender2" id="gender2" <?= $result->kid2_gender=='F' ? 'checked': FALSE; ?> disabled>
+												</label>
+											</div>
+
+
+											<div class="form-group col-md-12">
+												<label class="label_green">Kid Name 3</label>
+												<input type="text" class="form-control" value="<?= $result->kid_name3 ?>" required readonly>
+											</div>
+											<div class="form-group col-md-12">
+												<label class="label_green">Age</label>
+												<input type="text" class="form-control"  value="<?= $kid3_age->name ?>" required readonly>
+											</div>
+
+											<div class="form-group col-md-12">
+											<div class="col-md-3" style="padding: 0px;">
+												<label class="container-checkbox">Male
+												<input type="radio" name="gender3" id="gender3" <?= $result->kid3_gender=='M' ? 'checked': FALSE; ?> disabled>
+												</label>
+											</div>
+											<div class="col-md-3" style="padding: 0px;">
+												<label class="container-checkbox">Female
+												<input type="radio" name="gender3" id="gender3" <?= $result->kid3_gender=='F' ? 'checked': FALSE; ?> disabled>
+												</label>
+											</div>
+											
+											<div class="form-group col-md-12">
+												<label class="label_green">Kid Name 4</label>
+												<input type="text" class="form-control" value="<?= $result->kid_name4 ?>" required readonly>
+											</div>
+											<div class="form-group col-md-12">
+												<label class="label_green">Age</label>
+												<input type="text" class="form-control"  value="<?= $kid4_age->name ?>" required readonly>
+											</div>
+
+											<div class="form-group col-md-12">
+											<div class="col-md-3" style="padding: 0px;">
+												<label class="container-checkbox">Male
+												<input type="radio" name="gender4" id="gender4" <?= $result->kid4_gender=='M' ? 'checked': FALSE; ?> disabled>
+												</label>
+											</div>
+											<div class="col-md-3" style="padding: 0px;">
+												<label class="container-checkbox">Female
+												<input type="radio" name="gender4" id="gender4" <?= $result->kid4_gender=='F' ? 'checked': FALSE; ?> disabled>
+												</label>
+											</div>
+
+											<div class="form-group col-md-12">
+												<label class="label_green">Kid Name 5</label>
+												<input type="text" class="form-control" value="<?= $result->kid_name5 ?>" readonly>
+											</div>
+											<div class="form-group col-md-12">
+												<label class="label_green">Age</label>
+												<input type="text" class="form-control"  value="<?= $kid5_age->name ?>" required readonly>
+											</div>
+
+											<div class="form-group col-md-12">
+											<div class="col-md-3" style="padding: 0px;">
+												<label class="container-checkbox">Male
+												<input type="radio" name="gender5" id="gender5" <?= $result->kid5_gender=='M' ? 'checked': FALSE; ?> disabled>
+												</label>
+											</div>
+											<div class="col-md-3" style="padding: 0px;">
+												<label class="container-checkbox">Female
+												<input type="radio" name="gender4" id="gender5" <?= $result->kid5_gender=='F' ? 'checked': FALSE; ?> disabled>
+												</label>
+											</div>
+											
+											<div class="form-group col-md-12">
+												<label class="label_green">Kid Name 6</label>
+												<input type="text" class="form-control" value="<?= $result->kid_name6 ?>" required readonly>
+											</div>
+											<div class="form-group col-md-12">
+												<label class="label_green">Age</label>
+												<input type="text" class="form-control"  value="<?= $kid6_age->name ?>" required readonly>
+											</div>
+
+											<div class="form-group col-md-12">
+											<div class="col-md-3" style="padding: 0px;">
+												<label class="container-checkbox">Male
+												<input type="radio" name="gender6" id="gender6" <?= $result->kid6_gender=='M' ? 'checked': FALSE; ?> disabled>
+												</label>
+											</div>
+											<div class="col-md-3" style="padding: 0px;">
+												<label class="container-checkbox">Female
+												<input type="radio" name="gender6" id="gender6" <?= $result->kid6_gender=='F' ? 'checked': FALSE; ?> disabled>
+												</label>
+											</div>
+
+											<div class="form-group col-md-12">
+												<label class="label_green">No of kids</label>
+												<input type="text" class="form-control" value="<?= $result->no_of_kids ?>" readonly>
+											</div>
+
+											<h3>Information of Students</h3>
+
+											<div class="form-group col-md-12">
+												<label class="label_green">School Name</label>
+												<input type="text" class="form-control" value="<?= $result->school_name ?>" readonly>
+											</div>
+											<div class="form-group col-md-12">
+												<label class="label_green">No of Students</label>
+												<input type="text" class="form-control" value="<?= $result->no_of_students ?>" readonly>
+											</div>
+
+											<div class="form-group col-md-12">
+												<label class="label_green">No of Boys</label>
+												<input type="text" class="form-control" value="<?= $result->no_of_boys ?>" readonly>
+											</div>
+
+											<div class="form-group col-md-12">
+												<label class="label_green">No of Girls</label>
+												<input type="text" class="form-control" value="<?= $result->no_of_girls ?>" readonly>
+											</div>
+									<h3>Image</h3>
+										<div class="form-group col-md-6">
+											<label class="label_green">Photo</label>
+											<div class="clear"></div>			
+											<img  src="<?=base_url()?>assets/uploads/<?= !empty($result->photo) ? $result->photo : 'no_image.jpg'; ?>" border="0" disabled width="100" height="100" />
+										</div>
+										<div class="form-group col-md-6">
+											<label class="label_green">Signature</label>
+											<div class="clear"></div>			
+											<img src="<?=base_url()?>assets/uploads/<?= !empty($result->signature) ? $result->signature : 'no_image.jpg'; ?>" border="0" disabled width="100" height="100" />
+										</div>
+									<h3>Date</h3>
+									<div class="form-group col-md-12">
+										<label class="label_green"></label>
+										<div class="clear"></div>
+										<input type="text" class="form-control" value="<?= date('d/m/Y H:i:s', strtotime($result->created_on)) ?>" required readonly>
+									</div>
+									<div class="form-group col-md-12">
+										<label class="label_green"></label>
+										<div class="clear"></div>			
+										<input type="checkbox" name="accept" id="accept" <?= $result->accept==1 ? 'checked': FALSE; ?> disabled> &nbsp;<b>I agree to follow the rules</b>
+									</div>
 					</div>
 				<div class="col-sm-12 last_sa_se"><?php //echo form_submit('edit_farmer', lang('submit'), 'class="btn btn-primary"'); ?></div>
 				<?php echo form_close(); ?> </div>

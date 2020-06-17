@@ -45,10 +45,10 @@ $('form[class="add_from"]').bootstrapValidator({
                     notEmpty: {
                         message: 'Please enter the name'
                     },
-					regexp: {
+					/*regexp: {
                         regexp: /^[a-zA-Z0-9 ]+$/,
 						message: 'The make can only consist of alphabetical and number'
-                    },
+                    },*/
 					remote: {
 							type: 'POST',
 							url: '<?=admin_url('age/get_name')?>',

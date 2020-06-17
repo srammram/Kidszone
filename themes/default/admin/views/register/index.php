@@ -62,7 +62,7 @@
              "aoColumns": [ null, /*{
                 "bSortable": false,
                 "mRender": checkbox
-            },*/ {"mRender": parent_type} , null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+            },*/ {"mRender": parent_type}, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
 
             "aoColumnDefs": [
                 { "sClass": "parentType", "aTargets": [ 1 ] }
@@ -255,10 +255,7 @@
                                 <input class="checkbox checkth" type="checkbox" name="check"/>
                             </th>-->
                             <th><?php echo lang('parent_type'); ?></th>
-                            <th><?php echo lang('father_name'); ?></th>
-                            <th><?php echo lang('mother_name'); ?></th>
-                            <th><?php echo lang('others_name'); ?></th>
-                            <th><?php echo lang('teacher_name'); ?></th>
+                            <th><?php echo lang('customer_name'); ?></th>
                             <th><?php echo lang('phone_number'); ?></th>
                             <th><?php echo lang('outlet'); ?></th>
                             <th><?php echo lang('email'); ?></th>
