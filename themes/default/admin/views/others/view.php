@@ -14,14 +14,20 @@
 					<div class="col-md-12">
 						<div class="col-md-6">
 							<div class="form-group">
-								<label class="label_green" >Others Name </label>
+								<label class="label_green" >Name </label>
 								<input type="text" class="form-control" name="name" id="name"  value="<?= $result->name ?>" required readonly>
 							</div>
 
 						</div>
 					</div>
 
-
+					<div class="col-md-24">
+						<div class="col-md-6">
+							<div class="form-group">
+								<label class="label_green" >Khmer Name </label>
+								<input type="text" class="form-control" name="khmer_name" id="khmer_name" value="<?= $result->khmer_name ?>" required readonly>
+							</div>						
+						</div>
 				</fieldset>
 
         </div>

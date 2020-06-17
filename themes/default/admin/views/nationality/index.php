@@ -44,7 +44,7 @@
                 $("td:first", nRow).html(index);
                 return nRow;
             },
-             "aoColumns": [ null, null, {"mRender": active_status},  {"bSortable": true}]
+             "aoColumns": [ null, null, null, {"mRender": active_status},  {"bSortable": true}]
 
         });
     });
@@ -116,6 +116,7 @@
                         <tr>
                         	<th class="col-xs-2"><?php echo lang('S.No'); ?></th>
                             <th class="col-xs-2"><?php echo lang('name'); ?></th>
+                            <th class="col-xs-2"><?php echo lang('khmer name'); ?></th>
                             <th style="width:100px;"><?php echo lang('status'); ?></th>
                             <th style="width:80px;"><?php echo lang('actions'); ?></th>
                         </tr>

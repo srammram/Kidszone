@@ -50,7 +50,7 @@ class Others extends MY_Controller
         $this->load->library('datatables');
 		
         $this->datatables
-            ->select("{$this->db->dbprefix('others')}.id as id, {$this->db->dbprefix('others')}.name as pname, {$this->db->dbprefix('others')}.status as status")
+            ->select("{$this->db->dbprefix('others')}.id as id, {$this->db->dbprefix('others')}.name as pname, {$this->db->dbprefix('others')}.khmer_name, {$this->db->dbprefix('others')}.status as status")
             ->from("others");
 
 			if(!empty($sdate) && !empty($edate)){
@@ -66,7 +66,7 @@ class Others extends MY_Controller
 			
 			$view = "<a href='" . admin_url('others/view_others/$1') . "' data-toggle='tooltip'  data-original-title='' aria-describedby='tooltip' title='Click here to View'  ><i class='fa fa-eye' aria-hidden='true'  style='color:#656464; font-size:18px'></i></a>";
 			
-			$delete = "<a href='" . admin_url('others/delete/$1') . "' data-toggle='tooltip'  data-original-title='' aria-describedby='tooltip' title='Delete'  ><i class='fa fa-trash' style='color:#656464; font-size:18px'></i></a>";
+			//$delete = "<a href='" . admin_url('others/delete/$1') . "' data-toggle='tooltip'  data-original-title='' aria-describedby='tooltip' title='Delete'  ><i class='fa fa-trash' style='color:#656464; font-size:18px'></i></a>";
 			/*$delete = "<a href='#' class='tip po'  data-content=\"<p>"
             . lang('r_u_sure') . "</p><a class='btn btn-danger' id='a__$1' href='" . admin_url('welcome/delete/users/$1') . "'>"
             . lang('i_m_sure') . "</a> <button class='btn po-close'>" . lang('no') . "</button>\"  rel='popover'><i class=\"fa fa-trash-o\"></i> </a>";*/
@@ -100,7 +100,8 @@ class Others extends MY_Controller
         if ($this->form_validation->run() == true) {
 
             $data = array(
-                'name' => $this->input->post('name'),
+				'name' => $this->input->post('name'),
+				'khmer_name' => $this->input->post('khmer_name'),
 				'status' => 1,
 				'created_on' => date('Y-m-d H:i:s'),
 				'created_by' => $this->session->userdata('user_id'),
@@ -159,7 +160,8 @@ class Others extends MY_Controller
         if ($this->form_validation->run() == true) {
 
 			$data = array(
-                'name' => $this->input->post('name'),
+				'name' => $this->input->post('name'),
+				'khmer_name' => $this->input->post('khmer_name'),
 				'updated_on' => date('Y-m-d H:i:s'),
 				'updated_by' => $this->session->userdata('user_id'),            
 			);

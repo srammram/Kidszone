@@ -409,7 +409,7 @@
 												<input type="text" class="form-control" name="phone" value="<?= $result->phone_number ?>" id="phone" required readonly>
 											</div>
 											<div class="form-group col-md-12">
-												<label class="label_green">Outlet</label>
+												<label class="label_green">សាខា</label>
 												<input type="text" class="form-control" name="outlet" value="<?= $outlet->name ?>" id="outlet" required readonly>
 											</div>
 											<div class="form-group col-md-12">
@@ -462,85 +462,85 @@
 
 
 											<div class="form-group col-md-12">
-												<label class="label_green">Kid Name 3</label>
+												<label class="label_green">ឈ្មោះក្មេងទី 3</label>
 												<input type="text" class="form-control" value="<?= $result->kid_name3 ?>" required readonly>
 											</div>
 											<div class="form-group col-md-12">
-												<label class="label_green">Age</label>
+												<label class="label_green">អាយុ</label>
 												<input type="text" class="form-control"  value="<?= $kid3_age->name ?>" required readonly>
 											</div>
 
 											<div class="form-group col-md-12">
 											<div class="col-md-3" style="padding: 0px;">
-												<label class="container-checkbox">Male
+												<label class="container-checkbox">ប្រុស
 												<input type="radio" name="gender3" id="gender3" <?= $result->kid3_gender=='M' ? 'checked': FALSE; ?> disabled>
 												</label>
 											</div>
 											<div class="col-md-3" style="padding: 0px;">
-												<label class="container-checkbox">Female
+												<label class="container-checkbox">ស្រី
 												<input type="radio" name="gender3" id="gender3" <?= $result->kid3_gender=='F' ? 'checked': FALSE; ?> disabled>
 												</label>
 											</div>
 											
 											<div class="form-group col-md-12">
-												<label class="label_green">Kid Name 4</label>
+												<label class="label_green">ឈ្មោះក្មេងទី 4</label>
 												<input type="text" class="form-control" value="<?= $result->kid_name4 ?>" required readonly>
 											</div>
 											<div class="form-group col-md-12">
-												<label class="label_green">Age</label>
+												<label class="label_green">អាយុ</label>
 												<input type="text" class="form-control"  value="<?= $kid4_age->name ?>" required readonly>
 											</div>
 
 											<div class="form-group col-md-12">
 											<div class="col-md-3" style="padding: 0px;">
-												<label class="container-checkbox">Male
+												<label class="container-checkbox">ប្រុស
 												<input type="radio" name="gender4" id="gender4" <?= $result->kid4_gender=='M' ? 'checked': FALSE; ?> disabled>
 												</label>
 											</div>
 											<div class="col-md-3" style="padding: 0px;">
-												<label class="container-checkbox">Female
+												<label class="container-checkbox">ស្រី
 												<input type="radio" name="gender4" id="gender4" <?= $result->kid4_gender=='F' ? 'checked': FALSE; ?> disabled>
 												</label>
 											</div>
 
 											<div class="form-group col-md-12">
-												<label class="label_green">Kid Name 5</label>
+												<label class="label_green">ឈ្មោះក្មេងទី 5</label>
 												<input type="text" class="form-control" value="<?= $result->kid_name5 ?>" readonly>
 											</div>
 											<div class="form-group col-md-12">
-												<label class="label_green">Age</label>
+												<label class="label_green">អាយុ</label>
 												<input type="text" class="form-control"  value="<?= $kid5_age->name ?>" required readonly>
 											</div>
 
 											<div class="form-group col-md-12">
 											<div class="col-md-3" style="padding: 0px;">
-												<label class="container-checkbox">Male
+												<label class="container-checkbox">ប្រុស
 												<input type="radio" name="gender5" id="gender5" <?= $result->kid5_gender=='M' ? 'checked': FALSE; ?> disabled>
 												</label>
 											</div>
 											<div class="col-md-3" style="padding: 0px;">
-												<label class="container-checkbox">Female
+												<label class="container-checkbox">ស្រី
 												<input type="radio" name="gender4" id="gender5" <?= $result->kid5_gender=='F' ? 'checked': FALSE; ?> disabled>
 												</label>
 											</div>
 											
 											<div class="form-group col-md-12">
-												<label class="label_green">Kid Name 6</label>
+												<label class="label_green">ឈ្មោះក្មេងទី 6</label>
 												<input type="text" class="form-control" value="<?= $result->kid_name6 ?>" required readonly>
 											</div>
 											<div class="form-group col-md-12">
-												<label class="label_green">Age</label>
+												<label class="label_green">អាយុ</label>
 												<input type="text" class="form-control"  value="<?= $kid6_age->name ?>" required readonly>
 											</div>
 
 											<div class="form-group col-md-12">
 											<div class="col-md-3" style="padding: 0px;">
-												<label class="container-checkbox">Male
+												<label class="container-checkbox">ប្រុស
 												<input type="radio" name="gender6" id="gender6" <?= $result->kid6_gender=='M' ? 'checked': FALSE; ?> disabled>
 												</label>
 											</div>
 											<div class="col-md-3" style="padding: 0px;">
-												<label class="container-checkbox">Female
+												<label class="container-checkbox">ស្រី
 												<input type="radio" name="gender6" id="gender6" <?= $result->kid6_gender=='F' ? 'checked': FALSE; ?> disabled>
 												</label>
 											</div>
@@ -570,18 +570,18 @@
 												<label class="label_green">ចំនួនសិស្សស្រី</label>
 												<input type="text" class="form-control" value="<?= $result->no_of_girls ?>" readonly>
 											</div>
-									<h3>Image</h3>
+									<h3>រូបភាព</h3>
 										<div class="form-group col-md-6">
-											<label class="label_green">Photo</label>
+											<label class="label_green">រូបអតិថិជន</label>
 											<div class="clear"></div>			
 											<img  src="<?=base_url()?>assets/uploads/<?= !empty($result->photo) ? $result->photo : 'no_image.jpg'; ?>" border="0" disabled width="100" height="100" />
 										</div>
 										<div class="form-group col-md-6">
-											<label class="label_green">Signature</label>
+											<label class="label_green">ហត្ថលេខា</label>
 											<div class="clear"></div>			
 											<img src="<?=base_url()?>assets/uploads/<?= !empty($result->signature) ? $result->signature : 'no_image.jpg'; ?>" border="0" disabled width="100" height="100" />
 										</div>
-									<h3>Date</h3>
+									<h3>កាលបរិច្ឆទ</h3>
 									<div class="form-group col-md-12">
 										<label class="label_green"></label>
 										<div class="clear"></div>

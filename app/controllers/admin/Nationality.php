@@ -50,7 +50,7 @@ class Nationality extends MY_Controller
         $this->load->library('datatables');
 		
         $this->datatables
-            ->select("{$this->db->dbprefix('nationality')}.id as id, {$this->db->dbprefix('nationality')}.name as nname, {$this->db->dbprefix('nationality')}.status as status")
+            ->select("{$this->db->dbprefix('nationality')}.id as id, {$this->db->dbprefix('nationality')}.name as nname,{$this->db->dbprefix('nationality')}.khmer_name,  {$this->db->dbprefix('nationality')}.status as status")
             ->from("nationality");
 
 			if(!empty($sdate) && !empty($edate)){
@@ -110,6 +110,7 @@ class Nationality extends MY_Controller
 
             $data = array(
 				'name' => $this->input->post('name'),
+				'khmer_name' => $this->input->post('khmer_name'),
 				'sort' => $max,
 				'status' => 1,
 				'created_on' => date('Y-m-d H:i:s'),
@@ -169,7 +170,8 @@ class Nationality extends MY_Controller
         if ($this->form_validation->run() == true) {
 
 			$data = array(
-                'name' => $this->input->post('name'),
+				'name' => $this->input->post('name'),
+				'khmer_name' => $this->input->post('khmer_name'),
 				'updated_on' => date('Y-m-d H:i:s'),
 				'updated_by' => $this->session->userdata('user_id'),            
 			);

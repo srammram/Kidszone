@@ -436,7 +436,7 @@
 									<td style="width: 50%"><?= $result->customer_name ?></td>
 								</tr>
 								<tr>
-									<td style="width: 45%">Gender</td>
+									<td style="width: 45%"></td>
 									<td style="width: 5%">:</td>
 									<td style="width: 50%">
 										<label class="container-checkbox">ប្រុស
@@ -485,7 +485,7 @@
 									<td style="width: 50%"><?= $result->phone_number ?></td>
 								</tr>
 								<tr>
-									<td style="width: 45%">Outlet</td>
+									<td style="width: 45%">សាខា</td>
 									<td style="width: 5%">:</td>
 									<td style="width: 50%"><?= $outlet->name ?></td>
 								</tr>
@@ -509,7 +509,7 @@
 									<td style="width: 50%"><?= $kid1_age->name ?></td>
 								</tr>
 								<tr>
-									<td style="width: 45%">Gender</td>
+									<td style="width: 45%">&nbsp;</td>
 									<td style="width: 5%">:
 									
 									</td>
@@ -534,7 +534,7 @@
 									<td style="width: 50%"><?= $kid2_age->name ?></td>
 								</tr>
 								<tr>
-									<td style="width: 45%">Gender</td>
+									<td style="width: 45%">&nbsp;</td>
 									<td style="width: 5%">:
 									</td>
 									<td style="width: 50%">
@@ -558,7 +558,7 @@
 									<td style="width: 50%"><?= $kid3_age->name ?></td>
 								</tr>
 								<tr>
-									<td style="width: 45%">Gender</td>
+									<td style="width: 45%">&nbsp;</td>
 									<td style="width: 5%">:
 									
 									</td>
@@ -584,7 +584,7 @@
 									<td><?= $kid4_age->name ?></td>
 								</tr>
 								<tr>
-									<td>Gender</td>
+									<td>&nbsp;</td>
 									<td>:
 									
 									</td>
@@ -610,7 +610,7 @@
 									<td><?= $kid5_age->name ?></td>
 								</tr>
 								<tr>
-									<td>Gender</td>
+									<td>&nbsp;</td>
 									<td>:
 									
 									</td>
@@ -636,7 +636,7 @@
 									<td><?= $kid6_age->name ?></td>
 								</tr>
 								<tr>
-									<td>Gender</td>
+									<td>&nbsp;</td>
 									<td>:
 									
 									</td>
@@ -682,10 +682,10 @@
 								</table>
 								<table class="table table-bordered" style="table-layout: fixed;">
 								<tr>
-									<td colspan="3"><h3 style="font-size: 18px;color: #000;">Image</h3></td>
+									<td colspan="3"><h3 style="font-size: 18px;color: #000;">រូបភាព</h3></td>
 								</tr>
 								<tr>
-									<td colspan="2">Photo</td>
+									<td colspan="2">រូបអតិថិជន</td>
 									<td>:</td>
 									<td>
 										<img src="<?=base_url()?>assets/uploads/<?= !empty($result->photo) ? $result->photo : 'no_image.jpg'; ?>" border="0" disabled width="100" height="100" />
@@ -693,7 +693,7 @@
 								</tr>
 								<tr>
 									<td colspan="2">
-										Signature
+									ហត្ថលេខា
 									</td>
 									<td>:</td>
 									<td>
@@ -701,17 +701,17 @@
 									</td>
 								</tr>
 								<tr>
-									<td colspan="3"><h3 style="font-size: 18px;color: #000;">Date</h3></td>
+									<td colspan="3"><h3 style="font-size: 18px;color: #000;">កាលបរិច្ឆទ</h3></td>
 								</tr>
 								<tr>
-									<td colspan="2">Date</td>
+									<td colspan="2">កាលបរិច្ឆទ</td>
 									<td>:</td>
 									<td><?= date('d/m/Y H:i:s', strtotime($result->created_on)) ?></td>
 								</tr>
 								<tr>
 									<td colspan="3">
 										<img src="<?=base_url()?>assets/uploads/<?= $result->accept==1 ? 'tick.png': 'list.png'; ?>" width="15px"/>
-										  &nbsp;<b>I agree to follow the rules</b>
+										  &nbsp;<b>ខ្ញុំយល់ព្រមតាមបទបញ្ចាខាងលើ</b>
 									</td>
 								</tr>
 							</table>

@@ -1192,14 +1192,14 @@ class Kids_api extends CI_Model
 
 
 
-	function getAgeList() {
+	function getAgeList($lang) {
 
-		$q = $this->db->select('*')->get('age');
+		$q = $this->db->select('*')->where('status', 1)->where('is_delete', 0)->get('age');
 
 		foreach($q->result() as $row) {
 
 			$data[] = array(
-				'name' => $row->name
+				'name' => $lang=="en" ? $row->name : $row->khmer_name
 			);
 
 		}
@@ -1211,14 +1211,14 @@ class Kids_api extends CI_Model
 		return false;
 	}
 
-	function getOthersList() {
+	function getOthersList($lang) {
 
-		$q = $this->db->select('*')->get('others');
+		$q = $this->db->select('*')->where('status', 1)->where('is_delete', 0)->get('others');
 
 		foreach($q->result() as $row) {
 
 			$data[] = array(
-				'name' => $row->name
+				'name' => $lang=="en" ? $row->name : $row->khmer_name
 			);
 
 		}
@@ -1230,14 +1230,14 @@ class Kids_api extends CI_Model
 		return false;
 	}
 
-	function getNationalityList() {
+	function getNationalityList($lang) {
 
-		$q = $this->db->select('*')->order_by('sort', 'ASC')->get('nationality');
+		$q = $this->db->select('*')->where('status', 1)->where('is_delete', 0)->order_by('sort', 'ASC')->get('nationality');
 
 		foreach($q->result() as $row) {
 
 			$data[] = array(
-				'name' => $row->name
+				'name' => $lang=="en" ? $row->name : $row->khmer_name
 			);
 
 		}

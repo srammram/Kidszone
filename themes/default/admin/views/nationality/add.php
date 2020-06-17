@@ -22,6 +22,14 @@
 						</div>
 					</div>
 
+          <div class="col-md-24">
+						<div class="col-md-6">
+							<div class="form-group">
+								<label class="label_green" >Khmer Name </label>
+								<input type="text" class="form-control" name="khmer_name" id="khmer_name" required>
+							</div>						
+						</div>
+
 				</fieldset>
             
         </div>

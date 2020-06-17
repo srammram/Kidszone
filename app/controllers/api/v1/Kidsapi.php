@@ -646,7 +646,9 @@ class Kidsapi extends REST_Controller {
 
 	public function age_get(){
 
-		$data = $this->kids_api->getAgeList();
+		$lang = $_GET['lang'];
+
+		$data = $this->kids_api->getAgeList($lang);
 		
 		if(!empty($data)){
 			$result = array( 'status'=> 1, 'message'=> 'Success', 'data' => $data);
@@ -660,7 +662,8 @@ class Kidsapi extends REST_Controller {
 
 	public function others_get(){
 
-		$data = $this->kids_api->getOthersList();
+		$lang = $_GET['lang'];
+		$data = $this->kids_api->getOthersList($lang);
 		
 		if(!empty($data)){
 			$result = array( 'status'=> 1, 'message'=> 'Success', 'data' => $data);
@@ -674,7 +677,8 @@ class Kidsapi extends REST_Controller {
 
 	public function nationality_get(){
 
-		$data = $this->kids_api->getNationalityList();
+		$lang = $_GET['lang'];
+		$data = $this->kids_api->getNationalityList($lang);
 		
 		if(!empty($data)){
 			$result = array( 'status'=> 1, 'message'=> 'Success', 'data' => $data);
