@@ -1199,6 +1199,7 @@ class Kids_api extends CI_Model
 		foreach($q->result() as $row) {
 
 			$data[] = array(
+				'id' => $row->id,
 				'name' => $lang=="en" ? $row->name : $row->khmer_name
 			);
 
@@ -1218,6 +1219,7 @@ class Kids_api extends CI_Model
 		foreach($q->result() as $row) {
 
 			$data[] = array(
+				'id' => $row->id,
 				'name' => $lang=="en" ? $row->name : $row->khmer_name
 			);
 
@@ -1237,6 +1239,7 @@ class Kids_api extends CI_Model
 		foreach($q->result() as $row) {
 
 			$data[] = array(
+				'id' => $row->id,
 				'name' => $lang=="en" ? $row->name : $row->khmer_name
 			);
 

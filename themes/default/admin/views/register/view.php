@@ -298,7 +298,11 @@
 
 									<h3>Attachement List of Students</h3>
 										<div class="form-group col-md-6">
-										<a href="<?= admin_url('register/download_view_register/'.$result->id.''); ?>" class="pull-right">Click to download</a>
+										<?php if($result->att_list_stud) { ?>
+											<a href="<?= admin_url('register/download_view_register/'.$result->id.''); ?>" class="pull-right">Click to download</a>
+										<?php } else { ?>
+											Not available
+										<?php } ?>
 										</div>
 
 									<h3>Date</h3>
@@ -594,7 +598,11 @@
 
 									<h3>Attachement List of Students</h3>
 										<div class="form-group col-md-6">
-										<a href="<?= admin_url('register/download_view_register/'.$result->id.''); ?>" class="pull-right">Click to download</a>
+										<?php if($result->att_list_stud) { ?>
+											<a href="<?= admin_url('register/download_view_register/'.$result->id.''); ?>" class="pull-right">Click to download</a>
+										<?php } else { ?>
+											Not available
+										<?php } ?>
 										</div>
 
 									<h3>កាលបរិច្ឆទ</h3>
