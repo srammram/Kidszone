@@ -388,6 +388,9 @@ class Kidsapi extends REST_Controller {
 
 	public function register_post(){
 
+
+		//echo '<pre>'.print_r($_POST).'</pre>'; die;
+
 		/*$this->form_validation->set_rules('parent_type', $this->lang->line("parent_type"), 'required');
 		$this->form_validation->set_rules('father_name', $this->lang->line("father_name"), 'required');
 		$this->form_validation->set_rules('phone_number', $this->lang->line("phone_number"), 'required');
@@ -518,6 +521,36 @@ class Kidsapi extends REST_Controller {
 						$response['error'] = $error;
 						echo json_encode($response);exit;
 					}
+				}
+
+				if ($_FILES['att_list_stud']['size'] > 0) {
+					$config['upload_path'] = $this->upload_path;
+					$config['allowed_types'] = $this->image_types;
+					$config['overwrite'] = FALSE;
+					$config['max_filename'] = 25;
+					$config['encrypt_name'] = TRUE;
+					$this->upload->initialize($config);
+					if (!$this->upload->do_upload('att_list_stud')) {
+						$result = array( 'status'=> false , 'message'=> 'image not uploaded.');
+					}
+
+					$photo = $this->upload->file_name;
+					$data['att_list_stud'] = $photo;
+					/*$this->load->library('image_lib');
+					$config['image_library'] = 'gd2';
+					$config['source_image'] = $this->upload_path . $photo;
+					$config['new_image'] = $this->thumbs_path . $photo;
+					$config['maintain_ratio'] = TRUE;
+					$config['width'] = 150;
+					$config['height'] = 150;
+					$this->image_lib->clear();
+					$this->image_lib->initialize($config);
+					if (!$this->image_lib->resize()) {
+						echo $this->image_lib->display_errors();
+						$error = $this->image_lib->display_errors();
+						$response['error'] = $error;
+						echo json_encode($response);exit;
+					}*/
 				}
 
 				$res = $this->kids_api->insertRegister($data);

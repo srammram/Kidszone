@@ -295,17 +295,27 @@
 											<div class="clear"></div>			
 											<img src="<?=base_url()?>assets/uploads/<?= !empty($result->signature) ? $result->signature : 'no_image.jpg'; ?>" border="0" disabled width="100" height="100" />
 										</div>
+
+									<h3>Attachement List of Students</h3>
+										<div class="form-group col-md-6">
+										<a href="<?= admin_url('register/download_view_register/'.$result->id.''); ?>" class="pull-right">Click to download</a>
+										</div>
+
 									<h3>Date</h3>
 									<div class="form-group col-md-12">
 										<label class="label_green"></label>
 										<div class="clear"></div>
 										<input type="text" class="form-control" value="<?= date('d/m/Y H:i:s', strtotime($result->created_on)) ?>" required readonly>
 									</div>
+
+																		
 									<div class="form-group col-md-12">
 										<label class="label_green"></label>
 										<div class="clear"></div>			
 										<input type="checkbox" name="accept" id="accept" <?= $result->accept==1 ? 'checked': FALSE; ?> disabled> &nbsp;<b>I agree to follow the rules</b>
 									</div>
+
+
 							</div>
 				<div class="col-sm-12 last_sa_se"><?php //echo form_submit('edit_farmer', lang('submit'), 'class="btn btn-primary"'); ?></div>
 				<?php echo form_close(); ?> </div>
@@ -581,6 +591,12 @@
 											<div class="clear"></div>			
 											<img src="<?=base_url()?>assets/uploads/<?= !empty($result->signature) ? $result->signature : 'no_image.jpg'; ?>" border="0" disabled width="100" height="100" />
 										</div>
+
+									<h3>Attachement List of Students</h3>
+										<div class="form-group col-md-6">
+										<a href="<?= admin_url('register/download_view_register/'.$result->id.''); ?>" class="pull-right">Click to download</a>
+										</div>
+
 									<h3>កាលបរិច្ឆទ</h3>
 									<div class="form-group col-md-12">
 										<label class="label_green"></label>

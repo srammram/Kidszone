@@ -317,6 +317,18 @@ class Register extends MY_Controller
 		 $this->sma->generate_pdf($html, $name.'.pdf');        
     }
 	
+
+	function download_view_register($id){
+		
+		//$this->site->webPermission($this->session->userdata('user_id'), 'register', 'pdf_view_register');
+		$result = $this->register_model->getRegisterByID($id);
+		$this->data['result'] = $result;
+		
+		$this->page_construct('register/download', $meta, $this->data);		
+		
+    }
+
+
     function edit_farmer($id){
 
 		$this->site->webPermission($this->session->userdata('user_id'), 'farmer', 'edit_farmer');
