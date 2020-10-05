@@ -3283,8 +3283,9 @@ body {
 	.kids_list ol{margin: 0px;padding: 0px 0px 0px 10%;}
 	.kids_list ol li{margin-bottom: 10px;float: left;}
 	.kids_list ol li input{width: 100%;}
-	.kidszoona h4{margin-bottom:15px;margin-top: 0px;font-weight: bold;}
+	.kidszoona h4{margin-bottom:15px;margin-top: 0px;font-weight: bold;font-size: 18px;color: #003700}
 	.kidszoona h3{margin-bottom: 15px;margin-top: 0px;font-weight: bold;position: relative;float: left;width: 100%;color: #003700;font-size: 18px;}
+
 	.kidszoona h3 label{margin-bottom: 0px;font-size: 18px;}
 	.kidszoona{padding: 0px 0px 0px;height: 100%;transition: all .2s ease-in;}
 .kidszon_content{margin-top: 5%;}
@@ -3317,6 +3318,11 @@ body {
     left: -2px;
     top: 5px;}
 /**/
+/*05-10-2020*/
+
+.kidszoona .kids_reg_form{background-color: #4272c5;padding: 15px 2px;color: #fff;text-decoration: underline;text-align: center;}
+.text_underline,.text_underline label{font-weight: 600;text-decoration: underline;}
+/*media query*/
 @media  (max-width: 1920px) and (min-width: 1900px){
 	.table_responsive {
     width: 1677px;
