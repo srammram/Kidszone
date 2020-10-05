@@ -64,14 +64,15 @@
 										</ul>
 									</div>
 									<?php $i++;} ?>
-
+								<input type="checkbox" name="safe_accept" id="safe_accept" <?= $result->safe_accept==1 ? 'checked': FALSE; ?> disabled>
 								</div>
+								
 								<div class="col-md-12 col-xs-12">
 									<h3 class="kids_reg_form">Kidzoona Registation Form</h3>
 									<h4 class="text-left text_underline">* Parents name: (Age over 18 years old)</h4>
 										<div class="col-md-12" style="padding: 0px;">
 												<div class="form-group col-md-5">
-													<label class="label_green col-sm-5 col-xs-12">Customer Name: </label>
+													<label class="label_green col-sm-5 col-xs-12">Customer Name*: </label>
 													<div class="col-sm-7 col-xs-12">
 													<input type="text" class="form-control" name="customer_name" id="customer_name" value="<?= $result->customer_name ?>" required readonly></div>
 												</div>
@@ -437,12 +438,12 @@
 										</ul>
 									</div>
 									<?php $i++;} ?>
-
+								<input type="checkbox" name="safe_accept" id="safe_accept" <?= $result->safe_accept==1 ? 'checked': FALSE; ?> disabled>
 								</div>
+								
 								<div class="col-md-12 col-xs-12">
 										<h3 class="kids_reg_form">Kidzoona Registation Form</h3>
 										<h4 class="text-left text_underline">* ឈ្មោះឪពុក ម្ដាយ  : (អាយុចាប់ពី១៨ឆ្នាំឡើងទៅ)</h4>
-										
 										
 										<div class="col-md-12" style="padding: 0px;">
 												<div class="form-group col-md-5">

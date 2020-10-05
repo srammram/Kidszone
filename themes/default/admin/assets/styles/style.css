@@ -3288,7 +3288,7 @@ body {
 
 	.kidszoona h3 label{margin-bottom: 0px;font-size: 18px;}
 	.kidszoona{padding: 0px 0px 0px;height: 100%;transition: all .2s ease-in;}
-.kidszon_content{margin-top: 5%;}
+.kidszon_content{margin-top: 5%;margin-bottom: 10px;}
 	.kidszoona .form-group{padding: 0px;}
 	.kidszon_content h4,.kidszon_content .h4{font-weight: bold;}
 	.kidszoona .kidszon_content h4,.kidszoona .kidszon_content .h4{margin-bottom: 15px;position: relative;text-decoration: underline;text-decoration-color: darkred;text-decoration-style: solid;}
