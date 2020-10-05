@@ -95,7 +95,7 @@
 						</div>
 						<div class="col-md-12 col-xs-12">
 							<h3 style="color: #000;"><?= lang("General information", "General information"); ?></h3>
-							<h4 class="text-left" style="font-size: 14px;padding-left: 9px;">Parent name: (Age over 18 years old)</h4>
+							<h4 class="text-left" style="font-size: 14px;padding-left: 9px;">* Parents name: (Age over 18 years old)</h4>
 
 
 							<table class="table table-bordered table_dot print_break" style="table-layout: fixed;">
@@ -164,7 +164,7 @@
 									<td style="width: 50%"><?= $result->email ?></td>
 								</tr>
 								<tr>
-									<td colspan="3"><h3 style="font-size: 18px;color: #000;"><?= lang("Kids Name", "Kids Name"); ?></h3></td>
+									<td colspan="3"><h3 style="font-size: 18px;color: #000;"><?= lang("* Information Of Chlidrens (Maximum 6 Kids)", "* Information Of Chlidrens (Maximum 6 Kids)"); ?></h3></td>
 								</tr>
 								<tr>
 									<td style="width: 45%">Kid Name 1</td>
@@ -183,10 +183,10 @@
 									</td>
 
 									<td style="width: 50%">
-									<label class="container-checkbox">Male
+									<label class="container-checkbox">Boy
 									  <img src="<?=base_url()?>assets/uploads/<?= $result->kid1_gender=='M' ? 'tick.png': 'list.png'; ?>" width="15px"/>
 									</label>
-									<label class="container-checkbox">Female
+									<label class="container-checkbox">Girl
 										  <img src="<?=base_url()?>assets/uploads/<?= $result->kid1_gender=='F' ? 'tick.png': 'list.png'; ?>" width="15px"/>
 									</label>									
 									</td>
@@ -206,10 +206,10 @@
 									<td style="width: 5%">:
 									</td>
 									<td style="width: 50%">
-									<label class="container-checkbox">Male
+									<label class="container-checkbox">Boy
 									  <img src="<?=base_url()?>assets/uploads/<?= $result->kid2_gender=='M' ? 'tick.png': 'list.png'; ?>" width="15px"/>
 									</label>
-									<label class="container-checkbox">Female
+									<label class="container-checkbox">Girl
 										  <img src="<?=base_url()?>assets/uploads/<?= $result->kid2_gender=='F' ? 'tick.png': 'list.png'; ?>" width="15px"/>
 									</label>									
 									</td>
@@ -232,10 +232,10 @@
 									</td>
 
 									<td style="width: 45%">
-									<label class="container-checkbox">Male
+									<label class="container-checkbox">Boy
 									  <img src="<?=base_url()?>assets/uploads/<?= $result->kid3_gender=='M' ? 'tick.png': 'list.png'; ?>" width="15px"/>
 									</label>
-									<label class="container-checkbox">Female
+									<label class="container-checkbox">Girl
 										  <img src="<?=base_url()?>assets/uploads/<?= $result->kid3_gender=='F' ? 'tick.png': 'list.png'; ?>" width="15px"/>
 									</label>									
 									</td>
@@ -258,10 +258,10 @@
 									</td>
 
 									<td>
-									<label class="container-checkbox">Male
+									<label class="container-checkbox">Boy
 									  <img src="<?=base_url()?>assets/uploads/<?= $result->kid4_gender=='M' ? 'tick.png': 'list.png'; ?>" width="15px"/>
 									</label>
-									<label class="container-checkbox">Female
+									<label class="container-checkbox">Girl
 										  <img src="<?=base_url()?>assets/uploads/<?= $result->kid4_gender=='F' ? 'tick.png': 'list.png'; ?>" width="15px"/>
 									</label>									
 									</td>
@@ -284,10 +284,10 @@
 									</td>
 
 									<td>
-									<label class="container-checkbox">Male
+									<label class="container-checkbox">Boy
 									  <img src="<?=base_url()?>assets/uploads/<?= $result->kid5_gender=='M' ? 'tick.png': 'list.png'; ?>" width="15px"/>
 									</label>
-									<label class="container-checkbox">Female
+									<label class="container-checkbox">Girl
 										  <img src="<?=base_url()?>assets/uploads/<?= $result->kid5_gender=='F' ? 'tick.png': 'list.png'; ?>" width="15px"/>
 									</label>									
 									</td>
@@ -310,10 +310,10 @@
 									</td>
 
 									<td>
-									<label class="container-checkbox">Male
+									<label class="container-checkbox">Boy
 									  <img src="<?=base_url()?>assets/uploads/<?= $result->kid6_gender=='M' ? 'tick.png': 'list.png'; ?>" width="15px"/>
 									</label>
-									<label class="container-checkbox">Female
+									<label class="container-checkbox">Girl
 										  <img src="<?=base_url()?>assets/uploads/<?= $result->kid6_gender=='F' ? 'tick.png': 'list.png'; ?>" width="15px"/>
 									</label>									
 									</td>
@@ -333,6 +333,11 @@
 									<td><?= $result->school_name ?></td>
 								</tr>
 								<tr>
+									<td>No of Students</td>
+									<td>:</td>
+									<td><?= $result->no_of_students ?></td>
+								</tr>
+								<tr>
 									<td>No of Boys</td>
 									<td>:</td>
 									<td><?= $result->no_of_boys ?></td>
@@ -341,11 +346,6 @@
 									<td>No of Girls</td>
 									<td>:</td>
 									<td><?= $result->no_of_girls ?></td>
-								</tr>
-								<tr >
-									<td>No of Students</td>
-									<td>:</td>
-									<td><?= $result->no_of_students ?></td>
 								</tr>
 								</table>
 								<table class="table table-bordered" style="table-layout: fixed;">
@@ -379,7 +379,7 @@
 								<tr>
 									<td colspan="3">
 										<img src="<?=base_url()?>assets/uploads/<?= $result->accept==1 ? 'tick.png': 'list.png'; ?>" width="15px"/>
-										  &nbsp;<b>I agree to follow the rules</b>
+										  &nbsp;<b>I Agree and Follow the Rules of Kidzooona</b>
 									</td>
 								</tr>
 							</table>
@@ -428,7 +428,7 @@
 						</div>
 						<div class="col-md-12 col-xs-12">
 							<h3 style="font-size: 18px;color: #000;">ពត៌មានទូទៅ</h3>
-							<h4 class="text-left" style="font-size: 14px;padding-left: 9px;">ឈ្មោះឪពុក ម្ដាយ  : (អាយុចាប់ពី១៨ឆ្នាំឡើងទៅ)</h4>
+							<h4 class="text-left" style="font-size: 14px;padding-left: 9px;">* ឈ្មោះឪពុក ម្ដាយ  : (អាយុចាប់ពី១៨ឆ្នាំឡើងទៅ)</h4>
 							<table class="table table-bordered table_dot print_break" style="table-layout: fixed;">
 								<tr>
 									<td style="width: 45%">ឈ្មោះអតិថិជន*</td>
@@ -665,6 +665,11 @@
 									<td><?= $result->school_name ?></td>
 								</tr>
 								<tr>
+									<td>ចំនួនសិស្សសរុប</td>
+									<td>:</td>
+									<td><?= $result->no_of_students ?></td>
+								</tr>
+								<tr>
 									<td>ចំនួនសិស្សប្រុស</td>
 									<td>:</td>
 									<td><?= $result->no_of_boys ?></td>
@@ -673,11 +678,6 @@
 									<td>ចំនួនសិស្សស្រី</td>
 									<td>:</td>
 									<td><?= $result->no_of_girls ?></td>
-								</tr>
-								<tr >
-									<td>ចំនួនសិស្សសរុប</td>
-									<td>:</td>
-									<td><?= $result->no_of_students ?></td>
 								</tr>
 								</table>
 								<table class="table table-bordered" style="table-layout: fixed;">

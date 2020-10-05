@@ -66,7 +66,7 @@
 								</div>
 								<div class="col-md-12 col-xs-12">
 									<h3><?= lang("General information", "General information"); ?></h3>
-									<h4 class="text-left">Parent name: (Age over 18 years old)</h4>
+									<h4 class="text-left">* Parents name: (Age over 18 years old)</h4>
 
 										<div class="form-group col-md-12">
 											<label class="label_green">Customer Name </label>
@@ -130,7 +130,7 @@
 												<label class="label_green">Email</label>
 												<input type="text" class="form-control" name="email" id="email"   value="<?= $result->email ?>" required readonly>
 											</div>
-										<h3><?= lang("Information of Chlidrens", "Information of Chlidrens"); ?></h3>
+										<h3><?= lang("* Information of Chlidrens (Maximum 6 Kids)", "* Information of Chlidrens (Maximum 6 Kids)"); ?></h3>
 											<div class="form-group col-md-12">
 												<label class="label_green">Kid Name 1</label>
 												<input type="text" class="form-control"  value="<?= $result->kid_name1 ?>" required readonly>
@@ -142,12 +142,12 @@
 
 											<div class="form-group col-md-12">
 											<div class="col-md-3" style="padding: 0px;">
-												<label class="container-checkbox">Male
+												<label class="container-checkbox">Boy
 												<input type="radio" name="gender1" id="gender1" <?= $result->kid1_gender=='M' ? 'checked': FALSE; ?> disabled>
 												</label>
 											</div>
 											<div class="col-md-3" style="padding: 0px;">
-												<label class="container-checkbox">Female
+												<label class="container-checkbox">Girl
 												<input type="radio" name="gender1" id="gender1" <?= $result->kid1_gender=='F' ? 'checked': FALSE; ?> disabled>
 												</label>
 											</div>
@@ -164,12 +164,12 @@
 
 											<div class="form-group col-md-12">
 											<div class="col-md-3" style="padding: 0px;">
-												<label class="container-checkbox">Male
+												<label class="container-checkbox">Boy
 												<input type="radio" name="gender2" id="gender2" <?= $result->kid2_gender=='M' ? 'checked': FALSE; ?> disabled>
 												</label>
 											</div>
 											<div class="col-md-3" style="padding: 0px;">
-												<label class="container-checkbox">Female
+												<label class="container-checkbox">Girl
 												<input type="radio" name="gender2" id="gender2" <?= $result->kid2_gender=='F' ? 'checked': FALSE; ?> disabled>
 												</label>
 											</div>
@@ -186,12 +186,12 @@
 
 											<div class="form-group col-md-12">
 											<div class="col-md-3" style="padding: 0px;">
-												<label class="container-checkbox">Male
+												<label class="container-checkbox">Boy
 												<input type="radio" name="gender3" id="gender3" <?= $result->kid3_gender=='M' ? 'checked': FALSE; ?> disabled>
 												</label>
 											</div>
 											<div class="col-md-3" style="padding: 0px;">
-												<label class="container-checkbox">Female
+												<label class="container-checkbox">Girl
 												<input type="radio" name="gender3" id="gender3" <?= $result->kid3_gender=='F' ? 'checked': FALSE; ?> disabled>
 												</label>
 											</div>
@@ -207,12 +207,12 @@
 
 											<div class="form-group col-md-12">
 											<div class="col-md-3" style="padding: 0px;">
-												<label class="container-checkbox">Male
+												<label class="container-checkbox">Boy
 												<input type="radio" name="gender4" id="gender4" <?= $result->kid4_gender=='M' ? 'checked': FALSE; ?> disabled>
 												</label>
 											</div>
 											<div class="col-md-3" style="padding: 0px;">
-												<label class="container-checkbox">Female
+												<label class="container-checkbox">Girl
 												<input type="radio" name="gender4" id="gender4" <?= $result->kid4_gender=='F' ? 'checked': FALSE; ?> disabled>
 												</label>
 											</div>
@@ -228,12 +228,12 @@
 
 											<div class="form-group col-md-12">
 											<div class="col-md-3" style="padding: 0px;">
-												<label class="container-checkbox">Male
+												<label class="container-checkbox">Boy
 												<input type="radio" name="gender5" id="gender5" <?= $result->kid5_gender=='M' ? 'checked': FALSE; ?> disabled>
 												</label>
 											</div>
 											<div class="col-md-3" style="padding: 0px;">
-												<label class="container-checkbox">Female
+												<label class="container-checkbox">Girl
 												<input type="radio" name="gender4" id="gender5" <?= $result->kid5_gender=='F' ? 'checked': FALSE; ?> disabled>
 												</label>
 											</div>
@@ -249,12 +249,12 @@
 
 											<div class="form-group col-md-12">
 											<div class="col-md-3" style="padding: 0px;">
-												<label class="container-checkbox">Male
+												<label class="container-checkbox">Boy
 												<input type="radio" name="gender6" id="gender6" <?= $result->kid6_gender=='M' ? 'checked': FALSE; ?> disabled>
 												</label>
 											</div>
 											<div class="col-md-3" style="padding: 0px;">
-												<label class="container-checkbox">Female
+												<label class="container-checkbox">Girl
 												<input type="radio" name="gender6" id="gender6" <?= $result->kid6_gender=='F' ? 'checked': FALSE; ?> disabled>
 												</label>
 											</div>
@@ -264,7 +264,7 @@
 												<input type="text" class="form-control" value="<?= $result->no_of_kids ?>" readonly>
 											</div>
 
-											<h3>Information of Students</h3>
+											<h3>* Information of Students</h3>
 
 											<div class="form-group col-md-12">
 												<label class="label_green">School Name</label>
@@ -316,7 +316,7 @@
 									<div class="form-group col-md-12">
 										<label class="label_green"></label>
 										<div class="clear"></div>			
-										<input type="checkbox" name="accept" id="accept" <?= $result->accept==1 ? 'checked': FALSE; ?> disabled> &nbsp;<b>I agree to follow the rules</b>
+										<input type="checkbox" name="accept" id="accept" <?= $result->accept==1 ? 'checked': FALSE; ?> disabled> &nbsp;<b>I Agree and Follow the Rules of Kidzooona</b>
 									</div>
 
 
@@ -367,7 +367,7 @@
 								</div>
 								<div class="col-md-12 col-xs-12">
 							<h3>ពត៌មានទូទៅ</h3>
-							<h4 class="text-left">ឈ្មោះឪពុក ម្ដាយ  : (អាយុចាប់ពី១៨ឆ្នាំឡើងទៅ)</h4>
+							<h4 class="text-left">* ឈ្មោះឪពុក ម្ដាយ  : (អាយុចាប់ពី១៨ឆ្នាំឡើងទៅ)</h4>
 							<div class="form-group col-md-12">
 											<label class="label_green">ឈ្មោះអតិថិជន*:</label>
 											<input type="text" class="form-control" name="customer_name" id="customer_name" value="<?= $result->customer_name ?>" required readonly>
