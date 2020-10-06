@@ -64,7 +64,13 @@
 										</ul>
 									</div>
 									<?php $i++;} ?>
-								<input type="checkbox" name="safe_accept" id="safe_accept" <?= $result->safe_accept==1 ? 'checked': FALSE; ?> disabled>
+									
+									<div class="form-group col-md-12">
+										<label class="label_green"></label>
+										<div class="clear"></div>			
+										<input type="checkbox" name="safe_accept" id="safe_accept" <?= $result->safe_accept==1 ? 'checked': FALSE; ?> disabled> &nbsp;<b>I have read the Terms & Conditions</b>
+									</div>
+								
 								</div>
 								
 								<div class="col-md-12 col-xs-12">
@@ -210,7 +216,7 @@
 											<div class="form-group col-md-5">
 												<label class="label_green col-sm-5">Kid Name 3:</label>
 												<div  class="col-md-7 col-xs-12">
-													<input type="text" class="form-control"  value="<?= $kid3_age->name ?>" required readonly>
+													<input type="text" class="form-control"  value="<?= $result->kid_name3 ?>" required readonly>
 												</div>
 											</div>
 											<div class="form-group col-md-3">
@@ -438,7 +444,11 @@
 										</ul>
 									</div>
 									<?php $i++;} ?>
-								<input type="checkbox" name="safe_accept" id="safe_accept" <?= $result->safe_accept==1 ? 'checked': FALSE; ?> disabled>
+									<div class="form-group col-md-12">
+										<label class="label_green"></label>
+										<div class="clear"></div>			
+										<input type="checkbox" name="safe_accept" id="safe_accept" <?= $result->safe_accept==1 ? 'checked': FALSE; ?> disabled> &nbsp;<b>I have read the Terms & Conditions</b>
+									</div>
 								</div>
 								
 								<div class="col-md-12 col-xs-12">

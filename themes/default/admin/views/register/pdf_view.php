@@ -45,7 +45,7 @@
 	.table-bordered tr td,.table-bordered{border: none;color: #333;}
 	table tbody tr td h3{font-size: 14px;}
 	.table-bordered{margin-bottom: 0px;}
-	.table_dot tr td:first-child::after{position: absolute;right: 0px;content: ':';color: black;top: 0px;}
+/*	.table_dot tr td:first-child::after{position: absolute;right: 0px;content: ':';color: black;top: 0px;}*/
 	.table_dot tr td:first-child{font-weight: bold;color: #333;}
 	.table_dot tr td:last-child{font-weight: normal;color: #333;}
 	.kidszoona h3,.table-bordered tr td h3{font-size: 18px;}
@@ -82,7 +82,7 @@
 							<img src="<?=base_url()?>assets/uploads/logos/logo.png" alt="kidszoona">
 						</div>
 						<div class="col-md-12 kidszon_content">
-							<p>Regulation apply for get in Kidzooona Zone</p><br>
+							<p>Regulation apply for get in Kidzooona Zone</p>
 									<h3>Dear all customers</h3>
 									<p>Here is a place did not have to control the behavior of children.</p>
 									<p><b>For the safety of your child, we must comply with the follow wing our message.</b></p>
@@ -101,14 +101,17 @@
 								</ul>
 							</div>
 							<?php  $i++;} ?>
-
+							<div class="form-group col-md-12" style="margin-top: 10px;">
+								<img src="<?=base_url()?>assets/uploads/<?= $result->safe_accept==1 ? 'tick.png': 'list.png'; ?>" width="15px"/>
+											  &nbsp;<b>I have read the Terms & Conditions</b>
+							</div>
 						</div>
 						<div class="col-md-12 col-xs-12">
 							<h3 class="kids_reg_form">Kidzoona Registation Form</h3>
 							<h4 class="text-left text_underline" style="font-size: 18px;color: #000;text-decoration: underline;padding-left: 9px;">* Parents name: (Age over 18 years old)</h4>
 
 
-							<table class="table table-bordered table_dot print_break" >
+							<table class="table table-bordered table_dot print_break" style="width: 70%;table-layout: fixed">
 								<tr>
 									<td >Customer Name :</td>
 									<td><?= $result->customer_name ?></td>
@@ -257,7 +260,7 @@
 									</td>
 								</tr>
 								
-								<tr >
+								<tr>
 									<td>Number of kids</td>
 									<td><?= $result->no_of_kids ?></td>
 									<td>Kids</td>
@@ -282,11 +285,7 @@
 								<tr>
 									<td>Attachment List of Students: </td>
 									<td>
-										<?php if($result->att_list_stud) { ?>
-											<a href="<?= admin_url('register/download_view_register/'.$result->id.''); ?>" class="pull-right">Click to download</a>
-										<?php } else { ?>
-											Not available
-										<?php } ?>
+
 									</td>
 								</tr>
 								</table>
@@ -347,7 +346,7 @@
 							<img src="<?=base_url()?>assets/uploads/logos/logo.png" alt="kidszoona">
 						</div>
 						<div class="col-md-12 kidszon_content">
-							<p> បទបញ្ជានានាដែលពាក់ព័ន្ធទៅនឹងការចូលទៅក្នុងបរិវេណkidzooona</p><br>
+							<p> បទបញ្ជានានាដែលពាក់ព័ន្ធទៅនឹងការចូលទៅក្នុងបរិវេណkidzooona</p>
 									<h3>អតិថិជនទាំងអស់ជាទីគោរព </h3>
 									<p>Kidzooona មិនមែនជាទីកន្លែង សំរាប់គ្រប់គ្រងនូវការប្រព្រឹត្តរបស់កុមារនោះទេ</p>
 									<p><b>ដើម្បីធានានូវសុវត្តិភាពរបស់កូនលោកអ្នក, យើងខ្ញុំត្រូវតែអនុវត្តតាមសាររបស់យើង។</b></p>
@@ -366,14 +365,17 @@
 								</ul>
 							</div>
 							<?php  $i++;} ?>
-
+							<div class="form-group col-md-12" style="margin-top: 10px;">
+								<img src="<?=base_url()?>assets/uploads/<?= $result->safe_accept==1 ? 'tick.png': 'list.png'; ?>" width="15px"/>
+											  &nbsp;<b>I have read the Terms & Conditions</b>
+							</div>
 						</div>
 						<div class="col-md-12 col-xs-12">
 							<h3 class="kids_reg_form">Kidzoona Registation Form</h3>
 							<h4 class="text-left text_underline" style="font-size: 18px;color: #000;text-decoration: underline;padding-left: 9px;">* ឈ្មោះឪពុក ម្ដាយ  : (អាយុចាប់ពី១៨ឆ្នាំឡើងទៅ)</h4>
 							
 							
-							<table class="table table-bordered table_dot print_break" >
+							<table class="table table-bordered table_dot print_break" style="width: 70%;table-layout: fixed">
 								<tr>
 									<td >ឈ្មោះអតិថិជន*:</td>
 									<td><?= $result->customer_name ?></td>
@@ -549,11 +551,7 @@
 									<tr>
 										<td>Attachment List of Students: </td>
 										<td>
-												<?php if($result->att_list_stud) { ?>
-													<a href="<?= admin_url('register/download_view_register/'.$result->id.''); ?>" class="pull-right">Click to download</a>
-												<?php } else { ?>
-													Not available
-												<?php } ?>
+												
 										</td>
 									</tr>
 								</table>
