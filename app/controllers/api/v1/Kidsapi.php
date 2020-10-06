@@ -459,6 +459,7 @@ class Kidsapi extends REST_Controller {
 					'outlet_id' => $outlet_id,
 					'reg_date' => date('Y-m-d H:i:s', strtotime($this->input->post('reg_date'))),
 					'accept' => $this->input->post('accept') ? 1 : 0,
+					'safe_accept' => $this->input->post('safe_accept') ? 1 : 0,
 					'status' => 1,
 					'created_on' => date('Y-m-d H:i:s'),
 				);
