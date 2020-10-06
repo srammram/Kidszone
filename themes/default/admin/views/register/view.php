@@ -3,7 +3,7 @@
 <script src="<?= $assets ?>js/jquery.mCustomScrollbar.concat.min.js"></script>
 <p class="pdf_s"><a href="<?= admin_url('register/pdf_view_register/'.$result->id.''); ?>" class="pull-right"><i class="fa fa-2x fa-file-pdf-o" aria-hidden="true"></i>Pdf</a></p>
 <style>
-	.pdf_s{position: absolute;right: 2%;top: 10px;}
+	.pdf_s{position: absolute;right: 2%;top: 10px;z-index: 99}
 	.pdf_s a{color: red;text-decoration: none;}
 	.pdf_s .fa{color: red;}
 	/*.kidszon_content ul p{position: relative;float: left;padding-left: 30px;}	

@@ -53,9 +53,19 @@
 	.kidszon_content ul li,.kidszon_content ol li{font-size: 13px;color: #333;line-height: 25px;}
 	.kidszon_content ul,.kidszon_content ol{padding-left: 30px;list-style: decimal;}
 	
+/*
 	.table_dot tr td:first-child{width: 45%;}
 	.table_dot tr td:nth-of-type(2){width: 5%;}
 	.table_dot tr td:nth-of-type(3){width: 50%;}
+*/
+	.text_underline label{text-decoration: underline;}
+	.kidszoona .kids_reg_form {
+    background-color: #4272c5;
+    padding: 15px 2px;
+    color: #fff;
+    text-decoration: underline;
+    text-align: center;
+}
 	
 /*	*/
  
@@ -64,7 +74,7 @@
 <div class="box">
   <div class="box-content">
     <div class="row">
-      <div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-xs-12 kidszoona">
+      <div class="col-lg-12 col-md-12 col-xs-12 kidszoona">
         <?php $attrib = array('class' => 'form-horizontal', 'class' => 'add_from','data-toggle' => 'validator', 'role' => 'form', 'autocomplete' => "off");
                 echo admin_form_open_multipart("farmer/edit_farmer/".$id, $attrib);
                 ?>
@@ -94,294 +104,226 @@
 
 						</div>
 						<div class="col-md-12 col-xs-12">
-							<h3 style="color: #000;"><?= lang("General information", "General information"); ?></h3>
-							<h4 class="text-left" style="font-size: 14px;padding-left: 9px;">* Parents name: (Age over 18 years old)</h4>
+							<h3 class="kids_reg_form">Kidzoona Registation Form</h3>
+							<h4 class="text-left text_underline" style="font-size: 18px;color: #000;text-decoration: underline;padding-left: 9px;">* Parents name: (Age over 18 years old)</h4>
 
 
-							<table class="table table-bordered table_dot print_break" style="table-layout: fixed;">
+							<table class="table table-bordered table_dot print_break" >
 								<tr>
-									<td style="width: 45%">Customer Name</td>
-									<td style="width: 5%">:</td>
-									<td style="width: 50%"><?= $result->customer_name ?></td>
-								</tr>
-								<tr>
-									<td style="width: 45%">Gender</td>
-									<td style="width: 5%">:</td>
-									<td style="width: 50%">
-										<label class="container-checkbox">Male
-										  <img src="<?=base_url()?>assets/uploads/<?= $result->gender=='M' ? 'tick.png': 'list.png'; ?>" width="15px"/>
+									<td >Customer Name :</td>
+									<td><?= $result->customer_name ?></td>
+									<td>
+										<label class="container-checkbox">
+										  <img src="<?=base_url()?>assets/uploads/<?= $result->gender=='M' ? 'tick.png': 'list.png'; ?>" width="15px"/> Male
 										</label>
-										<label class="container-checkbox">Female
-											  <img src="<?=base_url()?>assets/uploads/<?= $result->gender=='F' ? 'tick.png': 'list.png'; ?>" width="15px"/>
+										<label class="container-checkbox">
+											  <img src="<?=base_url()?>assets/uploads/<?= $result->gender=='F' ? 'tick.png': 'list.png'; ?>" width="15px"/> Female
 										</label>									
 									</td>
 								</tr>
 							</table>
 							
-							<table class="table table-bordered table_dot_check" style="table-layout: fixed;">
+							<table class="table table-bordered table_dot_check" >
 							
 								<tr>
-									<td><label class="container-checkbox">Father
-										  <img src="<?=base_url()?>assets/uploads/<?= $result->parent_type==1 ? 'tick.png': 'list.png'; ?>" width="15px"/>
+									<td >Nationality :</td>
+									<td><?= $nationality->name ?></td>
+									<td><label class="container-checkbox">
+										  <img src="<?=base_url()?>assets/uploads/<?= $result->parent_type==1 ? 'tick.png': 'list.png'; ?>" width="15px"/> Father
 										</label>
 									</td>
 									<td>
-										<label class="container-checkbox">Mother
-										  <img src="<?=base_url()?>assets/uploads/<?= $result->parent_type==2 ? 'tick.png': 'list.png'; ?>" width="15px"/>
+										<label class="container-checkbox">
+										  <img src="<?=base_url()?>assets/uploads/<?= $result->parent_type==2 ? 'tick.png': 'list.png'; ?>" width="15px"/> Mother
 										</label>
 									</td>
 									<td>
-										<label class="container-checkbox">Teacher
-										<img src="<?=base_url()?>assets/uploads/<?= $result->parent_type==4 ? 'tick.png': 'list.png'; ?>" width="15px"/>
+										<label class="container-checkbox">
+										<img src="<?=base_url()?>assets/uploads/<?= $result->parent_type==4 ? 'tick.png': 'list.png'; ?>" width="15px"/> Teacher
 										</label>
 									</td>
 									<td>
-										<label class="container-checkbox">Others
-										  <img src="<?=base_url()?>assets/uploads/<?= $result->parent_type==3 ? 'tick.png': 'list.png'; ?>" width="15px"/>
+										<label class="container-checkbox">
+										  <img src="<?=base_url()?>assets/uploads/<?= $result->parent_type==3 ? 'tick.png': 'list.png'; ?>" width="15px"/> Others
 										</label>
 									</td>
+									<td><?= $others->name ?></td>
 								</tr>
 							</table>
-							<table class="table table-bordered table_dot print_break" style="table-layout: fixed;">
+							<table class="table table-bordered table_dot print_break" style="width: 50%;">
+								
 								<tr>
-									<td style="width: 45%">Others</td>
-									<td style="width: 5%">:</td>
-									<td style="width: 50%"><?= $others->name ?></td>
+									<td>Phone Number*:</td>
+									<td><?= $result->phone_number ?></td>
 								</tr>
 								<tr>
-									<td style="width: 45%">Mobile Number</td>
-									<td style="width: 5%">:</td>
-									<td style="width: 50%"><?= $result->phone_number ?></td>
+									<td>Outlet:</td>
+									<td><?= $outlet->name ?></td>
 								</tr>
 								<tr>
-									<td style="width: 45%">Outlet</td>
-									<td style="width: 5%">:</td>
-									<td style="width: 50%"><?= $outlet->name ?></td>
+									<td>Email Address:</td>
+									<td><?= $result->email ?></td>
 								</tr>
+							</table>
+							<h4 class="text-left text_underline" style="font-size: 18px;color: #000;text-decoration: underline;padding-left: 9px;"><?= lang("* Information Of Chlidrens (Maximum 6 Kids)", "* Information Of Chlidrens (Maximum 6 Kids)"); ?></h4>
+							<table class="table table-bordered table_dot print_break" >
 								<tr>
-									<td style="width: 45%">Email</td>
-									<td style="width: 5%">:</td>
-									<td style="width: 50%"><?= $result->email ?></td>
-								</tr>
-								<tr>
-									<td colspan="3"><h3 style="font-size: 18px;color: #000;"><?= lang("* Information Of Chlidrens (Maximum 6 Kids)", "* Information Of Chlidrens (Maximum 6 Kids)"); ?></h3></td>
-								</tr>
-								<tr>
-									<td style="width: 45%">Kid Name 1</td>
-									<td style="width: 5%">:</td>
-									<td style="width: 50%"><?= $result->kid_name1 ?></td>
-								</tr>
-								<tr>
-									<td style="width: 45%">Age</td>
-									<td style="width: 5%">:</td>
-									<td style="width: 50%"><?= $kid1_age->name ?></td>
-								</tr>
-								<tr>
-									<td style="width: 45%">Gender</td>
-									<td style="width: 5%">:
-									
+									<td>Kid Name 1:</td>
+									<td><?= $result->kid_name1 ?></td>
+									<td>Age:</td>
+									<td><?= $kid1_age->name ?></td>
+									<td>
+										<label class="container-checkbox">
+										  <img src="<?=base_url()?>assets/uploads/<?= $result->kid1_gender=='M' ? 'tick.png': 'list.png'; ?>" width="15px"/> Boy
+										</label>
+										<label class="container-checkbox">
+											  <img src="<?=base_url()?>assets/uploads/<?= $result->kid1_gender=='F' ? 'tick.png': 'list.png'; ?>" width="15px"/> Girl
+										</label>									
 									</td>
-
-									<td style="width: 50%">
-									<label class="container-checkbox">Boy
-									  <img src="<?=base_url()?>assets/uploads/<?= $result->kid1_gender=='M' ? 'tick.png': 'list.png'; ?>" width="15px"/>
-									</label>
-									<label class="container-checkbox">Girl
-										  <img src="<?=base_url()?>assets/uploads/<?= $result->kid1_gender=='F' ? 'tick.png': 'list.png'; ?>" width="15px"/>
-									</label>									
+								</tr>
+								
+								<tr>
+									<td>Kid Name 2:</td>
+									<td><?= $result->kid_name2 ?></td>
+									<td>Age:</td>
+									<td><?= $kid2_age->name ?></td>
+									<td>
+										<label class="container-checkbox">
+										  <img src="<?=base_url()?>assets/uploads/<?= $result->kid2_gender=='M' ? 'tick.png': 'list.png'; ?>" width="15px"/> Boy
+										</label>
+										<label class="container-checkbox">
+											  <img src="<?=base_url()?>assets/uploads/<?= $result->kid2_gender=='F' ? 'tick.png': 'list.png'; ?>" width="15px"/> Girl
+										</label>									
 									</td>
 								</tr>
 								<tr>
-									<td style="width: 45%">Kid Name 2</td>
-									<td style="width: 5%">:</td>
-									<td style="width: 50%"><?= $result->kid_name2 ?></td>
-								</tr>
-								<tr>
-									<td style="width: 45%">Age</td>
-									<td style="width: 5%">:</td>
-									<td style="width: 50%"><?= $kid2_age->name ?></td>
-								</tr>
-								<tr>
-									<td style="width: 45%">Gender</td>
-									<td style="width: 5%">:
-									</td>
-									<td style="width: 50%">
-									<label class="container-checkbox">Boy
-									  <img src="<?=base_url()?>assets/uploads/<?= $result->kid2_gender=='M' ? 'tick.png': 'list.png'; ?>" width="15px"/>
-									</label>
-									<label class="container-checkbox">Girl
-										  <img src="<?=base_url()?>assets/uploads/<?= $result->kid2_gender=='F' ? 'tick.png': 'list.png'; ?>" width="15px"/>
-									</label>									
+									<td>Kid Name 3:</td>
+									<td><?= $result->kid_name3 ?></td>
+									<td>Age:</td>
+									<td><?= $kid3_age->name ?></td>
+									<td>
+										<label class="container-checkbox">
+										  <img src="<?=base_url()?>assets/uploads/<?= $result->kid3_gender=='M' ? 'tick.png': 'list.png'; ?>" width="15px"/> Boy
+										</label>
+										<label class="container-checkbox">
+											  <img src="<?=base_url()?>assets/uploads/<?= $result->kid3_gender=='F' ? 'tick.png': 'list.png'; ?>" width="15px"/> Girl
+										</label>									
 									</td>
 								</tr>
+								
 
 								<tr>
-									<td style="width: 45%">Kid Name 3</td>
-									<td style="width: 5%">:</td>
-									<td style="width: 50%"><?= $result->kid_name3 ?></td>
-								</tr>
-								<tr>
-									<td style="width: 45%">Age</td>
-									<td style="width: 5%">:</td>
-									<td style="width: 50%"><?= $kid3_age->name ?></td>
-								</tr>
-								<tr>
-									<td style="width: 45%">Gender</td>
-									<td style="width: 5%">:
-									
-									</td>
-
-									<td style="width: 45%">
-									<label class="container-checkbox">Boy
-									  <img src="<?=base_url()?>assets/uploads/<?= $result->kid3_gender=='M' ? 'tick.png': 'list.png'; ?>" width="15px"/>
-									</label>
-									<label class="container-checkbox">Girl
-										  <img src="<?=base_url()?>assets/uploads/<?= $result->kid3_gender=='F' ? 'tick.png': 'list.png'; ?>" width="15px"/>
-									</label>									
-									</td>
-								</tr>
-
-								<tr>
-									<td>Kid Name 4</td>
-									<td>:</td>
+									<td>Kid Name 4:</td>
 									<td><?= $result->kid_name4 ?></td>
-								</tr>
-								<tr>
-									<td>Age</td>
-									<td>:</td>
+									<td>Age:</td>
 									<td><?= $kid4_age->name ?></td>
-								</tr>
-								<tr>
-									<td>Gender</td>
-									<td>:
-									
-									</td>
-
 									<td>
-									<label class="container-checkbox">Boy
-									  <img src="<?=base_url()?>assets/uploads/<?= $result->kid4_gender=='M' ? 'tick.png': 'list.png'; ?>" width="15px"/>
-									</label>
-									<label class="container-checkbox">Girl
-										  <img src="<?=base_url()?>assets/uploads/<?= $result->kid4_gender=='F' ? 'tick.png': 'list.png'; ?>" width="15px"/>
-									</label>									
+										<label class="container-checkbox">
+										  <img src="<?=base_url()?>assets/uploads/<?= $result->kid4_gender=='M' ? 'tick.png': 'list.png'; ?>" width="15px"/> Boy
+										</label>
+										<label class="container-checkbox">
+											  <img src="<?=base_url()?>assets/uploads/<?= $result->kid4_gender=='F' ? 'tick.png': 'list.png'; ?>" width="15px"/> Girl
+										</label>									
 									</td>
 								</tr>
+								
 
 								<tr>
-									<td>Kid Name 5</td>
-									<td>:</td>
+									<td>Kid Name 5:</td>
 									<td><?= $result->kid_name5 ?></td>
-								</tr>
-								<tr>
-									<td>Age</td>
-									<td>:</td>
+									<td>Age:</td>
 									<td><?= $kid5_age->name ?></td>
-								</tr>
-								<tr>
-									<td>Gender</td>
-									<td>:
-									
-									</td>
-
 									<td>
-									<label class="container-checkbox">Boy
-									  <img src="<?=base_url()?>assets/uploads/<?= $result->kid5_gender=='M' ? 'tick.png': 'list.png'; ?>" width="15px"/>
-									</label>
-									<label class="container-checkbox">Girl
-										  <img src="<?=base_url()?>assets/uploads/<?= $result->kid5_gender=='F' ? 'tick.png': 'list.png'; ?>" width="15px"/>
-									</label>									
+										<label class="container-checkbox">
+										  <img src="<?=base_url()?>assets/uploads/<?= $result->kid5_gender=='M' ? 'tick.png': 'list.png'; ?>" width="15px"/> Boy
+										</label>
+										<label class="container-checkbox">
+											  <img src="<?=base_url()?>assets/uploads/<?= $result->kid5_gender=='F' ? 'tick.png': 'list.png'; ?>" width="15px"/> Girl
+										</label>									
 									</td>
 								</tr>
-
 								<tr>
-									<td>Kid Name 6</td>
-									<td>:</td>
+									<td>Kid Name 6:</td>
 									<td><?= $result->kid_name6 ?></td>
-								</tr>
-								<tr>
-									<td>Age</td>
-									<td>:</td>
+									<td>Age:</td>
 									<td><?= $kid6_age->name ?></td>
-								</tr>
-								<tr>
-									<td>Gender</td>
-									<td>:
-									
-									</td>
-
 									<td>
-									<label class="container-checkbox">Boy
-									  <img src="<?=base_url()?>assets/uploads/<?= $result->kid6_gender=='M' ? 'tick.png': 'list.png'; ?>" width="15px"/>
-									</label>
-									<label class="container-checkbox">Girl
-										  <img src="<?=base_url()?>assets/uploads/<?= $result->kid6_gender=='F' ? 'tick.png': 'list.png'; ?>" width="15px"/>
-									</label>									
+										<label class="container-checkbox">
+										  <img src="<?=base_url()?>assets/uploads/<?= $result->kid6_gender=='M' ? 'tick.png': 'list.png'; ?>" width="15px"/> Boy
+										</label>
+										<label class="container-checkbox">
+											  <img src="<?=base_url()?>assets/uploads/<?= $result->kid6_gender=='F' ? 'tick.png': 'list.png'; ?>" width="15px"/> Girl
+										</label>									
 									</td>
 								</tr>
-
+								
 								<tr >
-									<td>No of kids</td>
-									<td>:</td>
+									<td>Number of kids</td>
 									<td><?= $result->no_of_kids ?></td>
+									<td>Kids</td>
 								</tr>
+							</table>
+							<h4 class="text-left text_underline" style="font-size: 18px;color: #000;text-decoration: underline;padding-left: 9px;">* Information of Students</h4>
+							<table class="table table-bordered table_dot print_break" >
+								
 								<tr>
-									<td colspan="3"><h3 style="font-size: 18px;color: #000;">* Information of Students</h3></td>
-								</tr>
-								<tr>
-									<td>School Name</td>
-									<td>:</td>
+									<td>School Name :</td>
 									<td><?= $result->school_name ?></td>
 								</tr>
 								<tr>
-									<td>No of Students</td>
-									<td>:</td>
+									<td>No of Students :</td>
 									<td><?= $result->no_of_students ?></td>
-								</tr>
-								<tr>
-									<td>No of Boys</td>
-									<td>:</td>
+									<td>Number of Boys</td>
 									<td><?= $result->no_of_boys ?></td>
-								</tr>
-								<tr>
 									<td>No of Girls</td>
-									<td>:</td>
 									<td><?= $result->no_of_girls ?></td>
 								</tr>
-								</table>
-								<table class="table table-bordered" style="table-layout: fixed;">
+								
 								<tr>
-									<td colspan="3"><h3 style="font-size: 18px;color: #000;">Image</h3></td>
+									<td>Attachment List of Students: </td>
+									<td>
+										<?php if($result->att_list_stud) { ?>
+											<a href="<?= admin_url('register/download_view_register/'.$result->id.''); ?>" class="pull-right">Click to download</a>
+										<?php } else { ?>
+											Not available
+										<?php } ?>
+									</td>
+								</tr>
+								</table>
+								<table class="table table-bordered">
+									<tr>
+										<td>
+											<img src="<?=base_url()?>assets/uploads/<?= $result->accept==1 ? 'tick.png': 'list.png'; ?>" width="15px"/>
+											  &nbsp;<b>I Agree and Follow the Rules of Kidzooona</b>
+										</td>
+									</tr>
+								</table>
+								<table class="table table-bordered">
+								<tr>
+									<td colspan="3"><h3 style="font-size: 18px;color: #000;text-decoration: underline">Image</h3></td>
 								</tr>
 								<tr>
-									<td colspan="2">Photo</td>
-									<td>:</td>
+									<td colspan="2">Photo:</td>
 									<td>
 										<img src="<?=base_url()?>assets/uploads/<?= !empty($result->photo) ? $result->photo : 'no_image.jpg'; ?>" border="0" disabled width="100" height="100" />
 									</td>
 								</tr>
 								<tr>
 									<td colspan="2">
-										Signature
+										Signature:
 									</td>
-									<td>:</td>
 									<td>
 										<img src="<?=base_url()?>assets/uploads/<?= !empty($result->signature) ? $result->signature : 'no_image.jpg'; ?>" border="0" disabled width="100" height="100" />
 									</td>
 								</tr>
 								<tr>
-									<td colspan="3"><h3 style="font-size: 18px;color: #000;">Date</h3></td>
+									<td colspan="3"><h3 style="font-size: 18px;color: #000;text-decoration: underline">Date</h3></td>
 								</tr>
 								<tr>
-									<td colspan="2">Date</td>
-									<td>:</td>
+									<td colspan="2">Date:</td>
 									<td><?= date('d/m/Y H:i:s', strtotime($result->created_on)) ?></td>
 								</tr>
-								<tr>
-									<td colspan="3">
-										<img src="<?=base_url()?>assets/uploads/<?= $result->accept==1 ? 'tick.png': 'list.png'; ?>" width="15px"/>
-										  &nbsp;<b>I Agree and Follow the Rules of Kidzooona</b>
-									</td>
-								</tr>
+								
 							</table>
 						
 					</div>
@@ -427,262 +369,205 @@
 
 						</div>
 						<div class="col-md-12 col-xs-12">
-							<h3 style="font-size: 18px;color: #000;">ពត៌មានទូទៅ</h3>
-							<h4 class="text-left" style="font-size: 14px;padding-left: 9px;">* ឈ្មោះឪពុក ម្ដាយ  : (អាយុចាប់ពី១៨ឆ្នាំឡើងទៅ)</h4>
-							<table class="table table-bordered table_dot print_break" style="table-layout: fixed;">
+							<h3 class="kids_reg_form">Kidzoona Registation Form</h3>
+							<h4 class="text-left text_underline" style="font-size: 18px;color: #000;text-decoration: underline;padding-left: 9px;">* ឈ្មោះឪពុក ម្ដាយ  : (អាយុចាប់ពី១៨ឆ្នាំឡើងទៅ)</h4>
+							
+							
+							<table class="table table-bordered table_dot print_break" >
 								<tr>
-									<td style="width: 45%">ឈ្មោះអតិថិជន*</td>
-									<td style="width: 5%">:</td>
-									<td style="width: 50%"><?= $result->customer_name ?></td>
-								</tr>
-								<tr>
-									<td style="width: 45%"></td>
-									<td style="width: 5%">:</td>
-									<td style="width: 50%">
-										<label class="container-checkbox">ប្រុស
-										  <img src="<?=base_url()?>assets/uploads/<?= $result->gender=='M' ? 'tick.png': 'list.png'; ?>" width="15px"/>
+									<td >ឈ្មោះអតិថិជន*:</td>
+									<td><?= $result->customer_name ?></td>
+									<td>
+										<label class="container-checkbox">
+										  <img src="<?=base_url()?>assets/uploads/<?= $result->gender=='M' ? 'tick.png': 'list.png'; ?>" width="15px"/> ប្រុស
 										</label>
-										<label class="container-checkbox">ស្រី
-											  <img src="<?=base_url()?>assets/uploads/<?= $result->gender=='F' ? 'tick.png': 'list.png'; ?>" width="15px"/>
+										<label class="container-checkbox">
+											  <img src="<?=base_url()?>assets/uploads/<?= $result->gender=='F' ? 'tick.png': 'list.png'; ?>" width="15px"/> ស្រី
 										</label>									
 									</td>
 								</tr>
 							</table>
 							
-							<table class="table table-bordered table_dot_check" style="table-layout: fixed;">
+							<table class="table table-bordered table_dot_check" >
 							
 								<tr>
-									<td><label class="container-checkbox">ឪពុក
-										  <img src="<?=base_url()?>assets/uploads/<?= $result->parent_type==1 ? 'tick.png': 'list.png'; ?>" width="15px"/>
+									<td>Nationality:</td>
+									<td><?= $nationality->name ?></td>
+									<td><label class="container-checkbox">
+										  <img src="<?=base_url()?>assets/uploads/<?= $result->parent_type==1 ? 'tick.png': 'list.png'; ?>" width="15px"/> ឪពុក
 										</label>
 									</td>
 									<td>
-										<label class="container-checkbox">ម្តាយ
-										  <img src="<?=base_url()?>assets/uploads/<?= $result->parent_type==2 ? 'tick.png': 'list.png'; ?>" width="15px"/>
+										<label class="container-checkbox">
+										  <img src="<?=base_url()?>assets/uploads/<?= $result->parent_type==2 ? 'tick.png': 'list.png'; ?>" width="15px"/> ម្តាយ
 										</label>
 									</td>
 									<td>
-										<label class="container-checkbox">គ្រូ
-										<img src="<?=base_url()?>assets/uploads/<?= $result->parent_type==4 ? 'tick.png': 'list.png'; ?>" width="15px"/>
+										<label class="container-checkbox">
+										<img src="<?=base_url()?>assets/uploads/<?= $result->parent_type==4 ? 'tick.png': 'list.png'; ?>" width="15px"/> គ្រូ
 										</label>
 									</td>
 									<td>
-										<label class="container-checkbox">ផ្សេងទៀត
-										  <img src="<?=base_url()?>assets/uploads/<?= $result->parent_type==3 ? 'tick.png': 'list.png'; ?>" width="15px"/>
+										<label class="container-checkbox">
+										  <img src="<?=base_url()?>assets/uploads/<?= $result->parent_type==3 ? 'tick.png': 'list.png'; ?>" width="15px"/> ផ្សេងទៀត
 										</label>
 									</td>
+									<td><?= $others->name ?></td>
 								</tr>
 							</table>
-							<table class="table table-bordered table_dot print_break" style="table-layout: fixed;">
+							
+							<table class="table table-bordered table_dot print_break" style="width: 50%;">
+								
 								<tr>
-									<td style="width: 45%">ផ្សេងទៀត</td>
-									<td style="width: 5%">:</td>
-									<td style="width: 50%"><?= $others->name ?></td>
+									<td>លេខទូរស័ព្ទ*:</td>
+									<td><?= $result->phone_number ?></td>
 								</tr>
 								<tr>
-									<td style="width: 45%">លេខទូរស័ព្ទ</td>
-									<td style="width: 5%">:</td>
-									<td style="width: 50%"><?= $result->phone_number ?></td>
+									<td>សាខា:</td>
+									<td><?= $outlet->name ?></td>
 								</tr>
 								<tr>
-									<td style="width: 45%">សាខា</td>
-									<td style="width: 5%">:</td>
-									<td style="width: 50%"><?= $outlet->name ?></td>
+									<td>អ៊ីម៉ែល:</td>
+									<td><?= $result->email ?></td>
 								</tr>
-								<tr>
-									<td style="width: 45%">អ៊ីម៉ែល</td>
-									<td style="width: 5%">:</td>
-									<td style="width: 50%"><?= $result->email ?></td>
-								</tr>
-								<tr>
-									<td colspan="3"><h3 style="font-size: 18px;color: #000;">* ពត៌មានអំពីក្មេងចូលលេង៖ អតិប្បរមា ក្មេង ៦ នាក់
-</h3></td>
-								</tr>
-								<tr>
-									<td style="width: 45%">ឈ្មោះក្មេងទី ១ :</td>
-									<td style="width: 5%">:</td>
-									<td style="width: 50%"><?= $result->kid_name1 ?></td>
-								</tr>
-								<tr>
-									<td style="width: 45%">អាយុ</td>
-									<td style="width: 5%">:</td>
-									<td style="width: 50%"><?= $kid1_age->name ?></td>
-								</tr>
-								<tr>
-									<td style="width: 45%">&nbsp;</td>
-									<td style="width: 5%">:
+							</table>
+							<h4 class="text-left text_underline" style="font-size: 18px;color: #000;text-decoration: underline;padding-left: 9px;">* ពត៌មានអំពីក្មេងចូលលេង៖ អតិប្បរមា ក្មេង ៦ នាក់</h4>
+								
+								<table class="table table-bordered table_dot print_break" >
+									<tr>
+										<td>ឈ្មោះក្មេងទី ១:</td>
+										<td><?= $result->kid_name1 ?></td>
+										<td>អាយុ:</td>
+										<td><?= $kid1_age->name ?></td>
+										<td>
+											<label class="container-checkbox">
+											  <img src="<?=base_url()?>assets/uploads/<?= $result->kid1_gender=='M' ? 'tick.png': 'list.png'; ?>" width="15px"/> ប្រុស
+											</label>
+											<label class="container-checkbox">
+												  <img src="<?=base_url()?>assets/uploads/<?= $result->kid1_gender=='F' ? 'tick.png': 'list.png'; ?>" width="15px"/> ស្រី
+											</label>									
+										</td>
+									</tr>
 									
-									</td>
-
-									<td style="width: 50%">
-									<label class="container-checkbox">ប្រុស
-									  <img src="<?=base_url()?>assets/uploads/<?= $result->kid1_gender=='M' ? 'tick.png': 'list.png'; ?>" width="15px"/>
-									</label>
-									<label class="container-checkbox">ស្រី
-										  <img src="<?=base_url()?>assets/uploads/<?= $result->kid1_gender=='F' ? 'tick.png': 'list.png'; ?>" width="15px"/>
-									</label>									
-									</td>
-								</tr>
-								<tr>
-									<td style="width: 45%">ឈ្មោះក្មេងទី ២ </td>
-									<td style="width: 5%">:</td>
-									<td style="width: 50%"><?= $result->kid_name2 ?></td>
-								</tr>
-								<tr>
-									<td style="width: 45%">អាយុ</td>
-									<td style="width: 5%">:</td>
-									<td style="width: 50%"><?= $kid2_age->name ?></td>
-								</tr>
-								<tr>
-									<td style="width: 45%">&nbsp;</td>
-									<td style="width: 5%">:
-									</td>
-									<td style="width: 50%">
-									<label class="container-checkbox">ប្រុស
-									  <img src="<?=base_url()?>assets/uploads/<?= $result->kid2_gender=='M' ? 'tick.png': 'list.png'; ?>" width="15px"/>
-									</label>
-									<label class="container-checkbox">ស្រី
-										  <img src="<?=base_url()?>assets/uploads/<?= $result->kid2_gender=='F' ? 'tick.png': 'list.png'; ?>" width="15px"/>
-									</label>									
-									</td>
-								</tr>
-
-								<tr>
-									<td style="width: 45%">ឈ្មោះក្មេងទី 3</td>
-									<td style="width: 5%">:</td>
-									<td style="width: 50%"><?= $result->kid_name3 ?></td>
-								</tr>
-								<tr>
-									<td style="width: 45%">អាយុ</td>
-									<td style="width: 5%">:</td>
-									<td style="width: 50%"><?= $kid3_age->name ?></td>
-								</tr>
-								<tr>
-									<td style="width: 45%">&nbsp;</td>
-									<td style="width: 5%">:
+									<tr>
+										<td>ឈ្មោះក្មេងទី ២:</td>
+										<td><?= $result->kid_name2 ?></td>
+										<td>អាយុ:</td>
+										<td><?= $kid2_age->name ?></td>
+										<td>
+											<label class="container-checkbox">
+											  <img src="<?=base_url()?>assets/uploads/<?= $result->kid2_gender=='M' ? 'tick.png': 'list.png'; ?>" width="15px"/> ប្រុស
+											</label>
+											<label class="container-checkbox">
+												  <img src="<?=base_url()?>assets/uploads/<?= $result->kid2_gender=='F' ? 'tick.png': 'list.png'; ?>" width="15px"/> ស្រី
+											</label>									
+										</td>
+									</tr>
 									
-									</td>
-
-									<td style="width: 45%">
-									<label class="container-checkbox">ប្រុស
-									  <img src="<?=base_url()?>assets/uploads/<?= $result->kid3_gender=='M' ? 'tick.png': 'list.png'; ?>" width="15px"/>
-									</label>
-									<label class="container-checkbox">ស្រី
-										  <img src="<?=base_url()?>assets/uploads/<?= $result->kid3_gender=='F' ? 'tick.png': 'list.png'; ?>" width="15px"/>
-									</label>									
-									</td>
-								</tr>
-
-								<tr>
-									<td>ឈ្មោះក្មេងទី 4</td>
-									<td>:</td>
-									<td><?= $result->kid_name4 ?></td>
-								</tr>
-								<tr>
-									<td>អាយុ</td>
-									<td>:</td>
-									<td><?= $kid4_age->name ?></td>
-								</tr>
-								<tr>
-									<td>&nbsp;</td>
-									<td>:
+									<tr>
+										<td>ឈ្មោះក្មេងទី 3:</td>
+										<td><?= $result->kid_name3 ?></td>
+										<td>អាយុ:</td>
+										<td><?= $kid3_age->name ?></td>
+										<td>
+											<label class="container-checkbox">
+											  <img src="<?=base_url()?>assets/uploads/<?= $result->kid3_gender=='M' ? 'tick.png': 'list.png'; ?>" width="15px"/> ប្រុស
+											</label>
+											<label class="container-checkbox">
+												  <img src="<?=base_url()?>assets/uploads/<?= $result->kid3_gender=='F' ? 'tick.png': 'list.png'; ?>" width="15px"/> ស្រី
+											</label>									
+										</td>
+									</tr>
+									<tr>
+										<td>ឈ្មោះក្មេងទី 4:</td>
+										<td><?= $result->kid_name4 ?></td>
+										<td>អាយុ:</td>
+										<td><?= $kid4_age->name ?></td>
+										<td>
+											<label class="container-checkbox">
+											  <img src="<?=base_url()?>assets/uploads/<?= $result->kid4_gender=='M' ? 'tick.png': 'list.png'; ?>" width="15px"/> ប្រុស
+											</label>
+											<label class="container-checkbox">
+												  <img src="<?=base_url()?>assets/uploads/<?= $result->kid4_gender=='F' ? 'tick.png': 'list.png'; ?>" width="15px"/> ស្រី
+											</label>									
+										</td>
+									</tr>
 									
-									</td>
-
-									<td>
-									<label class="container-checkbox">ប្រុស
-									  <img src="<?=base_url()?>assets/uploads/<?= $result->kid4_gender=='M' ? 'tick.png': 'list.png'; ?>" width="15px"/>
-									</label>
-									<label class="container-checkbox">ស្រី
-										  <img src="<?=base_url()?>assets/uploads/<?= $result->kid4_gender=='F' ? 'tick.png': 'list.png'; ?>" width="15px"/>
-									</label>									
-									</td>
-								</tr>
-
-								<tr>
-									<td>ឈ្មោះក្មេងទី 5</td>
-									<td>:</td>
-									<td><?= $result->kid_name5 ?></td>
-								</tr>
-								<tr>
-									<td>អាយុ</td>
-									<td>:</td>
-									<td><?= $kid5_age->name ?></td>
-								</tr>
-								<tr>
-									<td>&nbsp;</td>
-									<td>:
+									<tr>
+										<td>ឈ្មោះក្មេងទី 5:</td>
+										<td><?= $result->kid_name5 ?></td>
+										<td>អាយុ:</td>
+										<td><?= $kid5_age->name ?></td>
+										<td>
+											<label class="container-checkbox">
+											  <img src="<?=base_url()?>assets/uploads/<?= $result->kid5_gender=='M' ? 'tick.png': 'list.png'; ?>" width="15px"/> ប្រុស
+											</label>
+											<label class="container-checkbox">
+												  <img src="<?=base_url()?>assets/uploads/<?= $result->kid5_gender=='F' ? 'tick.png': 'list.png'; ?>" width="15px"/> ស្រី
+											</label>									
+										</td>
+									</tr>
 									
-									</td>
-
-									<td>
-									<label class="container-checkbox">ប្រុស
-									  <img src="<?=base_url()?>assets/uploads/<?= $result->kid5_gender=='M' ? 'tick.png': 'list.png'; ?>" width="15px"/>
-									</label>
-									<label class="container-checkbox">ស្រី
-										  <img src="<?=base_url()?>assets/uploads/<?= $result->kid5_gender=='F' ? 'tick.png': 'list.png'; ?>" width="15px"/>
-									</label>									
-									</td>
-								</tr>
-
-								<tr>
-									<td>ឈ្មោះក្មេងទី 6</td>
-									<td>:</td>
-									<td><?= $result->kid_name6 ?></td>
-								</tr>
-								<tr>
-									<td>អាយុ</td>
-									<td>:</td>
-									<td><?= $kid6_age->name ?></td>
-								</tr>
-								<tr>
-									<td>&nbsp;</td>
-									<td>:
-									
-									</td>
-
-									<td>
-									<label class="container-checkbox">ប្រុស
-									  <img src="<?=base_url()?>assets/uploads/<?= $result->kid6_gender=='M' ? 'tick.png': 'list.png'; ?>" width="15px"/>
-									</label>
-									<label class="container-checkbox">ស្រី
-										  <img src="<?=base_url()?>assets/uploads/<?= $result->kid6_gender=='F' ? 'tick.png': 'list.png'; ?>" width="15px"/>
-									</label>									
-									</td>
-								</tr>
-
-								<tr >
-									<td>* ចំនួនក្មេងសរុប </td>
-									<td>:</td>
-									<td><?= $result->no_of_kids ?></td>
-								</tr>
-								<tr>
-									<td colspan="3"><h3 style="font-size: 18px;color: #000;">* ពត៌មានអំពីសិស្ស៖</h3></td>
-								</tr>
-								<tr>
-									<td>ឈ្មោះសាលារៀន</td>
-									<td>:</td>
-									<td><?= $result->school_name ?></td>
-								</tr>
-								<tr>
-									<td>ចំនួនសិស្សសរុប</td>
-									<td>:</td>
-									<td><?= $result->no_of_students ?></td>
-								</tr>
-								<tr>
-									<td>ចំនួនសិស្សប្រុស</td>
-									<td>:</td>
-									<td><?= $result->no_of_boys ?></td>
-								</tr>
-								<tr>
-									<td>ចំនួនសិស្សស្រី</td>
-									<td>:</td>
-									<td><?= $result->no_of_girls ?></td>
-								</tr>
+									<tr>
+										<td>ឈ្មោះក្មេងទី 6:</td>
+										<td><?= $result->kid_name6 ?></td>
+										<td>អាយុ:</td>
+										<td><?= $kid6_age->name ?></td>
+										<td>
+											<label class="container-checkbox">
+											  <img src="<?=base_url()?>assets/uploads/<?= $result->kid6_gender=='M' ? 'tick.png': 'list.png'; ?>" width="15px"/> ប្រុស
+											</label>
+											<label class="container-checkbox">
+												  <img src="<?=base_url()?>assets/uploads/<?= $result->kid6_gender=='F' ? 'tick.png': 'list.png'; ?>" width="15px"/> ស្រី
+											</label>									
+										</td>
+									</tr>
+									<tr >
+										<td>* ចំនួនក្មេងសរុប</td>
+										<td><?= $result->no_of_kids ?></td>
+										<td>Kids</td>
+									</tr>
 								</table>
-								<table class="table table-bordered" style="table-layout: fixed;">
+							
+							<h4 class="text-left text_underline" style="font-size: 18px;color: #000;text-decoration: underline;padding-left: 9px;">* ពត៌មានអំពីសិស្ស៖</h4>
+
+								<table class="table table-bordered table_dot print_break" >
+								
+									<tr>
+										<td>ឈ្មោះសាលារៀន:</td>
+										<td><?= $result->school_name ?></td>
+									</tr>
+									<tr>
+										<td>ចំនួនសិស្សសរុប:</td>
+										<td><?= $result->no_of_students ?></td>
+										<td>ចំនួនសិស្សប្រុស</td>
+										<td><?= $result->no_of_boys ?></td>
+										<td>ចំនួនសិស្សស្រី</td>
+										<td><?= $result->no_of_girls ?></td>
+									</tr>
+
+									<tr>
+										<td>Attachment List of Students: </td>
+										<td>
+												<?php if($result->att_list_stud) { ?>
+													<a href="<?= admin_url('register/download_view_register/'.$result->id.''); ?>" class="pull-right">Click to download</a>
+												<?php } else { ?>
+													Not available
+												<?php } ?>
+										</td>
+									</tr>
+								</table>
+								<table class="table table-bordered">
+									<tr>
+										<td>
+											<img src="<?=base_url()?>assets/uploads/<?= $result->accept==1 ? 'tick.png': 'list.png'; ?>" width="15px"/>
+											  &nbsp;<b>ខ្ញុំយល់ព្រមតាមបទបញ្ចាខាងលើ</b>
+										</td>
+									</tr>
+								</table>
+								<table class="table table-bordered">
 								<tr>
-									<td colspan="3"><h3 style="font-size: 18px;color: #000;">រូបភាព</h3></td>
+									<td colspan="3"><h3 style="font-size: 18px;color: #000;text-decoration: underline">រូបភាព</h3></td>
 								</tr>
 								<tr>
 									<td colspan="2">រូបអតិថិជន</td>
@@ -701,19 +586,14 @@
 									</td>
 								</tr>
 								<tr>
-									<td colspan="3"><h3 style="font-size: 18px;color: #000;">កាលបរិច្ឆទ</h3></td>
+									<td colspan="3"><h3 style="font-size: 18px;color: #000;text-decoration: underline">កាលបរិច្ឆទ</h3></td>
 								</tr>
 								<tr>
 									<td colspan="2">កាលបរិច្ឆទ</td>
 									<td>:</td>
 									<td><?= date('d/m/Y H:i:s', strtotime($result->created_on)) ?></td>
 								</tr>
-								<tr>
-									<td colspan="3">
-										<img src="<?=base_url()?>assets/uploads/<?= $result->accept==1 ? 'tick.png': 'list.png'; ?>" width="15px"/>
-										  &nbsp;<b>ខ្ញុំយល់ព្រមតាមបទបញ្ចាខាងលើ</b>
-									</td>
-								</tr>
+								
 							</table>
 					</div>
         <div class="col-sm-12 last_sa_se">
