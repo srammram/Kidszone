@@ -6,6 +6,8 @@
 	.pdf_s{position: absolute;right: 2%;top: 10px;z-index: 99}
 	.pdf_s a{color: red;text-decoration: none;}
 	.pdf_s .fa{color: red;}
+	.border_kids{border: 2px solid #333;position: relative;float: left;padding: 5px;}
+	
 	/*.kidszon_content ul p{position: relative;float: left;padding-left: 30px;}	
 .kidszon_content ul p::before {
     content: '';
@@ -44,7 +46,7 @@
 									<h3>Dear all customers</h3>
 									<p>Here is a place did not have to control the behavior of children.</p>
 									<p><b>For the safety of your child, we must comply with the follow wing our message.</b></p>
-
+									<div class="border_kids">
 									<?php 
 									$i =1;
 									$obj = json_decode($sm->sm1);
@@ -64,7 +66,7 @@
 										</ul>
 									</div>
 									<?php $i++;} ?>
-									
+									</div>
 									<div class="form-group col-md-12">
 										<label class="label_green"></label>
 										<div class="clear"></div>			
@@ -427,7 +429,7 @@
 									<h3>អតិថិជនទាំងអស់ជាទីគោរព </h3>
 									<p>Kidzooona មិនមែនជាទីកន្លែង សំរាប់គ្រប់គ្រងនូវការប្រព្រឹត្តរបស់កុមារនោះទេ</p>
 									<p><b>ដើម្បីធានានូវសុវត្តិភាពរបស់កូនលោកអ្នក, យើងខ្ញុំត្រូវតែអនុវត្តតាមសាររបស់យើង។</b></p>
-
+									<div class="border_kids">
 									<?php 
 									$i =1;
 									$obj = json_decode($sm->sm1);
@@ -444,6 +446,7 @@
 										</ul>
 									</div>
 									<?php $i++;} ?>
+									</div>
 									<div class="form-group col-md-12">
 										<label class="label_green"></label>
 										<div class="clear"></div>			
