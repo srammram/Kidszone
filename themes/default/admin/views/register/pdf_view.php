@@ -107,7 +107,7 @@
 							</div>
 						</div>
 						<div class="col-md-12 col-xs-12">
-							<h3 class="kids_reg_form">Kidzoona Registation Form</h3>
+							<h3 class="kids_reg_form">Kidzooona Registration Form</h3>
 							<h4 class="text-left text_underline" style="font-size: 18px;color: #000;text-decoration: underline;padding-left: 9px;">* Parents name: (Age over 18 years old)</h4>
 
 
@@ -164,14 +164,14 @@
 									<td><?= $outlet->name ?></td>
 								</tr>
 								<tr>
-									<td>Email Address:</td>
+									<td>E-mail Address:</td>
 									<td><?= $result->email ?></td>
 								</tr>
 							</table>
 							<h4 class="text-left text_underline" style="font-size: 18px;color: #000;text-decoration: underline;padding-left: 9px;"><?= lang("* Information Of Chlidrens (Maximum 6 Kids)", "* Information Of Chlidrens (Maximum 6 Kids)"); ?></h4>
 							<table class="table table-bordered table_dot print_break" >
 								<tr>
-									<td>Kid Name 1:</td>
+									<td>Kids Name 1:</td>
 									<td><?= $result->kid_name1 ?></td>
 									<td>Age:</td>
 									<td><?= $kid1_age->name ?></td>
@@ -186,7 +186,7 @@
 								</tr>
 								
 								<tr>
-									<td>Kid Name 2:</td>
+									<td>Kids Name 2:</td>
 									<td><?= $result->kid_name2 ?></td>
 									<td>Age:</td>
 									<td><?= $kid2_age->name ?></td>
@@ -200,7 +200,7 @@
 									</td>
 								</tr>
 								<tr>
-									<td>Kid Name 3:</td>
+									<td>Kids Name 3:</td>
 									<td><?= $result->kid_name3 ?></td>
 									<td>Age:</td>
 									<td><?= $kid3_age->name ?></td>
@@ -216,7 +216,7 @@
 								
 
 								<tr>
-									<td>Kid Name 4:</td>
+									<td>Kids Name 4:</td>
 									<td><?= $result->kid_name4 ?></td>
 									<td>Age:</td>
 									<td><?= $kid4_age->name ?></td>
@@ -232,7 +232,7 @@
 								
 
 								<tr>
-									<td>Kid Name 5:</td>
+									<td>Kids Name 5:</td>
 									<td><?= $result->kid_name5 ?></td>
 									<td>Age:</td>
 									<td><?= $kid5_age->name ?></td>
@@ -246,7 +246,7 @@
 									</td>
 								</tr>
 								<tr>
-									<td>Kid Name 6:</td>
+									<td>Kids Name 6:</td>
 									<td><?= $result->kid_name6 ?></td>
 									<td>Age:</td>
 									<td><?= $kid6_age->name ?></td>
@@ -282,12 +282,12 @@
 									<td><?= $result->no_of_girls ?></td>
 								</tr>
 								
-								<tr>
+								<!--<tr>
 									<td>Attachment List of Students: </td>
 									<td>
 
 									</td>
-								</tr>
+								</tr>-->
 								</table>
 								<table class="table table-bordered">
 									<tr>
@@ -367,11 +367,11 @@
 							<?php  $i++;} ?>
 							<div class="form-group col-md-12" style="margin-top: 10px;">
 								<img src="<?=base_url()?>assets/uploads/<?= $result->safe_accept==1 ? 'tick.png': 'list.png'; ?>" width="15px"/>
-											  &nbsp;<b>I have read the Terms & Conditions</b>
+											  &nbsp;<b>ខ្ញុំបានអាន និង យល់ព្រមតាមលក្ខន្តិកៈរបស់ ឃីតហ្ស៊ូណា</b>
 							</div>
 						</div>
 						<div class="col-md-12 col-xs-12">
-							<h3 class="kids_reg_form">Kidzoona Registation Form</h3>
+							<h3 class="kids_reg_form">តារាងបំពេញបែបបទចូលលេង ឃីតហ្ស៊ូណា</h3>
 							<h4 class="text-left text_underline" style="font-size: 18px;color: #000;text-decoration: underline;padding-left: 9px;">* ឈ្មោះឪពុក ម្ដាយ  : (អាយុចាប់ពី១៨ឆ្នាំឡើងទៅ)</h4>
 							
 							
@@ -393,8 +393,8 @@
 							<table class="table table-bordered table_dot_check" >
 							
 								<tr>
-									<td>Nationality:</td>
-									<td><?= $nationality->name ?></td>
+									<td>សញ្ជាតិ:</td>
+									<td><?= $nationality->khmer_name ?></td>
 									<td><label class="container-checkbox">
 										  <img src="<?=base_url()?>assets/uploads/<?= $result->parent_type==1 ? 'tick.png': 'list.png'; ?>" width="15px"/> ឪពុក
 										</label>
@@ -414,7 +414,7 @@
 										  <img src="<?=base_url()?>assets/uploads/<?= $result->parent_type==3 ? 'tick.png': 'list.png'; ?>" width="15px"/> ផ្សេងទៀត
 										</label>
 									</td>
-									<td><?= $others->name ?></td>
+									<td><?= $others->khmer_name ?></td>
 								</tr>
 							</table>
 							
@@ -440,7 +440,7 @@
 										<td>ឈ្មោះក្មេងទី ១:</td>
 										<td><?= $result->kid_name1 ?></td>
 										<td>អាយុ:</td>
-										<td><?= $kid1_age->name ?></td>
+										<td><?= $kid1_age->khmer_name ?></td>
 										<td>
 											<label class="container-checkbox">
 											  <img src="<?=base_url()?>assets/uploads/<?= $result->kid1_gender=='M' ? 'tick.png': 'list.png'; ?>" width="15px"/> ប្រុស
@@ -455,7 +455,7 @@
 										<td>ឈ្មោះក្មេងទី ២:</td>
 										<td><?= $result->kid_name2 ?></td>
 										<td>អាយុ:</td>
-										<td><?= $kid2_age->name ?></td>
+										<td><?= $kid2_age->khmer_name ?></td>
 										<td>
 											<label class="container-checkbox">
 											  <img src="<?=base_url()?>assets/uploads/<?= $result->kid2_gender=='M' ? 'tick.png': 'list.png'; ?>" width="15px"/> ប្រុស
@@ -470,7 +470,7 @@
 										<td>ឈ្មោះក្មេងទី 3:</td>
 										<td><?= $result->kid_name3 ?></td>
 										<td>អាយុ:</td>
-										<td><?= $kid3_age->name ?></td>
+										<td><?= $kid3_age->khmer_name ?></td>
 										<td>
 											<label class="container-checkbox">
 											  <img src="<?=base_url()?>assets/uploads/<?= $result->kid3_gender=='M' ? 'tick.png': 'list.png'; ?>" width="15px"/> ប្រុស
@@ -484,7 +484,7 @@
 										<td>ឈ្មោះក្មេងទី 4:</td>
 										<td><?= $result->kid_name4 ?></td>
 										<td>អាយុ:</td>
-										<td><?= $kid4_age->name ?></td>
+										<td><?= $kid4_age->khmer_name ?></td>
 										<td>
 											<label class="container-checkbox">
 											  <img src="<?=base_url()?>assets/uploads/<?= $result->kid4_gender=='M' ? 'tick.png': 'list.png'; ?>" width="15px"/> ប្រុស
@@ -499,7 +499,7 @@
 										<td>ឈ្មោះក្មេងទី 5:</td>
 										<td><?= $result->kid_name5 ?></td>
 										<td>អាយុ:</td>
-										<td><?= $kid5_age->name ?></td>
+										<td><?= $kid5_age->khmer_name ?></td>
 										<td>
 											<label class="container-checkbox">
 											  <img src="<?=base_url()?>assets/uploads/<?= $result->kid5_gender=='M' ? 'tick.png': 'list.png'; ?>" width="15px"/> ប្រុស
@@ -514,7 +514,7 @@
 										<td>ឈ្មោះក្មេងទី 6:</td>
 										<td><?= $result->kid_name6 ?></td>
 										<td>អាយុ:</td>
-										<td><?= $kid6_age->name ?></td>
+										<td><?= $kid6_age->khmer_name ?></td>
 										<td>
 											<label class="container-checkbox">
 											  <img src="<?=base_url()?>assets/uploads/<?= $result->kid6_gender=='M' ? 'tick.png': 'list.png'; ?>" width="15px"/> ប្រុស
@@ -527,7 +527,7 @@
 									<tr >
 										<td>* ចំនួនក្មេងសរុប</td>
 										<td><?= $result->no_of_kids ?></td>
-										<td>Kids</td>
+										<td>នាក់</td>
 									</tr>
 								</table>
 							
@@ -548,12 +548,12 @@
 										<td><?= $result->no_of_girls ?></td>
 									</tr>
 
-									<tr>
-										<td>Attachment List of Students: </td>
+									<!--<tr>
+										<td>បញ្ជីឈ្មោះសិស្ស: </td>
 										<td>
 												
 										</td>
-									</tr>
+									</tr>-->
 								</table>
 								<table class="table table-bordered">
 									<tr>

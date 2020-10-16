@@ -74,7 +74,7 @@
 								</div>
 								
 								<div class="col-md-12 col-xs-12">
-									<h3 class="kids_reg_form">Kidzoona Registation Form</h3>
+									<h3 class="kids_reg_form">Kidzooona Registration Form</h3>
 									<h4 class="text-left text_underline">* Parents name: (Age over 18 years old)</h4>
 										<div class="col-md-12" style="padding: 0px;">
 												<div class="form-group col-md-5">
@@ -148,7 +148,7 @@
 											</div>
 											<div class="form-group col-md-12 col-xs-12">
 												<div class="form-group col-md-5">
-													<label class="label_green col-sm-5 col-xs-12">Email Address:</label>
+													<label class="label_green col-sm-5 col-xs-12">E-mail Address:</label>
 													<div class="col-sm-7  col-xs-12">
 														<input type="text" class="form-control" name="email" id="email"   value="<?= $result->email ?>" required readonly>
 													</div>
@@ -159,7 +159,7 @@
 										
 										<div class="col-md-12 col-xs-12" style="padding: 0px;">
 											<div class="form-group col-md-5">
-												<label class="label_green col-sm-5">Kid Name 1:</label>
+												<label class="label_green col-sm-5">Kids Name 1:</label>
 												<div  class="col-md-7 col-xs-12">
 													<input type="text" class="form-control"  value="<?= $result->kid_name1 ?>" required readonly>
 												</div>
@@ -187,7 +187,7 @@
 											
 										<div class="col-md-12 col-xs-12" style="padding: 0px;">
 											<div class="form-group col-md-5">
-												<label class="label_green col-sm-5">Kid Name 2:</label>
+												<label class="label_green col-sm-5">Kids Name 2:</label>
 												<div  class="col-md-7 col-xs-12">
 													<input type="text" class="form-control" value="<?= $result->kid_name2 ?>" readonly>
 												</div>
@@ -214,7 +214,7 @@
 											
 										<div class="col-md-12 col-xs-12" style="padding: 0px;">
 											<div class="form-group col-md-5">
-												<label class="label_green col-sm-5">Kid Name 3:</label>
+												<label class="label_green col-sm-5">Kids Name 3:</label>
 												<div  class="col-md-7 col-xs-12">
 													<input type="text" class="form-control"  value="<?= $result->kid_name3 ?>" required readonly>
 												</div>
@@ -241,7 +241,7 @@
 										
 										<div class="col-md-12 col-xs-12" style="padding: 0px;">
 											<div class="form-group col-md-5">
-												<label class="label_green col-sm-5">Kid Name 4:</label>
+												<label class="label_green col-sm-5">Kids Name 4:</label>
 												<div  class="col-md-7 col-xs-12">
 													<input type="text" class="form-control" value="<?= $result->kid_name4 ?>" required readonly>
 												</div>
@@ -267,7 +267,7 @@
 										</div>
 										<div class="col-md-12 col-xs-12" style="padding: 0px;">
 											<div class="form-group col-md-5">
-												<label class="label_green col-sm-5">Kid Name 5:</label>
+												<label class="label_green col-sm-5">Kids Name 5:</label>
 												<div  class="col-md-7 col-xs-12">
 													<input type="text" class="form-control" value="<?= $result->kid_name5 ?>" readonly>
 												</div>
@@ -294,7 +294,7 @@
 										
 										<div class="col-md-12 col-xs-12" style="padding: 0px;">
 											<div class="form-group col-md-5">
-												<label class="label_green col-sm-5">Kid Name 6:</label>
+												<label class="label_green col-sm-5">Kids Name 6:</label>
 												<div  class="col-md-7 col-xs-12">
 													<input type="text" class="form-control" value="<?= $result->kid_name6 ?>" readonly>
 												</div>
@@ -320,7 +320,7 @@
 										</div>
 										<div class="col-md-12 col-xs-12" style="padding: 0px;">
 											<div class="form-group col-md-5">
-												<label class="label_green col-sm-5 col-xs-12">No of kids:</label>
+												<label class="label_green col-sm-5 col-xs-12">Number of kids:</label>
 												<div class="col-sm-7 col-sm-7 col-xs-12">
 													<input type="text" class="form-control" value="<?= $result->no_of_kids ?>" readonly> 
 												</div>
@@ -447,12 +447,12 @@
 									<div class="form-group col-md-12">
 										<label class="label_green"></label>
 										<div class="clear"></div>			
-										<input type="checkbox" name="safe_accept" id="safe_accept" <?= $result->safe_accept==1 ? 'checked': FALSE; ?> disabled> &nbsp;<b>I have read the Terms & Conditions</b>
+										<input type="checkbox" name="safe_accept" id="safe_accept" <?= $result->safe_accept==1 ? 'checked': FALSE; ?> disabled> &nbsp;<b>ខ្ញុំបានអាន និង យល់ព្រមតាមលក្ខន្តិកៈរបស់ ឃីតហ្ស៊ូណា</b>
 									</div>
 								</div>
 								
 								<div class="col-md-12 col-xs-12">
-										<h3 class="kids_reg_form">Kidzoona Registation Form</h3>
+										<h3 class="kids_reg_form">តារាងបំពេញបែបបទចូលលេង ឃីតហ្ស៊ូណា</h3>
 										<h4 class="text-left text_underline">* ឈ្មោះឪពុក ម្ដាយ  : (អាយុចាប់ពី១៨ឆ្នាំឡើងទៅ)</h4>
 										
 										<div class="col-md-12" style="padding: 0px;">
@@ -480,7 +480,7 @@
 												<div class="form-group col-md-5 col-xs-12">
 													<label class="label_green col-sm-5 col-xs-12">សញ្ជាតិ: </label>
 													<div class="col-sm-7 col-xs-12">
-													<input type="text" class="form-control" name="nationality" id="nationality" value="<?= $nationality->name ?>" required readonly>
+													<input type="text" class="form-control" name="nationality" id="nationality" value="<?= $nationality->khmer_name ?>" required readonly>
 													</div>
 												</div>
 
@@ -506,7 +506,7 @@
 														</label>
 													</div>
 													<div class="col-md-4" style="padding: 0px;">
-														<input type="text" class="form-control" name="others" id="others" value="<?= $others->name ?>" required readonly>
+														<input type="text" class="form-control" name="others" id="others" value="<?= $others->khmer_name ?>" required readonly>
 													</div>
 												</div>
 											</div>
@@ -554,7 +554,7 @@
 												<div class="form-group col-md-3">
 													<label class="label_green col-sm-4">អាយុ:</label>
 													<div class="col-sm-8">
-														<input type="text" class="form-control"  value="<?= $kid1_age->name ?>" required readonly>
+														<input type="text" class="form-control"  value="<?= $kid1_age->khmer_name ?>" required readonly>
 													</div>
 												</div>
 												<div class="form-group col-md-3">
@@ -581,7 +581,7 @@
 												<div class="form-group col-md-3">
 													<label class="label_green col-sm-4">អាយុ:</label>
 													<div class="col-sm-8">
-														<input type="text" class="form-control"  value="<?= $kid2_age->name ?>" required readonly>
+														<input type="text" class="form-control"  value="<?= $kid2_age->khmer_name ?>" required readonly>
 													</div>
 												</div>
 												<div class="form-group col-md-3">
@@ -608,7 +608,7 @@
 											<div class="form-group col-md-3">
 												<label class="label_green col-sm-4">អាយុ:</label>
 												<div class="col-sm-8">
-													<input type="text" class="form-control"  value="<?= $kid3_age->name ?>" required readonly>
+													<input type="text" class="form-control"  value="<?= $kid3_age->khmer_name ?>" required readonly>
 												</div>
 											</div>
 											<div class="form-group col-md-3">
@@ -635,7 +635,7 @@
 											<div class="form-group col-md-3">
 												<label class="label_green col-sm-4">អាយុ:</label>
 												<div class="col-sm-8">
-													<input type="text" class="form-control"  value="<?= $kid4_age->name ?>" required readonly>
+													<input type="text" class="form-control"  value="<?= $kid4_age->khmer_name ?>" required readonly>
 												</div>
 											</div>
 											<div class="form-group col-md-3">
@@ -662,7 +662,7 @@
 											<div class="form-group col-md-3">
 												<label class="label_green col-sm-4">អាយុ:</label>
 												<div class="col-sm-8">
-													<input type="text" class="form-control"  value="<?= $kid5_age->name ?>" required readonly>
+													<input type="text" class="form-control"  value="<?= $kid5_age->khmer_name ?>" required readonly>
 												</div>
 											</div>
 											<div class="form-group col-md-3">
@@ -688,7 +688,7 @@
 											<div class="form-group col-md-3">
 												<label class="label_green col-sm-4">អាយុ:</label>
 												<div class="col-sm-8">
-													<input type="text" class="form-control"  value="<?= $kid6_age->name ?>" required readonly>
+													<input type="text" class="form-control"  value="<?= $kid6_age->khmer_name ?>" required readonly>
 												</div>
 											</div>
 											<div class="form-group col-md-3">
@@ -750,7 +750,7 @@
 										
 										<div class="col-md-12 col-xs-12" style="padding: 0px">
 											<div class="form-group col-md-10">
-												<label class="label_green col-sm-5">Attachement List of Students:</label>
+												<label class="label_green col-sm-5">បញ្ជីឈ្មោះសិស្ស:</label>
 												<div class="col-sm-7">
 													<?php if($result->att_list_stud) { ?>
 														<a href="<?= admin_url('register/download_view_register/'.$result->id.''); ?>" class="pull-right">Click to download</a>
