@@ -1308,7 +1308,7 @@ class Kids_api extends CI_Model
 		// 3959 in meters is 6371393
 
 		if(!empty($device_ip)){
-			$where = 'WHERE device_ip = "'.$device_ip.'"';
+			//$where = 'WHERE device_ip = "'.$device_ip.'"';
 		}
 
 		$query = $this->db->query('SELECT

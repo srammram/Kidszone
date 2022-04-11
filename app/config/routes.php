@@ -69,6 +69,7 @@ $route['admin/purchases/(:num)'] = 'admin/purchases/index/$1';
 $route['admin/quotes/(:num)'] = 'admin/quotes/index/$1';
 $route['admin/purchases_order/(:num)'] = 'admin/purchases_order/index/$1';
 
+$route['admin/privacy_policy'] = 'admin/pages/privacy_policy';
 //$route['pos'] = 'admin/pos/index/$1';
 
 

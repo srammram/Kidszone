@@ -1,1 +1,0 @@
-ALTER TABLE `kidzooona_register` ADD `att_list_stud` TEXT NOT NULL AFTER `photo`;

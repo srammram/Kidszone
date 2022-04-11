@@ -469,7 +469,7 @@ class Kidsapi extends REST_Controller {
 					$config['allowed_types'] = $this->image_types;
 					$config['overwrite'] = FALSE;
 					$config['max_filename'] = 25;
-					$config['encrypt_name'] = TRUE;
+					$config['encrypt_name'] = FALSE;
 					$this->upload->initialize($config);
 					if (!$this->upload->do_upload('signature')) {
 						$result = array( 'status'=> false , 'message'=> 'image not uploaded.');
@@ -477,7 +477,7 @@ class Kidsapi extends REST_Controller {
 
 					$photo = $this->upload->file_name;
 					$data['signature'] = $photo;
-					$this->load->library('image_lib');
+					/*$this->load->library('image_lib');
 					$config['image_library'] = 'gd2';
 					$config['source_image'] = $this->upload_path . $photo;
 					$config['new_image'] = $this->thumbs_path . $photo;
@@ -491,7 +491,7 @@ class Kidsapi extends REST_Controller {
 						$error = $this->image_lib->display_errors();
 						$response['error'] = $error;
 						echo json_encode($response);exit;
-					}
+					}*/
 				}
 
 				if ($_FILES['photo']['size'] > 0) {
@@ -499,7 +499,7 @@ class Kidsapi extends REST_Controller {
 					$config['allowed_types'] = $this->image_types;
 					$config['overwrite'] = FALSE;
 					$config['max_filename'] = 25;
-					$config['encrypt_name'] = TRUE;
+					$config['encrypt_name'] = FALSE;
 					$this->upload->initialize($config);
 					if (!$this->upload->do_upload('photo')) {
 						$result = array( 'status'=> false , 'message'=> 'image not uploaded.');
@@ -507,7 +507,7 @@ class Kidsapi extends REST_Controller {
 	
 					$photo = $this->upload->file_name;
 					$data['photo'] = $photo;
-					$this->load->library('image_lib');
+					/*$this->load->library('image_lib');
 					$config['image_library'] = 'gd2';
 					$config['source_image'] = $this->upload_path . $photo;
 					$config['new_image'] = $this->thumbs_path . $photo;
@@ -521,7 +521,7 @@ class Kidsapi extends REST_Controller {
 						$error = $this->image_lib->display_errors();
 						$response['error'] = $error;
 						echo json_encode($response);exit;
-					}
+					}*/
 				}
 
 				if ($_FILES['att_list_stud']['size'] > 0) {
@@ -529,7 +529,7 @@ class Kidsapi extends REST_Controller {
 					$config['allowed_types'] = $this->image_types;
 					$config['overwrite'] = FALSE;
 					$config['max_filename'] = 25;
-					$config['encrypt_name'] = TRUE;
+					$config['encrypt_name'] = FALSE;
 					$this->upload->initialize($config);
 					if (!$this->upload->do_upload('att_list_stud')) {
 						$result = array( 'status'=> false , 'message'=> 'image not uploaded.');
@@ -552,8 +552,10 @@ class Kidsapi extends REST_Controller {
 						$response['error'] = $error;
 						echo json_encode($response);exit;
 					}*/
+					//$result = array( 'status'=> 0 , 'message'=> 'image exit', 'data' => var_dump($_FILES['att_list_stud']));
 				}
-
+				
+				
 				$res = $this->kids_api->insertRegister($data);
 				if($res == TRUE){
 					$result = array( 'status'=> 1, 'message_eng'=> 'Register Success', 'message_khmer'=> 'ចុះឈ្មោះបានដោយជោគជ័យ');

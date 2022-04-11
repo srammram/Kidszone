@@ -1,1 +1,0 @@
-ALTER TABLE `kidzooona_register` ADD `safe_accept` TINYINT(4) NOT NULL AFTER `accept`;

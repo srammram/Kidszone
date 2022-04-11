@@ -388,6 +388,9 @@ class Kidsapi extends REST_Controller {
 
 	public function register_post(){
 
+	
+
+	
 		/*$this->form_validation->set_rules('parent_type', $this->lang->line("parent_type"), 'required');
 		$this->form_validation->set_rules('father_name', $this->lang->line("father_name"), 'required');
 		$this->form_validation->set_rules('phone_number', $this->lang->line("phone_number"), 'required');
