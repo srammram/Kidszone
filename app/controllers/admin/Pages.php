@@ -25,16 +25,15 @@ class Pages extends MY_Controller
     }
 
 
-    function privacy_policy($m = NULL)
+    function privacy_policy()
     {
-        
-  
-
-            $this->load->view($this->theme . 'pages/privacy_policy', $this->data);
-
+		$this->load->view($this->theme . 'pages/privacy_policy', $this->data);
     }
 	
-	
+    function terms_conditions()
+    {
+		$this->load->view($this->theme . 'pages/terms_conditions', $this->data);
+    }
 
 
 }

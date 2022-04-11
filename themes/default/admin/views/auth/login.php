@@ -36,6 +36,11 @@
         </div>
         
     </div>
+	
+        
+		<a href="<?= admin_url('pages/privacy_policy'); ?>">Privacy Policy</a>
+		<a href="<?= admin_url('pages/terms_conditions'); ?>">Terms Conditions</a>
+	
     <div class="page-back">
        <!-- <div class="text-center">
             <?php/* if ($Settings->logo2) {
