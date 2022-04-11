@@ -13,7 +13,16 @@
     <!--[if lt IE 9]>
     <script src="<?= $assets ?>js/respond.min.js"></script>
     <![endif]-->
-
+    <style>
+        .footer ul{
+            list-style:none;
+            margin: 0px;padding:0px;
+        }
+        .footer ul li{display:inline-block;padding-right:15px}
+        .footer ul li a{color:#ccc;font-size:12px;font-weight:normal;letter-spacing:1px;text-decoration:underline;}
+        .footer ul li a:hover{text-decoration:none;color:#ddd}
+        footer{background-color:transparent;position:absolute;bottom:0px;}
+    </style>
 </head>
 
 <body class="login-page">
@@ -38,8 +47,7 @@
     </div>
 	
         
-		<a href="<?= admin_url('pages/privacy_policy'); ?>">Privacy Policy</a>
-		<a href="<?= admin_url('pages/terms_conditions'); ?>">Terms Conditions</a>
+		
 	
     <div class="page-back">
        <!-- <div class="text-center">
@@ -312,6 +320,17 @@
         }
         ?>
     </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <ul class="pull-left">
+                    <li><a href="<?= admin_url('pages/privacy_policy'); ?>">Privacy Policy</a></li>
+                    <li><a href="<?= admin_url('pages/terms_conditions'); ?>">Terms Conditions</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
 
     <script src="<?= $assets ?>js/jquery.js"></script>
     <script src="<?= $assets ?>js/bootstrap.min.js"></script>
