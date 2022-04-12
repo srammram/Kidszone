@@ -32,7 +32,7 @@
             padding:15px 0px;
         }
         .div-titles h3{font-size:18px!important;font-weight:bold;margin-bottom:20px;}
-
+        .privacy_policy p{margin-bottom:20px;}
         @media (min-width: 1200px){
         .container {
             width: 1170px !important;
