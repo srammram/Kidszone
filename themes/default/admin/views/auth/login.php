@@ -41,7 +41,6 @@
             <?php if ($Settings->logo2) {
                 echo '<img src="' . base_url('assets/uploads/logos/' . $Settings->logo2) . '" alt="' . $Settings->site_name . '" style="position:absolute; left:40%;top:5%;" />';
             } ?>
-            
         </div>
         
     </div>
@@ -326,7 +325,6 @@
             <div class="row">
                 <ul class="pull-left">
                     <li><a href="<?= admin_url('pages/privacy_policy'); ?>">Privacy Policy</a></li>
-                    <li><a href="<?= admin_url('pages/terms_conditions'); ?>">Terms Conditions</a></li>
                 </ul>
             </div>
         </div>
