@@ -389,7 +389,10 @@ class Kidsapi extends REST_Controller {
 	public function register_post(){
 
 
-		//echo '<pre>'.print_r($_POST).'</pre>'; die;
+		//echo '<pre>'.print_r($_POST).'</pre>'; 
+		
+		//echo '<pre>'.print_r($_FILES).'</pre>'; 
+		//die;
 
 		/*$this->form_validation->set_rules('parent_type', $this->lang->line("parent_type"), 'required');
 		$this->form_validation->set_rules('father_name', $this->lang->line("father_name"), 'required');
@@ -469,7 +472,7 @@ class Kidsapi extends REST_Controller {
 					$config['allowed_types'] = $this->image_types;
 					$config['overwrite'] = FALSE;
 					$config['max_filename'] = 25;
-					$config['encrypt_name'] = FALSE;
+					$config['encrypt_name'] = TRUE;
 					$this->upload->initialize($config);
 					if (!$this->upload->do_upload('signature')) {
 						$result = array( 'status'=> false , 'message'=> 'image not uploaded.');
@@ -499,7 +502,7 @@ class Kidsapi extends REST_Controller {
 					$config['allowed_types'] = $this->image_types;
 					$config['overwrite'] = FALSE;
 					$config['max_filename'] = 25;
-					$config['encrypt_name'] = FALSE;
+					$config['encrypt_name'] = TRUE;
 					$this->upload->initialize($config);
 					if (!$this->upload->do_upload('photo')) {
 						$result = array( 'status'=> false , 'message'=> 'image not uploaded.');
@@ -523,13 +526,13 @@ class Kidsapi extends REST_Controller {
 						echo json_encode($response);exit;
 					}*/
 				}
-
+//print_r($_FILES);
 				if ($_FILES['att_list_stud']['size'] > 0) {
 					$config['upload_path'] = $this->upload_path;
 					$config['allowed_types'] = $this->image_types;
 					$config['overwrite'] = FALSE;
 					$config['max_filename'] = 25;
-					$config['encrypt_name'] = FALSE;
+					$config['encrypt_name'] = TRUE;
 					$this->upload->initialize($config);
 					if (!$this->upload->do_upload('att_list_stud')) {
 						$result = array( 'status'=> false , 'message'=> 'image not uploaded.');
