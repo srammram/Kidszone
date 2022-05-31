@@ -1,7 +1,7 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
 
-<?php $attrib = array('class' => 'form-horizontal', 'class' => 'add_from1','data-toggle' => 'validator', 'role' => 'form', 'autocomplete' => "off");
+<?php $attrib = array('class' => 'form-horizontal', 'class' => 'add_from','data-toggle' => 'validator', 'role' => 'form', 'autocomplete' => "off");
                 echo admin_form_open_multipart("access_keys/add", $attrib);
                 ?>
 <div class="box">
@@ -34,12 +34,36 @@
 
 <script>
 
+$( window ).load(function() {
+  		var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";
+		var string_length = 10;
+		var randomstring = '';
+		for (var i=0; i<string_length; i++) {
+			var rnum = Math.floor(Math.random() * chars.length);
+			randomstring += chars.substring(rnum,rnum+1);
+		}
+
+		$('#reference_key').val(randomstring);
+});
+
 $(document).ready(function() {
 	
 
 	
+	
 	$('#genKey').click(function(){
 
+	//$('form[class="add_from"]').bootstrapValidator('revalidateField', 'reference_key');
+	
+	$('.add_from')
+	.bootstrapValidator('updateStatus', 'reference_key', 'VALIDATING')
+	.bootstrapValidator('validateField', 'reference_key');
+	
+	//$('form[class="add_from"]').bootstrapValidator(options).bootstrapValidator('validate');
+	    //$(this).closest('form[class="add_from"]').bootstrapValidator('revalidateField', $(this).prop('reference_key'));
+
+
+	 //$('.add_from').bootstrapValidator('revalidateField', 'reference_key');
 		var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";
 		var string_length = 10;
 		var randomstring = '';
@@ -81,17 +105,7 @@ $('form[class="add_from"]').bootstrapValidator({
 
         	},
         submitButtons: 'input[type="submit"]'
-    }).find('input[name="need_loan"]')
-            // Init iCheck elements
-            .iCheck({
-                radioClass: 'iradio_square-blue'
-            })
-            // Called when the radios/checkboxes are changed
-            .on('ifChanged', function(e) {
-                // Get the field name
-                var field = $(this).attr('name');
-                $('.add_from').bootstrapValidator('revalidateField', field);
-            });
+    })
 	
 	});
 </script>

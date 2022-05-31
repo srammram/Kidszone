@@ -403,6 +403,15 @@ class Kidsapi extends REST_Controller {
 
 		if ($this->form_validation->run() == true) {
 
+				$api_key = $this->input->post('api_key');
+
+				if(!$this->kids_api->checkApiKeyReg($api_key)){
+
+					$result = array( 'status'=> 0, 'message_eng'=> 'Invaild access key', 'message_khmer'=> 'Invaild access key');
+					$this->response($result);
+					return false;
+				}
+
 				$data1 = $this->kids_api->getSafetyMessageList($this->input->post('lang_sel'));
 
 				$lat = $this->input->post('lat');
@@ -459,6 +468,7 @@ class Kidsapi extends REST_Controller {
 					'lng' => $this->input->post('lng'),
 					'device_ip' => $this->input->post('device_ip'),
 					'device_imei' => $this->input->post('device_imei'),
+					'api_key' => $this->input->post('api_key'),
 					'outlet_id' => $outlet_id,
 					'reg_date' => date('Y-m-d H:i:s', strtotime($this->input->post('reg_date'))),
 					'accept' => $this->input->post('accept') ? 1 : 0,

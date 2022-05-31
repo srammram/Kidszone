@@ -1,0 +1,1 @@
+ALTER TABLE `kidzooona_register` ADD `api_key` VARCHAR(255) NOT NULL AFTER `device_imei`;

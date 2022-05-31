@@ -1363,4 +1363,15 @@ class Kids_api extends CI_Model
 		return FALSE;
 	}
 	
+	
+	public function checkApiKeyReg($api_key){
+
+		$q = $this->db->get_where('api_keys', array('reference_key' => $api_key), 1);
+
+        if ($q->num_rows()>0) {
+            return true;
+        }
+		return FALSE;
+	}
+	
 }

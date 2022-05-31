@@ -1949,8 +1949,8 @@ $(function() {
         this.value = this.value.replace(/[^0-9]/g, '');
   });
 
-$("#daily_amount_of_stool").inputFilter(function(value) {
-  return /^\d*$/.test(value); });
+/*$("#daily_amount_of_stool").inputFilter(function(value) {
+  return /^\d*$/.test(value); });*/
 
 $(document).ready(function() {
    $('#phone_number').attr({ maxLength : 10 });
