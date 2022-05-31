@@ -283,6 +283,28 @@
                                     </li>
                                 </ul>
                             </li>
+							
+                            <li class="mm_contract">
+                                <a class="dropmenu" href="#">
+                                    <i class="fa fa-star"></i>
+                                    <span class="text"> Access Keys </span>
+                                    <span class="chevron closed"></span>
+                                </a>
+                                <ul>
+                                    <li id="contract_index">
+                                        <a class="submenu" href="<?= admin_url('access_keys'); ?>">
+                                           <i class="fa fa-star"></i>
+                                            <span class="text"> Access Keys list</span>
+                                        </a>
+                                    </li>
+                                    <li id="contract_add">
+                                        <a class="submenu" href="<?= admin_url('access_keys/add'); ?>">
+                                           <i class="fa fa-star"></i>
+                                            <span class="text"> Access Keys Add</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
 
 
                             <?php if ($Owner1 || $Admin1) { ?>
