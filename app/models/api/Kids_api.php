@@ -1337,4 +1337,30 @@ class Kids_api extends CI_Model
 		return false;
 	}
 	
+	public function checkApiKeys($api_key, $devices_key){
+
+		$q = $this->db->get_where('api_keys', array('reference_key' => $api_key), 1);
+
+        if ($q->num_rows() == 1) {
+
+			if(empty($q->row('devices_key'))){
+
+				$this->db->where('reference_key', $api_key);
+				$this->db->update('api_keys', array('devices_key' => $devices_key));
+			}
+
+			$w = $this->db->get_where('api_keys', array('reference_key' => $api_key), 1);
+			if ($w->num_rows() == 1) {
+				
+				$result = array(
+							'devices_key' => $w->row('devices_key'),
+							'status' => $w->row('status')
+				);
+			}
+
+            return $result;
+        }
+		return FALSE;
+	}
+	
 }

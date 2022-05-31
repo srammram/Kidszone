@@ -727,6 +727,40 @@ class Kidsapi extends REST_Controller {
 
 		$this->response($result);
 	}
+	
+	
+	public function access_key_post(){
+
+		$this->form_validation->set_rules('api_key', $this->lang->line("api_key"), 'required');
+		$this->form_validation->set_rules('devices_key', $this->lang->line("devices_key"), 'required');
+
+		if ($this->form_validation->run() == true) {
+
+			$api_key = $this->input->post('api_key');
+			$devices_key = $this->input->post('devices_key');
+
+			$api_key_result = $this->kids_api->checkApiKeys($api_key, $devices_key);
+			//echo $api_key_result['status'];
+			//print_r($api_key_result); die;
+			if($api_key_result['devices_key'] != $devices_key) {
+				$result = array( 'status'=> 0, 'message'=> lang('devices_key_does_not_matche_please_check_your_devices_key'),'message_khmer'=> html_entity_decode(lang('devices_key_does_not_matche_please_check_your_devices_key_khmer')));	
+			}else if($api_key_result['status'] == 0) {
+				$result = array( 'status'=> 0, 'message'=> lang('devices_key_is_in-active'),'message_khmer'=> html_entity_decode(lang('devices_key_is_in-active_khmer')));	
+			}else{
+
+				$result = array( 'status'=> 1, 'message'=> 'Success');
+			}
+
+		} else {
+			$error = $this->form_validation->error_array();
+			 foreach($error as $key => $val){
+				 $errors[] = $val;
+			 }
+			 $result = array( 'status'=> 0 , 'message' => $errors[0]);
+		}
+		$this->response($result);
+	}
+	
 
 	/**** Kids */
 
